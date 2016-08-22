@@ -1,0 +1,6 @@
+framework module Pods_Swamp_Tests {
+  umbrella header "Pods-Swamp_Tests-umbrella.h"
+
+  export *
+  module * { export * }
+}

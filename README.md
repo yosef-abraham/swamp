@@ -1,4 +1,4 @@
-# Swamp
+# Swamp - Swift WAMP implementation
 
 [![CI Status](http://img.shields.io/travis/Yossi Abraham/Swamp.svg?style=flat)](https://travis-ci.org/Yossi Abraham/Swamp)
 [![Version](https://img.shields.io/cocoapods/v/Swamp.svg?style=flat)](http://cocoapods.org/pods/Swamp)
@@ -10,6 +10,7 @@
 To run the example project, clone the repo, and run `pod install` from the Example directory first.
 
 ## Requirements
+
 
 ## Installation
 
