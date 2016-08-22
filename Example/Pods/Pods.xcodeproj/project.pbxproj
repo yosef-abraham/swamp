@@ -81,6 +81,8 @@
 		8A26E9822AC3D70EF013E399D54656B7 /* Pods-Swamp_Tests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 75F4ACC367ED03A907514C26F3AE23A4 /* Pods-Swamp_Tests-dummy.m */; };
 		8C3CA6F4863B8280177BEB7C8C833CB0 /* SwampTransport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CD6E7C7D57B78CEDD7487C178482919 /* SwampTransport.swift */; };
 		9084A5F2E2C3B356B612BD06A4031CA7 /* Starscream-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = C57429162A6AEE16BF40698772D2E9FA /* Starscream-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		90CF49D61D6B766900E19F7A /* ChallengeSwampMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90CF49D51D6B766900E19F7A /* ChallengeSwampMessage.swift */; };
+		90CF49D81D6B79A600E19F7A /* AuthenticateSwampMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90CF49D71D6B79A600E19F7A /* AuthenticateSwampMessage.swift */; };
 		91ED5B067FCA3CBD48E3114672941051 /* MatcherProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B3CD68B8E6A913980869A6E5819AEB4 /* MatcherProtocols.swift */; };
 		96ED0CCA721955637A88FE0C9737EC56 /* SourceLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF966996408E988672F9918A1F65B6AF /* SourceLocation.swift */; };
 		97B6168DDDB7841D23A6BFA1EBA69DEC /* WelcomeSwampMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2C1C68570C669886453637AA79DB4D8 /* WelcomeSwampMessage.swift */; };
@@ -262,6 +264,8 @@
 		8941E19E21A84CAD54654F9C916BDDF0 /* QuickTestSuite.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = QuickTestSuite.swift; path = Sources/Quick/QuickTestSuite.swift; sourceTree = "<group>"; };
 		8B8FA584215D1E4D0292F763E3B3501C /* AbortSwampMessage.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = AbortSwampMessage.swift; sourceTree = "<group>"; };
 		8F22C48E39B20DA27BC3F3898302DF23 /* Swamp-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Swamp-dummy.m"; sourceTree = "<group>"; };
+		90CF49D51D6B766900E19F7A /* ChallengeSwampMessage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChallengeSwampMessage.swift; sourceTree = "<group>"; };
+		90CF49D71D6B79A600E19F7A /* AuthenticateSwampMessage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthenticateSwampMessage.swift; sourceTree = "<group>"; };
 		917C521F37285BB74FB3E01854661D76 /* SwampError.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SwampError.swift; sourceTree = "<group>"; };
 		9347096E4CAFB2DB43C92D1F7478D1DA /* NSBundle+CurrentTestBundle.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "NSBundle+CurrentTestBundle.swift"; path = "Sources/Quick/NSBundle+CurrentTestBundle.swift"; sourceTree = "<group>"; };
 		9370369D6D8668426D8F7D3F89313952 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -610,6 +614,15 @@
 			path = "Example/Pods/Target Support Files/Swamp";
 			sourceTree = "<group>";
 		};
+		90CF49D41D6B763100E19F7A /* Auth */ = {
+			isa = PBXGroup;
+			children = (
+				90CF49D51D6B766900E19F7A /* ChallengeSwampMessage.swift */,
+				90CF49D71D6B79A600E19F7A /* AuthenticateSwampMessage.swift */,
+			);
+			path = Auth;
+			sourceTree = "<group>";
+		};
 		968984C34BF8965FCBAD8553403F48F1 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -652,6 +665,7 @@
 		ABBBDE3C889B1C4D705280B7F001E166 /* Messages */ = {
 			isa = PBXGroup;
 			children = (
+				90CF49D41D6B763100E19F7A /* Auth */,
 				9ADBDA53FC93D63AB030541B7F253AE1 /* SwampMessage.swift */,
 				C35E6D346C39D1F7676DDBC37F7E589B /* SwampMessages.swift */,
 				B5E559F0EEC841B9AAA58C1FCDB527D0 /* Error */,
@@ -1128,8 +1142,10 @@
 				3239567EEC8C2E54A0278A76B993E109 /* ErrorSwampMessage.swift in Sources */,
 				0CE50572D5ACFF826FA6A4D1E43B3B71 /* GoodbyeSwampMessage.swift in Sources */,
 				BDA6C8B314DD811BCD414B40FF0471C1 /* HelloSwampMessage.swift in Sources */,
+				90CF49D81D6B79A600E19F7A /* AuthenticateSwampMessage.swift in Sources */,
 				E40AD615F3302D376F0171A65D55940B /* JSONSwampSerializer.swift in Sources */,
 				B2BA031D480D88AD18C8130E4AA80E30 /* Swamp-dummy.m in Sources */,
+				90CF49D61D6B766900E19F7A /* ChallengeSwampMessage.swift in Sources */,
 				7269B05206E1F0E27049E5DC0B3AED66 /* SwampError.swift in Sources */,
 				C06030CB6323F9693B6B0CE7CA4BE459 /* SwampMessage.swift in Sources */,
 				F363B2413782CB4B878D38DA61922307 /* SwampMessages.swift in Sources */,

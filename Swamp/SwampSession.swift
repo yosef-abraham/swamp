@@ -6,7 +6,7 @@ import Foundation
 import SwiftyJSON
 
 public protocol SwampSessionDelegate {
-    func swampSessionHandleChallenge(challenge: String) -> String
+    func swampSessionHandleChallenge(authMethod: String, extra: [String: AnyObject]) -> String
     func swampSessionConnected(session: SwampSession, sessionId: Int)
     func swampSessionEnded(reason: String)
 }
@@ -20,14 +20,16 @@ public class SwampSession: SwampTransportDelegate {
     // MARK: Members
     private var realm: String
     private var transport: SwampTransport
+    private var details: [String: AnyObject]
     
     private var serializer: SwampSerializer?
     private var sessionId: Int?
     private var routerSupportedRoles: [SwampRole]?
     
-    public init(realm: String, transport: SwampTransport){
+    public init(realm: String, transport: SwampTransport, details: [String: AnyObject]=[:]){
         self.realm = realm
         self.transport = transport
+        self.details = details
         self.transport.delegate = self
     }
     
@@ -71,7 +73,9 @@ public class SwampSession: SwampTransportDelegate {
             // For now basic profile, (demands empty dicts)
             roles[role.rawValue] = [:]
         }
-        self.sendMessage(HelloSwampMessage(realm: self.realm, details: ["agent": "Swamp-dev-0.1.0", "roles": roles]))
+        self.details["agent"] = "Swamp-dev-0.1.0"
+        self.details["roles"] = roles
+        self.sendMessage(HelloSwampMessage(realm: self.realm, details: self.details))
     }
     
     public func swampTransportReceivedData(data: NSData) {
@@ -83,6 +87,13 @@ public class SwampSession: SwampTransportDelegate {
     // MARK: Private methods
     private func handleMessage(message: SwampMessage) {
         switch message {
+        case let message as ChallengeSwampMessage:
+            if let authResponse = self.delegate?.swampSessionHandleChallenge(message.authMethod, extra: message.extra) {
+                self.sendMessage(AuthenticateSwampMessage(signature: authResponse, extra: [:]))
+            } else {
+                print("There was no delegate, aborting.")
+                try! self.abort()
+            }
         case let message as WelcomeSwampMessage:
             self.sessionId = message.sessionId
             let routerRoles = message.details["roles"]! as! [String : [String : AnyObject]]

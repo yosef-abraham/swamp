@@ -33,8 +33,8 @@ class ViewController: UIViewController, SwampSessionDelegate {
         print("Session ended, reason: \(reason)")
     }
     
-    func swampSessionHandleChallenge(challenge: String) -> String {
-        return "bullshit"
+    func swampSessionHandleChallenge(authMethod: String, extra: [String: AnyObject]) -> String {
+        return "bullshit stuff"
     }
     
     @IBAction func buttonClicked(sender: UIButton) {

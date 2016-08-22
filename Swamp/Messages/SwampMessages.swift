@@ -13,13 +13,12 @@ enum SwampMessages: Int {
     case Hello = 1
     case Welcome = 2
     case Abort = 3
-    case Goodbye = 4
+    case Goodbye = 6
     
     case Error = 8
     
     case Publish = 16
     case Published = 17
-    
     case Subscribe = 32
     case Subscribed = 33
     case Unsubscribe = 34
@@ -28,7 +27,6 @@ enum SwampMessages: Int {
     
     case Call = 48
     case Result = 50
-    
     case Register = 64
     case Registered = 65
     case Unregister = 66
@@ -37,14 +35,20 @@ enum SwampMessages: Int {
     case Yield = 70
     
     // MARK: Advance profile messages
-    // TODO
+    case Challenge = 4
+    case Authenticate = 5
     
     /// payload consists of all data related to a message, WIHTHOUT the first one - the message identifier
     typealias WampMessageFactory = (payload: [AnyObject]) -> SwampMessage
     
     private static let mapping: [SwampMessages: WampMessageFactory] = [
-        SwampMessages.Hello: { return HelloSwampMessage(payload: $0) },
-        SwampMessages.Welcome: { return WelcomeSwampMessage(payload: $0) },
+        SwampMessages.Hello: HelloSwampMessage.init,
+        SwampMessages.Welcome: WelcomeSwampMessage.init,
+        SwampMessages.Abort: AbortSwampMessage.init,
+        SwampMessages.Goodbye: GoodbyeSwampMessage.init,
+        
+        SwampMessages.Challenge: ChallengeSwampMessage.init,
+        SwampMessages.Authenticate: AuthenticateSwampMessage.init
     ]
     
     
