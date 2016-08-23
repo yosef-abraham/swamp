@@ -8,7 +8,7 @@
 
 import Foundation
 
-
+/// [ERROR, requestType|number, requestId|number, details|dict, error|string, args|array?, kwargs|dict?]
 class ErrorSwampMessage: SwampMessage {
     let requestType: SwampMessages
     let requestId: Int
@@ -43,10 +43,16 @@ class ErrorSwampMessage: SwampMessage {
         var marshalled: [AnyObject] = [SwampMessages.Error.rawValue, self.requestType.rawValue, self.requestId, self.details, self.error]
         if let args = self.args {
             marshalled.append(args)
+            if let kwargs = self.kwargs {
+                marshalled.append(kwargs)
+            }
+        } else {
+            if let kwargs = self.kwargs {
+                marshalled.append([])
+                marshalled.append(kwargs)
+            }
         }
-        if let kwargs = self.kwargs {
-            marshalled.append(kwargs)
-        }
+        
         
         return marshalled
     }

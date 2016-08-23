@@ -81,6 +81,8 @@
 		8A26E9822AC3D70EF013E399D54656B7 /* Pods-Swamp_Tests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 75F4ACC367ED03A907514C26F3AE23A4 /* Pods-Swamp_Tests-dummy.m */; };
 		8C3CA6F4863B8280177BEB7C8C833CB0 /* SwampTransport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CD6E7C7D57B78CEDD7487C178482919 /* SwampTransport.swift */; };
 		902B27B71D6CE6A200C60C1F /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 902B27B61D6CE6A200C60C1F /* Extensions.swift */; };
+		902B27BA1D6CE98500C60C1F /* CallSwampMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 902B27B91D6CE98500C60C1F /* CallSwampMessage.swift */; };
+		902B27BE1D6CEBE100C60C1F /* ResultSwampMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 902B27BD1D6CEBE100C60C1F /* ResultSwampMessage.swift */; };
 		9084A5F2E2C3B356B612BD06A4031CA7 /* Starscream-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = C57429162A6AEE16BF40698772D2E9FA /* Starscream-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		90CF49D61D6B766900E19F7A /* ChallengeSwampMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90CF49D51D6B766900E19F7A /* ChallengeSwampMessage.swift */; };
 		90CF49D81D6B79A600E19F7A /* AuthenticateSwampMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90CF49D71D6B79A600E19F7A /* AuthenticateSwampMessage.swift */; };
@@ -266,6 +268,8 @@
 		8B8FA584215D1E4D0292F763E3B3501C /* AbortSwampMessage.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = AbortSwampMessage.swift; sourceTree = "<group>"; };
 		8F22C48E39B20DA27BC3F3898302DF23 /* Swamp-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Swamp-dummy.m"; sourceTree = "<group>"; };
 		902B27B61D6CE6A200C60C1F /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		902B27B91D6CE98500C60C1F /* CallSwampMessage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CallSwampMessage.swift; sourceTree = "<group>"; };
+		902B27BD1D6CEBE100C60C1F /* ResultSwampMessage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResultSwampMessage.swift; sourceTree = "<group>"; };
 		90CF49D51D6B766900E19F7A /* ChallengeSwampMessage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChallengeSwampMessage.swift; sourceTree = "<group>"; };
 		90CF49D71D6B79A600E19F7A /* AuthenticateSwampMessage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthenticateSwampMessage.swift; sourceTree = "<group>"; };
 		917C521F37285BB74FB3E01854661D76 /* SwampError.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SwampError.swift; sourceTree = "<group>"; };
@@ -602,6 +606,23 @@
 			);
 			sourceTree = "<group>";
 		};
+		902B27B81D6CE8A300C60C1F /* RPC */ = {
+			isa = PBXGroup;
+			children = (
+				902B27BB1D6CEB9400C60C1F /* Caller */,
+			);
+			path = RPC;
+			sourceTree = "<group>";
+		};
+		902B27BB1D6CEB9400C60C1F /* Caller */ = {
+			isa = PBXGroup;
+			children = (
+				902B27B91D6CE98500C60C1F /* CallSwampMessage.swift */,
+				902B27BD1D6CEBE100C60C1F /* ResultSwampMessage.swift */,
+			);
+			path = Caller;
+			sourceTree = "<group>";
+		};
 		90C73931BF81E8ED883C6F4C8D2BD341 /* Support Files */ = {
 			isa = PBXGroup;
 			children = (
@@ -667,6 +688,7 @@
 		ABBBDE3C889B1C4D705280B7F001E166 /* Messages */ = {
 			isa = PBXGroup;
 			children = (
+				902B27B81D6CE8A300C60C1F /* RPC */,
 				90CF49D41D6B763100E19F7A /* Auth */,
 				9ADBDA53FC93D63AB030541B7F253AE1 /* SwampMessage.swift */,
 				C35E6D346C39D1F7676DDBC37F7E589B /* SwampMessages.swift */,
@@ -1152,10 +1174,12 @@
 				90CF49D61D6B766900E19F7A /* ChallengeSwampMessage.swift in Sources */,
 				7269B05206E1F0E27049E5DC0B3AED66 /* SwampError.swift in Sources */,
 				C06030CB6323F9693B6B0CE7CA4BE459 /* SwampMessage.swift in Sources */,
+				902B27BE1D6CEBE100C60C1F /* ResultSwampMessage.swift in Sources */,
 				F363B2413782CB4B878D38DA61922307 /* SwampMessages.swift in Sources */,
 				C6733FDBBCE657CF62D8095126B9FE1F /* SwampRole.swift in Sources */,
 				41EA60B395B6F6A3F3B6C9DBA1C0B161 /* SwampSerializer.swift in Sources */,
 				37BA40332FCA50A51EEC73DB8DC5184E /* SwampSession.swift in Sources */,
+				902B27BA1D6CE98500C60C1F /* CallSwampMessage.swift in Sources */,
 				8C3CA6F4863B8280177BEB7C8C833CB0 /* SwampTransport.swift in Sources */,
 				03586F7355DCEC4807B57546015A2D5B /* WebSocketSwampTransport.swift in Sources */,
 				97B6168DDDB7841D23A6BFA1EBA69DEC /* WelcomeSwampMessage.swift in Sources */,
