@@ -8,5 +8,5 @@
 
 import Foundation
 public enum SwampError: ErrorType {
-    case AbortCanOnlyHappenBeforeSessionInitiated
+    
 }

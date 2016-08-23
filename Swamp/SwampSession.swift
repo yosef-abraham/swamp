@@ -43,14 +43,6 @@ public class SwampSession: SwampTransportDelegate {
         self.sendMessage(GoodbyeSwampMessage(details: [:], reason: "wamp.error.close_realm"))
     }
     
-    public func abort() throws {
-        if self.sessionId != nil {
-            throw SwampError.AbortCanOnlyHappenBeforeSessionInitiated
-        }
-        self.sendMessage(AbortSwampMessage(details: [:], reason: "wamp.error.system_shutdown"))
-        self.transport.disconnect("Aborted upon user request.")
-    }
-    
     // MARK: SwampTransportDelegate
     
     public func swampTransportDidDisconnect(error: NSError?, reason: String?) {
@@ -85,6 +77,15 @@ public class SwampSession: SwampTransportDelegate {
     }
     
     // MARK: Private methods
+    
+    private func abort() {
+        if self.sessionId != nil {
+            return
+        }
+        self.sendMessage(AbortSwampMessage(details: [:], reason: "wamp.error.system_shutdown"))
+        self.transport.disconnect("Aborted upon user request.")
+    }
+    
     private func handleMessage(message: SwampMessage) {
         switch message {
         case let message as ChallengeSwampMessage:
