@@ -42,6 +42,8 @@ enum SwampMessages: Int {
     typealias WampMessageFactory = (payload: [AnyObject]) -> SwampMessage
     
     private static let mapping: [SwampMessages: WampMessageFactory] = [
+        SwampMessages.Error: ErrorSwampMessage.init,
+        
         SwampMessages.Hello: HelloSwampMessage.init,
         SwampMessages.Welcome: WelcomeSwampMessage.init,
         SwampMessages.Abort: AbortSwampMessage.init,
