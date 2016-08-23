@@ -12,6 +12,13 @@ public protocol SwampSessionDelegate {
 }
 
 public class SwampSession: SwampTransportDelegate {
+    // MARK: Public typealiases
+    //                               details              results      kwResults
+    public typealias CallCallback = ([String: AnyObject], [AnyObject]?, [String: AnyObject]?) -> Void
+    //                                    details              uri     args          kwargs
+    public typealias ErrorCallCallback = ([String: AnyObject], String, [AnyObject]?, [String: AnyObject]?) -> Void
+    
+    // MARK: delegate
     public var delegate: SwampSessionDelegate?
     
     // MARK: Constants
@@ -25,6 +32,10 @@ public class SwampSession: SwampTransportDelegate {
     private var serializer: SwampSerializer?
     private var sessionId: Int?
     private var routerSupportedRoles: [SwampRole]?
+    
+    // MARK: State members
+    private var currRequestId: Int = 1
+    private var callRequests: [Int: (callback: CallCallback?, errorCallback: ErrorCallCallback?)] = [:]
     
     public init(realm: String, transport: SwampTransport, details: [String: AnyObject]=[:]){
         self.realm = realm
@@ -41,6 +52,16 @@ public class SwampSession: SwampTransportDelegate {
     
     public func disconnect() {
         self.sendMessage(GoodbyeSwampMessage(details: [:], reason: "wamp.error.close_realm"))
+    }
+    
+    // MARK: Caller role
+    
+    public func call(uri: String, options: [String: AnyObject], args: [AnyObject]?=nil, kwargs: [String: AnyObject]?=nil, callback: CallCallback?, errorCallback: ErrorCallCallback?) {
+        let callRequestId = self.generateRequestId()
+        // Tell router to dispatch call
+        self.sendMessage(CallSwampMessage(requestId: callRequestId, options: options, proc: uri, args: args, kwargs: kwargs))
+        // Store request ID to handle result
+        self.callRequests[callRequestId] = (callback: callback, errorCallback: errorCallback)
     }
     
     // MARK: SwampTransportDelegate
@@ -76,16 +97,6 @@ public class SwampSession: SwampTransportDelegate {
         }
     }
     
-    // MARK: Private methods
-    
-    private func abort() {
-        if self.sessionId != nil {
-            return
-        }
-        self.sendMessage(AbortSwampMessage(details: [:], reason: "wamp.error.system_shutdown"))
-        self.transport.disconnect("Aborted upon user request.")
-    }
-    
     private func handleMessage(message: SwampMessage) {
         switch message {
         case let message as ChallengeSwampMessage:
@@ -108,14 +119,47 @@ public class SwampSession: SwampTransportDelegate {
             self.transport.disconnect(message.reason)
         case let message as AbortSwampMessage:
             self.transport.disconnect(message.reason)
+        case let message as ErrorSwampMessage:
+            switch message.requestType {
+            case SwampMessages.Call:
+                let requestId = message.requestId
+                if let (callback, errorCallback) = self.callRequests[requestId] {
+                    if errorCallback != nil {
+                        errorCallback!(message.details, message.error, message.args, message.kwargs)
+                    }
+                }
+            default:
+                return
+            }
+        case let message as ResultSwampMessage:
+            let requestId = message.requestId
+            if let (callback, errorCallback) = self.callRequests[requestId] {
+                if callback != nil {
+                    callback!(message.details, message.results, message.kwResults)
+                }
+            }
+            
         default:
             return
         }
+    }
+    
+    // MARK: Private methods
+    
+    private func abort() {
+        if self.sessionId != nil {
+            return
+        }
+        self.sendMessage(AbortSwampMessage(details: [:], reason: "wamp.error.misuse"))
     }
     
     private func sendMessage(message: SwampMessage){
         if let data = self.serializer?.pack(message.marshall()) {
             self.transport.sendData(data)
         }
+    }
+    
+    private func generateRequestId() -> Int {
+        return self.currRequestId++
     }
 }

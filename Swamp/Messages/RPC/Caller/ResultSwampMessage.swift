@@ -13,36 +13,36 @@ class ResultSwampMessage: SwampMessage {
     
     let requestId: Int
     let details: [String: AnyObject]
-    let args: [AnyObject]?
-    let kwargs: [String: AnyObject]?
+    let results: [AnyObject]?
+    let kwResults: [String: AnyObject]?
     
-    init(requestId: Int, details: [String: AnyObject], args: [AnyObject]?=nil, kwargs: [String: AnyObject]?=nil) {
+    init(requestId: Int, details: [String: AnyObject], results: [AnyObject]?=nil, kwResults: [String: AnyObject]?=nil) {
         self.requestId = requestId
         self.details = details
-        self.args = args
-        self.kwargs = kwargs
+        self.results = results
+        self.kwResults = kwResults
     }
     
     /// MARK: SwampMessage protocol
     required init(payload: [AnyObject]) {
         self.requestId = payload[0] as! Int
         self.details = payload[1] as! [String: AnyObject]
-        self.args = payload[safe: 3] as? [AnyObject]
-        self.kwargs = payload[safe: 4] as? [String: AnyObject]
+        self.results  = payload[safe: 3] as? [AnyObject]
+        self.kwResults = payload[safe: 4] as? [String: AnyObject]
     }
     
     func marshall() -> [AnyObject] {
         var marshalled: [AnyObject] = [SwampMessages.Result.rawValue, self.requestId, self.details]
         
-        if let args = self.args {
-            marshalled.append(args)
-            if let kwargs = self.kwargs {
-                marshalled.append(kwargs)
+        if let results = self.results {
+            marshalled.append(results)
+            if let kwResults = self.kwResults {
+                marshalled.append(kwResults)
             }
         } else {
-            if let kwargs = self.kwargs {
+            if let kwResults = self.kwResults {
                 marshalled.append([])
-                marshalled.append(kwargs)
+                marshalled.append(kwResults)
             }
         }
         
