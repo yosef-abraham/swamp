@@ -217,6 +217,7 @@ public class SwampSession: SwampTransportDelegate {
             if let (subscription, callback, _) = self.unsubscribeRequests.removeValueForKey(requestId) {
                 if let subscription = self.subscriptions.removeValueForKey(subscription) {
                     subscription.invalidate()
+                    callback()
                 } else {
                     // TODO: log this erroneous situation
                 }
