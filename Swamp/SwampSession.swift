@@ -150,7 +150,7 @@ public class SwampSession: SwampTransportDelegate {
         if self.sessionId != nil {
             return
         }
-        self.sendMessage(AbortSwampMessage(details: [:], reason: "wamp.error.misuse"))
+        self.sendMessage(AbortSwampMessage(details: [:], reason: "wamp.error.system_shutdown"))
     }
     
     private func sendMessage(message: SwampMessage){
