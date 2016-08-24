@@ -24,6 +24,7 @@ class ResultSwampMessage: SwampMessage {
     }
     
     /// MARK: SwampMessage protocol
+    
     required init(payload: [AnyObject]) {
         self.requestId = payload[0] as! Int
         self.details = payload[1] as! [String: AnyObject]

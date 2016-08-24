@@ -26,6 +26,7 @@ class CallSwampMessage: SwampMessage {
     }
     
     /// MARK: SwampMessage protocol
+    
     required init(payload: [AnyObject]) {
         self.requestId = payload[0] as! Int
         self.options = payload[1] as! [String: AnyObject]
