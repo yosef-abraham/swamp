@@ -15,7 +15,7 @@ public typealias EventCallback = (details: [String: AnyObject], results: [AnyObj
 public typealias UnsubscribeCallback = () -> Void
 public typealias ErrorUnsubscribeCallback = (details: [String: AnyObject], error: String) -> Void
 
-
+// TODO: Expose only an interface (like Cancellable) to user
 public class Subscription {
     private let session: SwampSession
     internal let subscription: Int
