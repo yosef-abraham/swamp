@@ -1,5 +1,5 @@
 PODS:
-  - Nimble (3.2.0)
+  - Nimble (4.1.0)
   - Quick (0.9.3)
   - Starscream (1.1.3)
   - Swamp (0.1.0):
@@ -8,8 +8,8 @@ PODS:
   - SwiftyJSON (2.3.2)
 
 DEPENDENCIES:
-  - Nimble (~> 3.0)
-  - Quick (~> 0.8)
+  - Nimble (~> 4.1.0)
+  - Quick (~> 0.9.3)
   - Swamp (from `../`)
 
 EXTERNAL SOURCES:
@@ -17,12 +17,12 @@ EXTERNAL SOURCES:
     :path: "../"
 
 SPEC CHECKSUMS:
-  Nimble: 703854335d181df169bbca9c97117b5cf8c47c1d
+  Nimble: 97a0a4cae5124c117115634b2d055d8c97d0af19
   Quick: 13a2a2b19a5d8e3ed4fd0c36ee46597fd77ebf71
   Starscream: d662732354b40dd19ed1ece3e3c44c80b536b83c
   Swamp: ff06ab643e387daf53c6ddfe3e41dc5a717186d0
   SwiftyJSON: 04ccea08915aa0109039157c7974cf0298da292a
 
-PODFILE CHECKSUM: a9720272112fff7904b624a188e2646a87040e6e
+PODFILE CHECKSUM: 56c4d1243067f99c49a3330c7460ca3881fe2c29
 
 COCOAPODS: 1.0.1

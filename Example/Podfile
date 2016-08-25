@@ -1,9 +1,10 @@
 use_frameworks!
 
 target 'Swamp_Test' do
+  inherit! :search_paths
   pod 'Swamp', :path => '../'
 
-  pod 'Quick', '~> 0.8'
-  pod 'Nimble', '~> 3.0'
+  pod 'Quick', '~> 0.9.3'
+  pod 'Nimble', '~> 4.1.0'
 end
 

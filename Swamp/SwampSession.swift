@@ -66,7 +66,7 @@ public class SwampSession: SwampTransportDelegate {
     
     // MARK: Session state
     private var serializer: SwampSerializer?
-    private var sessionId: Int?
+    public var sessionId: Int?
     private var routerSupportedRoles: [SwampRole]?
     
     // MARK: Call role
@@ -153,7 +153,7 @@ public class SwampSession: SwampTransportDelegate {
         var details = self.details
         details["agent"] = self.clientName
         details["roles"] = roles
-        self.sendMessage(HelloSwampMessage(realm: self.realm, details: self.details))
+        self.sendMessage(HelloSwampMessage(realm: self.realm, details: details))
     }
     
     public func swampTransportReceivedData(data: NSData) {
