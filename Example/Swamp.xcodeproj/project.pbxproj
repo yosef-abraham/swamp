@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		2742D1A7E212372104C1B39B /* Pods_Swamp_Test.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 26284DED9FB8CC6A668B5C8E /* Pods_Swamp_Test.framework */; };
-		879779ADB8846EA63B335924 /* Pods_Swamp_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4AD1BE9FC1F753ADAD9C5B23 /* Pods_Swamp_Example.framework */; };
 		90E731CD1D6F9D4900576F4E /* Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACEB1AFB9204008FA782 /* Tests.swift */; };
 /* End PBXBuildFile section */
 
@@ -22,7 +21,6 @@
 		48726F202691181F910B1369 /* Pods-Swamp_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Swamp_Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Swamp_Tests/Pods-Swamp_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		4AD1BE9FC1F753ADAD9C5B23 /* Pods_Swamp_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Swamp_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		58257FB16F81E51144A25438 /* Swamp.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = Swamp.podspec; path = ../Swamp.podspec; sourceTree = "<group>"; };
-		607FACD01AFB9204008FA782 /* Swamp_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Swamp_Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		607FACEA1AFB9204008FA782 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		607FACEB1AFB9204008FA782 /* Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tests.swift; sourceTree = "<group>"; };
 		7B0989EAF275BAC557AE8871 /* Pods-Swamp_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Swamp_Example.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Swamp_Example/Pods-Swamp_Example.debug.xcconfig"; sourceTree = "<group>"; };
@@ -32,14 +30,6 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		607FACCD1AFB9204008FA782 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				879779ADB8846EA63B335924 /* Pods_Swamp_Example.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		90E731C21D6F9CC900576F4E /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -75,7 +65,6 @@
 		607FACD11AFB9204008FA782 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				607FACD01AFB9204008FA782 /* Swamp_Example.app */,
 				90E731C51D6F9CC900576F4E /* Swamp_Test.xctest */,
 			);
 			name = Products;
@@ -124,26 +113,6 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		607FACCF1AFB9204008FA782 /* Swamp_Example */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 607FACEF1AFB9204008FA782 /* Build configuration list for PBXNativeTarget "Swamp_Example" */;
-			buildPhases = (
-				23F728F84DF4183522C84D03 /* [CP] Check Pods Manifest.lock */,
-				607FACCC1AFB9204008FA782 /* Sources */,
-				607FACCD1AFB9204008FA782 /* Frameworks */,
-				607FACCE1AFB9204008FA782 /* Resources */,
-				6698796B71BF76E51B73E1E9 /* [CP] Embed Pods Frameworks */,
-				D35D9F5FBC57C88EB78AC362 /* [CP] Copy Pods Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = Swamp_Example;
-			productName = Swamp;
-			productReference = 607FACD01AFB9204008FA782 /* Swamp_Example.app */;
-			productType = "com.apple.product-type.application";
-		};
 		90E731C41D6F9CC900576F4E /* Swamp_Test */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 90E731CA1D6F9CC900576F4E /* Build configuration list for PBXNativeTarget "Swamp_Test" */;
@@ -174,9 +143,6 @@
 				LastUpgradeCheck = 0720;
 				ORGANIZATIONNAME = CocoaPods;
 				TargetAttributes = {
-					607FACCF1AFB9204008FA782 = {
-						CreatedOnToolsVersion = 6.3.1;
-					};
 					90E731C41D6F9CC900576F4E = {
 						CreatedOnToolsVersion = 7.3.1;
 					};
@@ -194,20 +160,12 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				607FACCF1AFB9204008FA782 /* Swamp_Example */,
 				90E731C41D6F9CC900576F4E /* Swamp_Test */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		607FACCE1AFB9204008FA782 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		90E731C31D6F9CC900576F4E /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -219,21 +177,6 @@
 
 /* Begin PBXShellScriptBuildPhase section */
 		12A41C7E59A489BEDB4ABC1D /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
-			showEnvVarsInLog = 0;
-		};
-		23F728F84DF4183522C84D03 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -278,46 +221,9 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Swamp_Test/Pods-Swamp_Test-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		6698796B71BF76E51B73E1E9 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Swamp_Example/Pods-Swamp_Example-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		D35D9F5FBC57C88EB78AC362 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Swamp_Example/Pods-Swamp_Example-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		607FACCC1AFB9204008FA782 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		90E731C11D6F9CC900576F4E /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -411,32 +317,6 @@
 			};
 			name = Release;
 		};
-		607FACF01AFB9204008FA782 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 7B0989EAF275BAC557AE8871 /* Pods-Swamp_Example.debug.xcconfig */;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				INFOPLIST_FILE = Swamp/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				MODULE_NAME = ExampleApp;
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.demo.$(PRODUCT_NAME:rfc1034identifier)";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-			};
-			name = Debug;
-		};
-		607FACF11AFB9204008FA782 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 3AB4C92139339D32C425FAC2 /* Pods-Swamp_Example.release.xcconfig */;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				INFOPLIST_FILE = Swamp/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				MODULE_NAME = ExampleApp;
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.demo.$(PRODUCT_NAME:rfc1034identifier)";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-			};
-			name = Release;
-		};
 		90E731CB1D6F9CC900576F4E /* Debug */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 0880B220D3579A5AAB37A6ED /* Pods-Swamp_Test.debug.xcconfig */;
@@ -478,15 +358,6 @@
 			buildConfigurations = (
 				607FACED1AFB9204008FA782 /* Debug */,
 				607FACEE1AFB9204008FA782 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		607FACEF1AFB9204008FA782 /* Build configuration list for PBXNativeTarget "Swamp_Example" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				607FACF01AFB9204008FA782 /* Debug */,
-				607FACF11AFB9204008FA782 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

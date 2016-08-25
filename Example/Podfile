@@ -1,10 +1,5 @@
 use_frameworks!
 
-target 'Swamp_Example' do
-  pod 'Swamp', :path => '../'
-  pod 'Nimble', '~> 3.0'
-end
-
 target 'Swamp_Test' do
   pod 'Swamp', :path => '../'
 
