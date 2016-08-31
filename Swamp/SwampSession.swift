@@ -59,14 +59,17 @@ public class SwampSession: SwampTransportDelegate {
     // MARK: Members
     private let realm: String
     private let transport: SwampTransport
-    private let details: [String: AnyObject]
+    private let authmethods: [String]?
+    private let authid: String?
+    private let authrole: String?
+    private let authextra: [String: AnyObject]?
     
     // MARK: State members
     private var currRequestId: Int = 1
     
     // MARK: Session state
     private var serializer: SwampSerializer?
-    public var sessionId: Int?
+    private var sessionId: Int?
     private var routerSupportedRoles: [SwampRole]?
     
     // MARK: Call role
@@ -81,21 +84,28 @@ public class SwampSession: SwampTransportDelegate {
     private var unsubscribeRequests: [Int: (subscription: Int, callback: UnsubscribeCallback, errorCallback: ErrorUnsubscribeCallback)] = [:]
     
     // MARK: C'tor
-    public init(realm: String, transport: SwampTransport, details: [String: AnyObject]=[:]){
+    required public init(realm: String, transport: SwampTransport, authmethods: [String]?=nil, authid: String?=nil, authrole: String?=nil, authextra: [String: AnyObject]?=nil){
         self.realm = realm
         self.transport = transport
-        self.details = details
+        self.authmethods = authmethods
+        self.authid = authid
+        self.authrole = authrole
+        self.authextra = authextra
         self.transport.delegate = self
     }
     
     // MARK: Public API
     
-    public func connect(){
+    final public func isConnected() -> Bool {
+        return self.sessionId != nil
+    }
+    
+    final public func connect() {
         self.transport.connect()
     }
     
-    public func disconnect() {
-        self.sendMessage(GoodbyeSwampMessage(details: [:], reason: "wamp.error.close_realm"))
+    final public func disconnect(reason: String="wamp.error.close_realm") {
+        self.sendMessage(GoodbyeSwampMessage(details: [:], reason: reason))
     }
     
     // MARK: Caller role
@@ -150,7 +160,22 @@ public class SwampSession: SwampTransportDelegate {
             // For now basic profile, (demands empty dicts)
             roles[role.rawValue] = [:]
         }
-        var details = self.details
+        
+        var details: [String: AnyObject] = [:]
+        
+        if let authmethods = self.authmethods {
+            details["authmethods"] = authmethods
+        }
+        if let authid = self.authid {
+            details["authid"] = authid
+        }
+        if let authrole = self.authrole {
+            details["authrole"] = authrole
+        }
+        if let authextra = self.authextra {
+            details["authextra"] = authextra
+        }
+        
         details["agent"] = self.clientName
         details["roles"] = roles
         self.sendMessage(HelloSwampMessage(realm: self.realm, details: details))
@@ -263,10 +288,11 @@ public class SwampSession: SwampTransportDelegate {
             return
         }
         self.sendMessage(AbortSwampMessage(details: [:], reason: "wamp.error.system_shutdown"))
+        self.transport.disconnect("No challenge delegate found.")
     }
     
     private func sendMessage(message: SwampMessage){
-        if let data = self.serializer?.pack(message.marshall()) {
+        if let data = self.serializer?.pack(message.marshal()) {
             self.transport.sendData(data)
         }
     }
