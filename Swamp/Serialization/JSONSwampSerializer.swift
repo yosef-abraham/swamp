@@ -9,8 +9,11 @@
 import Foundation
 import SwiftyJSON
 
-class JSONSwampSerializer: SwampSerializer {
-    func pack(data: [AnyObject]) -> NSData? {
+public class JSONSwampSerializer: SwampSerializer {
+    
+    public init() {}
+    
+    public func pack(data: [AnyObject]) -> NSData? {
         let json = JSON(data)
         do {
             return try json.rawData()
@@ -20,7 +23,7 @@ class JSONSwampSerializer: SwampSerializer {
         }
     }
     
-    func unpack(data: NSData) -> [AnyObject]? {
+    public func unpack(data: NSData) -> [AnyObject]? {
         let json = JSON(data: data)
         return json.arrayObject
     }
