@@ -63,6 +63,22 @@
                </EnvironmentBuildable>
             </ActionContent>
          </ExecutionAction>
+         <ExecutionAction
+            ActionType = "Xcode.IDEStandardExecutionActionsCore.ExecutionActionType.ShellScriptAction">
+            <ActionContent
+               title = "Run Script"
+               scriptText = "find $PROJECT_DIR/node/.crossbar ! -name &apos;config.json&apos; -type f -exec rm -f {} +">
+               <EnvironmentBuildable>
+                  <BuildableReference
+                     BuildableIdentifier = "primary"
+                     BlueprintIdentifier = "90E731C41D6F9CC900576F4E"
+                     BuildableName = "Swamp_Test.xctest"
+                     BlueprintName = "Swamp_Test"
+                     ReferencedContainer = "container:Swamp.xcodeproj">
+                  </BuildableReference>
+               </EnvironmentBuildable>
+            </ActionContent>
+         </ExecutionAction>
       </PostActions>
       <Testables>
          <TestableReference
