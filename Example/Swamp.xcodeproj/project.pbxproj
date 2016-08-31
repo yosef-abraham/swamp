@@ -24,6 +24,7 @@
 		607FACEA1AFB9204008FA782 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		607FACEB1AFB9204008FA782 /* SwampSessionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwampSessionTests.swift; sourceTree = "<group>"; };
 		7B0989EAF275BAC557AE8871 /* Pods-Swamp_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Swamp_Example.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Swamp_Example/Pods-Swamp_Example.debug.xcconfig"; sourceTree = "<group>"; };
+		90C62EE61D772F6D00916DDF /* config.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = config.json; sourceTree = "<group>"; };
 		90E731C51D6F9CC900576F4E /* Swamp_Test.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Swamp_Test.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		960F152CF4FE0BB564BFE954 /* Pods-Swamp_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Swamp_Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Swamp_Tests/Pods-Swamp_Tests.release.xcconfig"; sourceTree = "<group>"; };
 		9A75A2F3D4175764613CBB19 /* Pods-Swamp_Test.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Swamp_Test.release.xcconfig"; path = "Pods/Target Support Files/Pods-Swamp_Test/Pods-Swamp_Test.release.xcconfig"; sourceTree = "<group>"; };
@@ -54,6 +55,7 @@
 		607FACC71AFB9204008FA782 = {
 			isa = PBXGroup;
 			children = (
+				90C62EE31D772E7700916DDF /* node */,
 				607FACF51AFB993E008FA782 /* Podspec Metadata */,
 				607FACE81AFB9204008FA782 /* Tests */,
 				607FACD11AFB9204008FA782 /* Products */,
@@ -95,6 +97,22 @@
 				3A5C237B6AD207500C7D17B9 /* LICENSE */,
 			);
 			name = "Podspec Metadata";
+			sourceTree = "<group>";
+		};
+		90C62EE31D772E7700916DDF /* node */ = {
+			isa = PBXGroup;
+			children = (
+				90C62EE51D772F4C00916DDF /* .crossbar */,
+			);
+			path = node;
+			sourceTree = "<group>";
+		};
+		90C62EE51D772F4C00916DDF /* .crossbar */ = {
+			isa = PBXGroup;
+			children = (
+				90C62EE61D772F6D00916DDF /* config.json */,
+			);
+			path = .crossbar;
 			sourceTree = "<group>";
 		};
 		F0C018509F6A8F3C889681D0 /* Pods */ = {

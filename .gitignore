@@ -34,3 +34,10 @@ Carthage
 # `pod install` in .travis.yml
 #
 # Pods/
+
+
+*.log
+Example/node/.crossbar/key.priv
+Example/node/.crossbar/key.pub
+Example/node/.crossbar/node.pid
+
