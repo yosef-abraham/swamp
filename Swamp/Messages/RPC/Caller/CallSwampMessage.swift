@@ -35,7 +35,7 @@ class CallSwampMessage: SwampMessage {
         self.kwargs = payload[safe: 4] as? [String: AnyObject]
     }
     
-    func marshall() -> [AnyObject] {
+    func marshal() -> [AnyObject] {
         var marshalled: [AnyObject] = [SwampMessages.Call.rawValue, self.requestId, self.options, self.proc]
         
         if let args = self.args {

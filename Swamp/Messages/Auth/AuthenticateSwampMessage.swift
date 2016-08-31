@@ -27,7 +27,7 @@ class AuthenticateSwampMessage: SwampMessage {
         self.extra = payload[1] as! [String: AnyObject]
     }
     
-    func marshall() -> [AnyObject] {
+    func marshal() -> [AnyObject] {
         return [SwampMessages.Authenticate.rawValue, self.signature, self.extra]
     }
 }

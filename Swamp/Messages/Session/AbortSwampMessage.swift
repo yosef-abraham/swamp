@@ -27,7 +27,7 @@ class AbortSwampMessage: SwampMessage {
         self.reason = payload[1] as! String
     }
     
-    func marshall() -> [AnyObject] {
+    func marshal() -> [AnyObject] {
         return [SwampMessages.Abort.rawValue, self.details, self.reason]
     }
 }

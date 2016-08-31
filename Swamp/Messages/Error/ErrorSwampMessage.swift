@@ -39,7 +39,7 @@ class ErrorSwampMessage: SwampMessage {
         self.kwargs = payload[safe: 5] as? [String: AnyObject]
     }
     
-    func marshall() -> [AnyObject] {
+    func marshal() -> [AnyObject] {
         var marshalled: [AnyObject] = [SwampMessages.Error.rawValue, self.requestType.rawValue, self.requestId, self.details, self.error]
         if let args = self.args {
             marshalled.append(args)

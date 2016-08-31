@@ -37,7 +37,7 @@ class EventSwampMessage: SwampMessage {
         self.kwargs = payload[safe: 4] as? [String: AnyObject]
     }
     
-    func marshall() -> [AnyObject] {
+    func marshal() -> [AnyObject] {
         var marshalled: [AnyObject] = [SwampMessages.Event.rawValue, self.subscription, self.publication, self.details]
         
         if let args = self.args {

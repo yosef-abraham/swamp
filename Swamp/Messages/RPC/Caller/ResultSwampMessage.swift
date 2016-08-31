@@ -32,7 +32,7 @@ class ResultSwampMessage: SwampMessage {
         self.kwResults = payload[safe: 4] as? [String: AnyObject]
     }
     
-    func marshall() -> [AnyObject] {
+    func marshal() -> [AnyObject] {
         var marshalled: [AnyObject] = [SwampMessages.Result.rawValue, self.requestId, self.details]
         
         if let results = self.results {

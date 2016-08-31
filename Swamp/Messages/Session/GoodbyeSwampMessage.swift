@@ -27,7 +27,7 @@ class GoodbyeSwampMessage: SwampMessage {
         self.reason = payload[1] as! String
     }
     
-    func marshall() -> [AnyObject] {
+    func marshal() -> [AnyObject] {
         return [SwampMessages.Goodbye.rawValue, self.details, self.reason]
     }
 }

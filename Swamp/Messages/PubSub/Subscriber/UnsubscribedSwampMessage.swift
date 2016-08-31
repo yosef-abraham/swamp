@@ -23,7 +23,7 @@ class UnsubscribedSwampMessage: SwampMessage {
         self.requestId = payload[0] as! Int
     }
     
-    func marshall() -> [AnyObject] {
+    func marshal() -> [AnyObject] {
         return [SwampMessages.Unsubscribed.rawValue, self.requestId]
     }
 }

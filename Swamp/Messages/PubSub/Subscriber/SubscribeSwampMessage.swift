@@ -28,7 +28,7 @@ class SubscribeSwampMessage: SwampMessage {
         self.topic = payload[2] as! String
     }
     
-    func marshall() -> [AnyObject] {
+    func marshal() -> [AnyObject] {
         return [SwampMessages.Subscribe.rawValue, self.requestId, self.options, self.topic]
     }
 }

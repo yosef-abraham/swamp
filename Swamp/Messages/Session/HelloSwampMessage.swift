@@ -27,7 +27,7 @@ class HelloSwampMessage: SwampMessage {
         self.details = payload[1] as! [String: AnyObject]
     }
     
-    func marshall() -> [AnyObject] {
+    func marshal() -> [AnyObject] {
         return [SwampMessages.Hello.rawValue, self.realm, self.details]
     }
 }

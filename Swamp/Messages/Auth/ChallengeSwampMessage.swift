@@ -27,7 +27,7 @@ class ChallengeSwampMessage: SwampMessage {
         self.extra = payload[1] as! [String: AnyObject]
     }
     
-    func marshall() -> [AnyObject] {
+    func marshal() -> [AnyObject] {
         return [SwampMessages.Challenge.rawValue, self.authMethod, self.extra]
     }
 }
