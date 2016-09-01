@@ -59,6 +59,8 @@ enum SwampMessages: Int {
         SwampMessages.Result: ResultSwampMessage.init,
         
         // PubSub
+        SwampMessages.Publish: PublishSwampMessage.init,
+        SwampMessages.Published: PublishedSwampMessage.init,
         SwampMessages.Event: EventSwampMessage.init,
         SwampMessages.Subscribe: SubscribeSwampMessage.init,
         SwampMessages.Subscribed: SubscribedSwampMessage.init,
