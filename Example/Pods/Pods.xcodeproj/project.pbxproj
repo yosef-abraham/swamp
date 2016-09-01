@@ -121,7 +121,7 @@
 		8A2F087FF63897E7F421CE143A152CC4 /* Filter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F7A5B8CB910895E72DE49E6C9417E52 /* Filter.swift */; };
 		8C8E595BA9B5C2C9D978B20D81141F53 /* BlockModeOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 710F84205CBF074FA929E41ABF61A2F5 /* BlockModeOptions.swift */; };
 		8DFE23F2C7973BC8A159168AFC2FB8C3 /* MatcherFunc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ED0544E17B7C94624241AC90368CB79 /* MatcherFunc.swift */; };
-		90C62EEC1D77669300916DDF /* WampCraAuthHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90C62EEB1D77669300916DDF /* WampCraAuthHelper.swift */; };
+		90C62EEC1D77669300916DDF /* SwampCraAuthHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90C62EEB1D77669300916DDF /* SwampCraAuthHelper.swift */; };
 		917214DF815FE869FE96BEC085249ECB /* SuiteHooks.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9B41C44290919BBCB742D88DE086D1A /* SuiteHooks.swift */; };
 		9296C7ABDE9E5894D47CD74E7F78F968 /* Match.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E7319F78E8489D4F5DF23DBD92A2B73 /* Match.swift */; };
 		92BC58B0158D9DFE7D59C341A85D4359 /* Async.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E316BD80A3E44E2C4314D69025343EA /* Async.swift */; };
@@ -413,7 +413,7 @@
 		8CADC357E5FCE908D8BCC753C5B93AB5 /* String+FileName.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "String+FileName.swift"; path = "Sources/Quick/String+FileName.swift"; sourceTree = "<group>"; };
 		8D4A26573B46A4CE33E3B34DB3A98C57 /* QCKDSL.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = QCKDSL.h; path = Sources/Quick/DSL/QCKDSL.h; sourceTree = "<group>"; };
 		8D7CE3777AEADC49F691234A546C48F5 /* PostNotification.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = PostNotification.swift; path = Sources/Nimble/Matchers/PostNotification.swift; sourceTree = "<group>"; };
-		90C62EEB1D77669300916DDF /* WampCraAuthHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WampCraAuthHelper.swift; sourceTree = "<group>"; };
+		90C62EEB1D77669300916DDF /* SwampCraAuthHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwampCraAuthHelper.swift; sourceTree = "<group>"; };
 		916535C9E4A67FEEC124D9E64D18B88D /* Operators.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Operators.swift; path = Sources/CryptoSwift/Operators.swift; sourceTree = "<group>"; };
 		93A1653A75BD9B8A6BF21736323B06DE /* XCTestObservationCenter+Register.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "XCTestObservationCenter+Register.m"; path = "Sources/Nimble/Adapters/ObjectiveC/XCTestObservationCenter+Register.m"; sourceTree = "<group>"; };
 		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
@@ -798,7 +798,7 @@
 		90C62EEA1D77667200916DDF /* Auth */ = {
 			isa = PBXGroup;
 			children = (
-				90C62EEB1D77669300916DDF /* WampCraAuthHelper.swift */,
+				90C62EEB1D77669300916DDF /* SwampCraAuthHelper.swift */,
 			);
 			path = Auth;
 			sourceTree = "<group>";
@@ -1297,7 +1297,7 @@
 				AF5B987EF14746067BECD98475CFE223 /* AbortSwampMessage.swift in Sources */,
 				10FDBCAA967F772B3683A06DA0C615DA /* AuthenticateSwampMessage.swift in Sources */,
 				8809BC0342748AC9816D1A17305E92AE /* CallSwampMessage.swift in Sources */,
-				90C62EEC1D77669300916DDF /* WampCraAuthHelper.swift in Sources */,
+				90C62EEC1D77669300916DDF /* SwampCraAuthHelper.swift in Sources */,
 				26185D512F856ECD1DBF60717F387CC1 /* ChallengeSwampMessage.swift in Sources */,
 				64C0AD6E34C4C3DECF26E1BBFA45B86C /* ErrorSwampMessage.swift in Sources */,
 				7E414A0E4A7ED917FC26A2EFBA5D4AEC /* EventSwampMessage.swift in Sources */,

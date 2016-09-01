@@ -292,9 +292,9 @@ public class SwampSession: SwampTransportDelegate {
     }
     
     private func sendMessage(message: SwampMessage){
-        if let data = self.serializer?.pack(message.marshal()) {
-            self.transport.sendData(data)
-        }
+        let marshalledMessage = message.marshal()
+        let data = self.serializer!.pack(marshalledMessage)!
+        self.transport.sendData(data)
     }
     
     private func generateRequestId() -> Int {

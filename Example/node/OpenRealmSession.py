@@ -18,5 +18,5 @@ class OpenRealmSession(ApplicationSession):
         def echo(param1, param2):
             return param1, param2
 
-        yield self.register(add, u"org.swamp.echo")
+        yield self.register(echo, u"org.swamp.echo")
     
