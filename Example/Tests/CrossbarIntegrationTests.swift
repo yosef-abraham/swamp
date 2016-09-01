@@ -155,6 +155,31 @@ class CrossbarIntegrationTestsSpec: QuickSpec {
                     }
                 }
             }
+            
+            context("Publishing events") {
+                beforeEach {
+                    session!.connect()
+                    expect(session!.isConnected()).toEventually( beTrue() )
+                }
+                
+                context("Unacknowledged publication") {
+                    it("Should just run silently") {
+                        session!.publish("org.swamp.some_publication", args: [1, 2, 3])
+                    }
+                }
+                
+                context("Acknowledged publication") {
+                    it("Should succeed") {
+                        waitUntil { done in
+                            session!.publish("org.swamp.some_publication", args: [1, 2, 3], onSuccess: {
+                                done()
+                            }, onError: { details, error in
+                                print(1)
+                            })
+                        }
+                    }
+                }
+            }
         }
         
         describe("the Restrictive realm") {

@@ -14,6 +14,9 @@ public typealias ErrorSubscribeCallback = (details: [String: AnyObject], error: 
 public typealias EventCallback = (details: [String: AnyObject], results: [AnyObject]?, kwResults: [String: AnyObject]?) -> Void
 public typealias UnsubscribeCallback = () -> Void
 public typealias ErrorUnsubscribeCallback = (details: [String: AnyObject], error: String) -> Void
+// MARK: Publish callbacks
+public typealias PublishCallback = () -> Void
+public typealias ErrorPublishCallback = (details: [String: AnyObject], error: String) -> Void
 
 // TODO: Expose only an interface (like Cancellable) to user
 public class Subscription {
@@ -75,13 +78,18 @@ public class SwampSession: SwampTransportDelegate {
     // MARK: Call role
     //                         requestId
     private var callRequests: [Int: (callback: CallCallback, errorCallback: ErrorCallCallback)] = [:]
-    // MARK: Subscribe role
+    
+    // MARK: Subscriber role
     //                              requestId
     private var subscribeRequests: [Int: (callback: SubscribeCallback, errorCallback: ErrorSubscribeCallback, eventCallback: EventCallback)] = [:]
     //                          subscription
     private var subscriptions: [Int: Subscription] = [:]
     //                                requestId
     private var unsubscribeRequests: [Int: (subscription: Int, callback: UnsubscribeCallback, errorCallback: ErrorUnsubscribeCallback)] = [:]
+    
+    // MARK: Publisher role
+    //                            requestId
+    private var publishRequests: [Int: (callback: PublishCallback, errorCallback: ErrorPublishCallback)] = [:]
     
     // MARK: C'tor
     required public init(realm: String, transport: SwampTransport, authmethods: [String]?=nil, authid: String?=nil, authrole: String?=nil, authextra: [String: AnyObject]?=nil){
@@ -120,6 +128,7 @@ public class SwampSession: SwampTransportDelegate {
     
     // MARK: Subscriber role
     
+    
     public func subscribe(topic: String, options: [String: AnyObject]=[:], onSuccess: SubscribeCallback, onError: ErrorSubscribeCallback, onEvent: EventCallback) {
         // TODO: assert topic is a valid WAMP uri
         let subscribeRequestId = self.generateRequestId()
@@ -136,6 +145,29 @@ public class SwampSession: SwampTransportDelegate {
         self.sendMessage(UnsubscribeSwampMessage(requestId: unsubscribeRequestId, subscription: subscription))
         // Store request ID to handle result
         self.unsubscribeRequests[unsubscribeRequestId] = (subscription, onSuccess, onError)
+    }
+    
+    // MARK: Publisher role
+    // without acknowledging
+    public func publish(topic: String, options: [String: AnyObject]=[:], args: [AnyObject]?=nil, kwargs: [String: AnyObject]?=nil) {
+        // TODO: assert topic is a valid WAMP uri
+        let publishRequestId = self.generateRequestId()
+        // Tell router to publish the event
+        self.sendMessage(PublishSwampMessage(requestId: publishRequestId, options: options, topic: topic, args: args, kwargs: kwargs))
+        // We don't need to store the request, because it's unacknowledged anyway
+    }
+    
+    // with acknowledging
+    public func publish(topic: String, options: [String: AnyObject]=[:], args: [AnyObject]?=nil, kwargs: [String: AnyObject]?=nil, onSuccess: PublishCallback, onError: ErrorPublishCallback) {
+        // add acknowledge to options, so we get callbacks
+        var options = options
+        options["acknowledge"] = true
+        // TODO: assert topic is a valid WAMP uri
+        let publishRequestId = self.generateRequestId()
+        // Tell router to publish the event
+        self.sendMessage(PublishSwampMessage(requestId: publishRequestId, options: options, topic: topic, args: args, kwargs: kwargs))
+        // Store request ID to handle result
+        self.publishRequests[publishRequestId] = (callback: onSuccess, errorCallback: onError)
     }
     
     // MARK: SwampTransportDelegate
@@ -214,7 +246,7 @@ public class SwampSession: SwampTransportDelegate {
         // MARK: Call role
         case let message as ResultSwampMessage:
             let requestId = message.requestId
-            if let (callback, errorCallback) = self.callRequests.removeValueForKey(requestId) {
+            if let (callback, _) = self.callRequests.removeValueForKey(requestId) {
                 callback(details: message.details, results: message.results, kwResults: message.kwResults)
             } else {
                 // TODO: log this erroneous situation
@@ -249,6 +281,13 @@ public class SwampSession: SwampTransportDelegate {
             } else {
                 // TODO: log this erroneous situation
             }
+        case let message as PublishedSwampMessage:
+            let requestId = message.requestId
+            if let (callback, _) = self.publishRequests.removeValueForKey(requestId) {
+                callback()
+            } else {
+                // TODO: log this erroneous situation
+            }
             
         ////////////////////////////////////////////
         // MARK: Handle error responses
@@ -269,6 +308,12 @@ public class SwampSession: SwampTransportDelegate {
                 }
             case SwampMessages.Unsubscribe:
                 if let (_, _, errorCallback) = self.unsubscribeRequests.removeValueForKey(message.requestId) {
+                    errorCallback(details: message.details, error: message.error)
+                } else {
+                    // TODO: log this erroneous situation
+                }
+            case SwampMessages.Publish:
+                if let(_, errorCallback) = self.publishRequests.removeValueForKey(message.requestId) {
                     errorCallback(details: message.details, error: message.error)
                 } else {
                     // TODO: log this erroneous situation
