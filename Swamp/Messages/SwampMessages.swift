@@ -57,6 +57,12 @@ enum SwampMessages: Int {
         // RPC
         SwampMessages.Call: CallSwampMessage.init,
         SwampMessages.Result: ResultSwampMessage.init,
+        SwampMessages.Register: RegisterSwampMessage.init,
+        SwampMessages.Registered: RegisteredSwampMessage.init,
+        SwampMessages.Invocation: InvocationSwampMessage.init,
+        SwampMessages.Yield: YieldSwampMessage.init,
+        SwampMessages.Unregister: UnregisterSwampMessage.init,
+        SwampMessages.Unregistered: UnregisteredSwampMessage.init,
         
         // PubSub
         SwampMessages.Publish: PublishSwampMessage.init,
