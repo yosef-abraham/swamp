@@ -44,13 +44,26 @@ enum SwampMessages: Int {
     private static let mapping: [SwampMessages: WampMessageFactory] = [
         SwampMessages.Error: ErrorSwampMessage.init,
         
+        // Session
         SwampMessages.Hello: HelloSwampMessage.init,
         SwampMessages.Welcome: WelcomeSwampMessage.init,
         SwampMessages.Abort: AbortSwampMessage.init,
         SwampMessages.Goodbye: GoodbyeSwampMessage.init,
         
+        // Auth
         SwampMessages.Challenge: ChallengeSwampMessage.init,
-        SwampMessages.Authenticate: AuthenticateSwampMessage.init
+        SwampMessages.Authenticate: AuthenticateSwampMessage.init,
+        
+        // RPC
+        SwampMessages.Call: CallSwampMessage.init,
+        SwampMessages.Result: ResultSwampMessage.init,
+        
+        // PubSub
+        SwampMessages.Event: EventSwampMessage.init,
+        SwampMessages.Subscribe: SubscribeSwampMessage.init,
+        SwampMessages.Subscribed: SubscribedSwampMessage.init,
+        SwampMessages.Unsubscribe: UnsubscribeSwampMessage.init,
+        SwampMessages.Unsubscribed: UnsubscribedSwampMessage.init
     ]
     
     

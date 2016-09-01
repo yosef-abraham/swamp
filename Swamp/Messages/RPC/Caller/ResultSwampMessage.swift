@@ -28,8 +28,8 @@ class ResultSwampMessage: SwampMessage {
     required init(payload: [AnyObject]) {
         self.requestId = payload[0] as! Int
         self.details = payload[1] as! [String: AnyObject]
-        self.results  = payload[safe: 3] as? [AnyObject]
-        self.kwResults = payload[safe: 4] as? [String: AnyObject]
+        self.results  = payload[safe: 2] as? [AnyObject]
+        self.kwResults = payload[safe: 3] as? [String: AnyObject]
     }
     
     func marshal() -> [AnyObject] {
