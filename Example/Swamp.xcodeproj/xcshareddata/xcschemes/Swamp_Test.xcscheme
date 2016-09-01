@@ -17,7 +17,7 @@
             ActionType = "Xcode.IDEStandardExecutionActionsCore.ExecutionActionType.ShellScriptAction">
             <ActionContent
                title = "Run Script"
-               scriptText = "/usr/local/bin/docker run -d --name swamp-crossbar-instance -v $PROJECT_DIR/node:/node -p 8080:8080 crossbario/crossbar --loglevel debug">
+               scriptText = "/usr/local/bin/docker run -d --name swamp-crossbar-instance -v $PROJECT_DIR/node:/node -p 8080:8080 crossbario/crossbar --loglevel debug &amp;&amp; sleep 3">
                <EnvironmentBuildable>
                   <BuildableReference
                      BuildableIdentifier = "primary"
@@ -35,39 +35,7 @@
             ActionType = "Xcode.IDEStandardExecutionActionsCore.ExecutionActionType.ShellScriptAction">
             <ActionContent
                title = "Run Script"
-               scriptText = "/usr/local/bin/docker logs swamp-crossbar-instance &gt; $PROJECT_DIR/swamp-crossbar-instance.log">
-               <EnvironmentBuildable>
-                  <BuildableReference
-                     BuildableIdentifier = "primary"
-                     BlueprintIdentifier = "90E731C41D6F9CC900576F4E"
-                     BuildableName = "Swamp_Test.xctest"
-                     BlueprintName = "Swamp_Test"
-                     ReferencedContainer = "container:Swamp.xcodeproj">
-                  </BuildableReference>
-               </EnvironmentBuildable>
-            </ActionContent>
-         </ExecutionAction>
-         <ExecutionAction
-            ActionType = "Xcode.IDEStandardExecutionActionsCore.ExecutionActionType.ShellScriptAction">
-            <ActionContent
-               title = "Run Script"
-               scriptText = "/usr/local/bin/docker stop swamp-crossbar-instance &amp;&amp; /usr/local/bin/docker rm swamp-crossbar-instance&#10;">
-               <EnvironmentBuildable>
-                  <BuildableReference
-                     BuildableIdentifier = "primary"
-                     BlueprintIdentifier = "90E731C41D6F9CC900576F4E"
-                     BuildableName = "Swamp_Test.xctest"
-                     BlueprintName = "Swamp_Test"
-                     ReferencedContainer = "container:Swamp.xcodeproj">
-                  </BuildableReference>
-               </EnvironmentBuildable>
-            </ActionContent>
-         </ExecutionAction>
-         <ExecutionAction
-            ActionType = "Xcode.IDEStandardExecutionActionsCore.ExecutionActionType.ShellScriptAction">
-            <ActionContent
-               title = "Run Script"
-               scriptText = "find $PROJECT_DIR/node/.crossbar ! -name &apos;config.json&apos; -type f -exec rm -f {} +">
+               scriptText = "/usr/local/bin/docker logs swamp-crossbar-instance &gt; $PROJECT_DIR/swamp-crossbar-instance.log &amp;&amp; /usr/local/bin/docker stop swamp-crossbar-instance &amp;&amp; /usr/local/bin/docker rm swamp-crossbar-instance &amp;&amp; find $PROJECT_DIR/node/.crossbar ! -name &apos;config.json&apos; -type f -exec rm -f {} +">
                <EnvironmentBuildable>
                   <BuildableReference
                      BuildableIdentifier = "primary"

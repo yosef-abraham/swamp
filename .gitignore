@@ -41,3 +41,4 @@ Example/node/.crossbar/key.priv
 Example/node/.crossbar/key.pub
 Example/node/.crossbar/node.pid
 
+__pycache__

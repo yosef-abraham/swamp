@@ -5,7 +5,7 @@
             "type": "router",
             "realms": [
                 {
-                    "name": "realm1",
+                    "name": "open-realm",
                     "roles": [
                         {
                             "name": "public",
@@ -26,7 +26,12 @@
                                     "cache": true
                                 }
                             ]
-                        },
+                        }
+                    ]
+                },
+                {
+                	"name": "restrictive-realm",
+                	"roles": [
                         {
                             "name": "user",
                             "permissions": [
@@ -58,41 +63,46 @@
                         "port": 8080
                     },
                     "paths": {
-                        "/": {
-                            "type": "static",
-                            "directory": "../web"
-                        },
                         "ws": {
                             "type": "websocket",
                             "auth": {
                                 "anonymous": {
                                     "type": "static",
                                     "role": "public"
-                                }
+                                },
+		                        "wampcra": {
+		                            "type": "static",
+		                            "users": {
+		                                "homer": {
+		                                    "secret": "secret123",
+		                                    "role": "user"
+		                                }
+		                            }
+		                        }
                             }
                         }
                     }
-                },
+                }
+            ]
+        },
+        {
+            "type": "container",
+            "options": {
+                "pythonpath": [".."]
+            },
+            "components": [
                 {
-                    "type": "rawsocket",
-                    "endpoint": {
-                        "type": "tcp",
-                        "port": 8000
-                    },
-                    "auth": {
-                        "anonymous": {
-                            "type": "static",
-                            "role": "public"
+                    "type": "class",
+                    "classname": "OpenRealmSession.OpenRealmSession",
+                    "realm": "open-realm",
+                    "transport": {
+                        "type": "websocket",
+                        "endpoint": {
+                            "type": "tcp",
+                            "host": "127.0.0.1",
+                            "port": 8080
                         },
-                        "wampcra": {
-                            "type": "static",
-                            "users": {
-                                "homer": {
-                                    "secret": "secret123",
-                                    "role": "user"
-                                }
-                            }
-                        }
+                        "url": "ws://127.0.0.1:8080/ws"
                     }
                 }
             ]
