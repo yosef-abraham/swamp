@@ -8,6 +8,13 @@ import SwiftyJSON
 // MARK: Call callbacks
 public typealias CallCallback = (details: [String: AnyObject], results: [AnyObject]?, kwResults: [String: AnyObject]?) -> Void
 public typealias ErrorCallCallback = (details: [String: AnyObject], error: String, args: [AnyObject]?, kwargs: [String: AnyObject]?) -> Void
+// MARK: Callee callbacks
+// For now callee is irrelevant
+//public typealias RegisterCallback = (registration: Registration) -> Void
+//public typealias ErrorRegisterCallback = (details: [String: AnyObject], error: String) -> Void
+//public typealias SwampProc = (args: [AnyObject]?, kwargs: [String: AnyObject]?) -> AnyObject
+//public typealias UnregisterCallback = () -> Void
+//public typealias ErrorUnregsiterCallback = (details: [String: AnyObject], error: String) -> Void
 // MARK: Subscribe callbacks
 public typealias SubscribeCallback = (subscription: Subscription) -> Void
 public typealias ErrorSubscribeCallback = (details: [String: AnyObject], error: String) -> Void
@@ -43,6 +50,11 @@ public class Subscription {
     }
 }
 
+// For now callee is irrelevant
+//public class Registration {
+//    private let session: SwampSession
+//}
+
 public protocol SwampSessionDelegate {
     func swampSessionHandleChallenge(authMethod: String, extra: [String: AnyObject]) -> String
     func swampSessionConnected(session: SwampSession, sessionId: Int)
@@ -56,7 +68,8 @@ public class SwampSession: SwampTransportDelegate {
     public var delegate: SwampSessionDelegate?
     
     // MARK: Constants
-    private let supportedRoles: [SwampRole] = [SwampRole.Caller, SwampRole.Callee, SwampRole.Subscriber, SwampRole.Publisher]
+    // No callee role for now
+    private let supportedRoles: [SwampRole] = [SwampRole.Caller, SwampRole.Subscriber, SwampRole.Publisher]
     private let clientName = "Swamp-dev-0.1.0"
     
     // MARK: Members
@@ -117,7 +130,6 @@ public class SwampSession: SwampTransportDelegate {
     }
     
     // MARK: Caller role
-    
     public func call(proc: String, options: [String: AnyObject]=[:], args: [AnyObject]?=nil, kwargs: [String: AnyObject]?=nil, onSuccess: CallCallback, onError: ErrorCallCallback) {
         let callRequestId = self.generateRequestId()
         // Tell router to dispatch call
@@ -126,8 +138,12 @@ public class SwampSession: SwampTransportDelegate {
         self.callRequests[callRequestId] = (callback: onSuccess, errorCallback: onError)
     }
     
-    // MARK: Subscriber role
+    // MARK: Callee role
+    // For now callee is irrelevant
+    // public func register(proc: String, options: [String: AnyObject]=[:], onSuccess: RegisterCallback, onError: ErrorRegisterCallback, onFire: SwampProc) {
+    // }
     
+    // MARK: Subscriber role
     
     public func subscribe(topic: String, options: [String: AnyObject]=[:], onSuccess: SubscribeCallback, onError: ErrorSubscribeCallback, onEvent: EventCallback) {
         // TODO: assert topic is a valid WAMP uri
