@@ -41,7 +41,10 @@ enum SwampMessages: Int {
     /// payload consists of all data related to a message, WIHTHOUT the first one - the message identifier
     typealias WampMessageFactory = (payload: [AnyObject]) -> SwampMessage
     
-    private static let mapping: [SwampMessages: WampMessageFactory] = [
+    // Split into 2 dictionaries because Swift compiler thinks a single one is too complex
+    // Perhaps find a better solution in the future
+    
+    private static let mapping1: [SwampMessages: WampMessageFactory] = [
         SwampMessages.Error: ErrorSwampMessage.init,
         
         // Session
@@ -52,8 +55,10 @@ enum SwampMessages: Int {
         
         // Auth
         SwampMessages.Challenge: ChallengeSwampMessage.init,
-        SwampMessages.Authenticate: AuthenticateSwampMessage.init,
-        
+        SwampMessages.Authenticate: AuthenticateSwampMessage.init
+    ]
+    
+    private static let mapping2: [SwampMessages: WampMessageFactory] = [
         // RPC
         SwampMessages.Call: CallSwampMessage.init,
         SwampMessages.Result: ResultSwampMessage.init,
@@ -77,7 +82,10 @@ enum SwampMessages: Int {
     
     static func createMessage(payload: [AnyObject]) -> SwampMessage? {
         if let messageType = SwampMessages(rawValue: payload[0] as! Int) {
-            if let messageFactory = mapping[messageType] {
+            if let messageFactory = mapping1[messageType] {
+                return messageFactory(payload: Array(payload[1..<payload.count]))
+            }
+            if let messageFactory = mapping2[messageType] {
                 return messageFactory(payload: Array(payload[1..<payload.count]))
             }
         }
