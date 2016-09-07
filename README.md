@@ -1,3 +1,6 @@
+[![Version](https://img.shields.io/cocoapods/v/Swamp.svg?style=flat)](http://cocoapods.org/pods/Swamp)
+[![License](https://img.shields.io/cocoapods/l/Swamp.svg?style=flat)](http://cocoapods.org/pods/Swamp)
+[![Platform](https://img.shields.io/cocoapods/p/Swamp.svg?style=flat)](http://cocoapods.org/pods/Swamp)
 ## Swamp - Swift WAMP implementation
 
 Swamp is a WAMP implementation in Swift.
@@ -12,10 +15,16 @@ Contributions to support MessagePack & Raw Sockets will be merged gladly!
 iOS 8.0 or OSX 10.9
 
 ## Installation
-Swamp is not yet available through cocoapods. YET. Please clone it and build by yourself.
+Swamp is available through cocoapods. Add
+
+```ruby
+pod "Swamp"
+```
+
+to your Podfile.
 
 ## Usage
-Will be documented soon, for now check the [CrossbarIntegrationTests.swift](Example/Tests/CrossbarIntegrationTests.swift) file you lazy dog.
+Will be documented soon, check the [CrossbarIntegrationTests.swift](Example/Tests/CrossbarIntegrationTests.swift) file you lazy dog.
 
 ## Testing
 For now, only integration tests against crossbar exists. I am planning to add unit tests in the future.
