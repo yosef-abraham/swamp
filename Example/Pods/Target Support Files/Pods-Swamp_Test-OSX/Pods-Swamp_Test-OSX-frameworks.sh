@@ -84,18 +84,18 @@ strip_invalid_archs() {
 
 
 if [[ "$CONFIGURATION" == "Debug" ]]; then
-  install_framework "$BUILT_PRODUCTS_DIR/CryptoSwift-iOS/CryptoSwift.framework"
-  install_framework "$BUILT_PRODUCTS_DIR/Nimble-iOS/Nimble.framework"
-  install_framework "$BUILT_PRODUCTS_DIR/Quick-iOS/Quick.framework"
-  install_framework "$BUILT_PRODUCTS_DIR/Starscream-iOS/Starscream.framework"
-  install_framework "$BUILT_PRODUCTS_DIR/Swamp-iOS/Swamp.framework"
-  install_framework "$BUILT_PRODUCTS_DIR/SwiftyJSON-iOS/SwiftyJSON.framework"
+  install_framework "$BUILT_PRODUCTS_DIR/CryptoSwift-OSX/CryptoSwift.framework"
+  install_framework "$BUILT_PRODUCTS_DIR/Nimble-OSX/Nimble.framework"
+  install_framework "$BUILT_PRODUCTS_DIR/Quick-OSX/Quick.framework"
+  install_framework "$BUILT_PRODUCTS_DIR/Starscream-OSX/Starscream.framework"
+  install_framework "$BUILT_PRODUCTS_DIR/Swamp-OSX/Swamp.framework"
+  install_framework "$BUILT_PRODUCTS_DIR/SwiftyJSON-OSX/SwiftyJSON.framework"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
-  install_framework "$BUILT_PRODUCTS_DIR/CryptoSwift-iOS/CryptoSwift.framework"
-  install_framework "$BUILT_PRODUCTS_DIR/Nimble-iOS/Nimble.framework"
-  install_framework "$BUILT_PRODUCTS_DIR/Quick-iOS/Quick.framework"
-  install_framework "$BUILT_PRODUCTS_DIR/Starscream-iOS/Starscream.framework"
-  install_framework "$BUILT_PRODUCTS_DIR/Swamp-iOS/Swamp.framework"
-  install_framework "$BUILT_PRODUCTS_DIR/SwiftyJSON-iOS/SwiftyJSON.framework"
+  install_framework "$BUILT_PRODUCTS_DIR/CryptoSwift-OSX/CryptoSwift.framework"
+  install_framework "$BUILT_PRODUCTS_DIR/Nimble-OSX/Nimble.framework"
+  install_framework "$BUILT_PRODUCTS_DIR/Quick-OSX/Quick.framework"
+  install_framework "$BUILT_PRODUCTS_DIR/Starscream-OSX/Starscream.framework"
+  install_framework "$BUILT_PRODUCTS_DIR/Swamp-OSX/Swamp.framework"
+  install_framework "$BUILT_PRODUCTS_DIR/SwiftyJSON-OSX/SwiftyJSON.framework"
 fi

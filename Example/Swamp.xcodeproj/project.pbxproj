@@ -8,7 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		2742D1A7E212372104C1B39B /* Pods_Swamp_Test.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 26284DED9FB8CC6A668B5C8E /* Pods_Swamp_Test.framework */; };
+		905F75C31D80A3FE00D16B4F /* CrossbarIntegrationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACEB1AFB9204008FA782 /* CrossbarIntegrationTests.swift */; };
 		90E731CD1D6F9D4900576F4E /* CrossbarIntegrationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACEB1AFB9204008FA782 /* CrossbarIntegrationTests.swift */; };
+		A932AEB03A1B1693D0A09339 /* Pods_Swamp_Test_OSX.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8BEC58BAC5686C04F18582A1 /* Pods_Swamp_Test_OSX.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,13 +26,25 @@
 		607FACEA1AFB9204008FA782 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		607FACEB1AFB9204008FA782 /* CrossbarIntegrationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CrossbarIntegrationTests.swift; sourceTree = "<group>"; };
 		7B0989EAF275BAC557AE8871 /* Pods-Swamp_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Swamp_Example.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Swamp_Example/Pods-Swamp_Example.debug.xcconfig"; sourceTree = "<group>"; };
+		8BEC58BAC5686C04F18582A1 /* Pods_Swamp_Test_OSX.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Swamp_Test_OSX.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		905F75BA1D80A36400D16B4F /* Swamp_Test-OSX.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Swamp_Test-OSX.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		90C62EE61D772F6D00916DDF /* config.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = config.json; sourceTree = "<group>"; };
-		90E731C51D6F9CC900576F4E /* Swamp_Test.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Swamp_Test.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		90E731C51D6F9CC900576F4E /* Swamp_Test-iOS.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Swamp_Test-iOS.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		960F152CF4FE0BB564BFE954 /* Pods-Swamp_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Swamp_Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Swamp_Tests/Pods-Swamp_Tests.release.xcconfig"; sourceTree = "<group>"; };
 		9A75A2F3D4175764613CBB19 /* Pods-Swamp_Test.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Swamp_Test.release.xcconfig"; path = "Pods/Target Support Files/Pods-Swamp_Test/Pods-Swamp_Test.release.xcconfig"; sourceTree = "<group>"; };
+		D48C9723737FF36EDCB8AB1C /* Pods-Swamp_Test-OSX.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Swamp_Test-OSX.release.xcconfig"; path = "Pods/Target Support Files/Pods-Swamp_Test-OSX/Pods-Swamp_Test-OSX.release.xcconfig"; sourceTree = "<group>"; };
+		DF43C6C0443AB81B62B4C950 /* Pods-Swamp_Test-OSX.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Swamp_Test-OSX.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Swamp_Test-OSX/Pods-Swamp_Test-OSX.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		905F75B71D80A36400D16B4F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A932AEB03A1B1693D0A09339 /* Pods_Swamp_Test_OSX.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		90E731C21D6F9CC900576F4E /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -48,6 +62,7 @@
 				4AD1BE9FC1F753ADAD9C5B23 /* Pods_Swamp_Example.framework */,
 				1708627085AAAA08ABB2AFEE /* Pods_Swamp_Tests.framework */,
 				26284DED9FB8CC6A668B5C8E /* Pods_Swamp_Test.framework */,
+				8BEC58BAC5686C04F18582A1 /* Pods_Swamp_Test_OSX.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -67,7 +82,8 @@
 		607FACD11AFB9204008FA782 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				90E731C51D6F9CC900576F4E /* Swamp_Test.xctest */,
+				90E731C51D6F9CC900576F4E /* Swamp_Test-iOS.xctest */,
+				905F75BA1D80A36400D16B4F /* Swamp_Test-OSX.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -124,6 +140,8 @@
 				960F152CF4FE0BB564BFE954 /* Pods-Swamp_Tests.release.xcconfig */,
 				0880B220D3579A5AAB37A6ED /* Pods-Swamp_Test.debug.xcconfig */,
 				9A75A2F3D4175764613CBB19 /* Pods-Swamp_Test.release.xcconfig */,
+				DF43C6C0443AB81B62B4C950 /* Pods-Swamp_Test-OSX.debug.xcconfig */,
+				D48C9723737FF36EDCB8AB1C /* Pods-Swamp_Test-OSX.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -131,9 +149,29 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		90E731C41D6F9CC900576F4E /* Swamp_Test */ = {
+		905F75B91D80A36400D16B4F /* Swamp_Test-OSX */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 90E731CA1D6F9CC900576F4E /* Build configuration list for PBXNativeTarget "Swamp_Test" */;
+			buildConfigurationList = 905F75C11D80A36400D16B4F /* Build configuration list for PBXNativeTarget "Swamp_Test-OSX" */;
+			buildPhases = (
+				08D2B28C3702FEBAF80BD920 /* [CP] Check Pods Manifest.lock */,
+				905F75B61D80A36400D16B4F /* Sources */,
+				905F75B71D80A36400D16B4F /* Frameworks */,
+				905F75B81D80A36400D16B4F /* Resources */,
+				C1D3AAB9A61FEA73ACA7A1A2 /* [CP] Embed Pods Frameworks */,
+				6B913679CCC22EDB64FC33BF /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Swamp_Test-OSX";
+			productName = "Swamp_Test-OSX";
+			productReference = 905F75BA1D80A36400D16B4F /* Swamp_Test-OSX.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		90E731C41D6F9CC900576F4E /* Swamp_Test-iOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 90E731CA1D6F9CC900576F4E /* Build configuration list for PBXNativeTarget "Swamp_Test-iOS" */;
 			buildPhases = (
 				12A41C7E59A489BEDB4ABC1D /* [CP] Check Pods Manifest.lock */,
 				90E731C11D6F9CC900576F4E /* Sources */,
@@ -146,9 +184,9 @@
 			);
 			dependencies = (
 			);
-			name = Swamp_Test;
+			name = "Swamp_Test-iOS";
 			productName = Swamp_Test;
-			productReference = 90E731C51D6F9CC900576F4E /* Swamp_Test.xctest */;
+			productReference = 90E731C51D6F9CC900576F4E /* Swamp_Test-iOS.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -161,6 +199,9 @@
 				LastUpgradeCheck = 0720;
 				ORGANIZATIONNAME = CocoaPods;
 				TargetAttributes = {
+					905F75B91D80A36400D16B4F = {
+						CreatedOnToolsVersion = 7.3.1;
+					};
 					90E731C41D6F9CC900576F4E = {
 						CreatedOnToolsVersion = 7.3.1;
 					};
@@ -178,12 +219,20 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				90E731C41D6F9CC900576F4E /* Swamp_Test */,
+				90E731C41D6F9CC900576F4E /* Swamp_Test-iOS */,
+				905F75B91D80A36400D16B4F /* Swamp_Test-OSX */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		905F75B81D80A36400D16B4F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		90E731C31D6F9CC900576F4E /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -194,6 +243,21 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		08D2B28C3702FEBAF80BD920 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
 		12A41C7E59A489BEDB4ABC1D /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -239,9 +303,47 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Swamp_Test/Pods-Swamp_Test-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
+		6B913679CCC22EDB64FC33BF /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Swamp_Test-OSX/Pods-Swamp_Test-OSX-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C1D3AAB9A61FEA73ACA7A1A2 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Swamp_Test-OSX/Pods-Swamp_Test-OSX-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		905F75B61D80A36400D16B4F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				905F75C31D80A3FE00D16B4F /* CrossbarIntegrationTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		90E731C11D6F9CC900576F4E /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -335,6 +437,39 @@
 			};
 			name = Release;
 		};
+		905F75BF1D80A36400D16B4F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = DF43C6C0443AB81B62B4C950 /* Pods-Swamp_Test-OSX.debug.xcconfig */;
+			buildSettings = {
+				CLANG_ANALYZER_NONNULL = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COMBINE_HIDPI_IMAGES = YES;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				INFOPLIST_FILE = Tests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.iscriptology.Swamp-Test-OSX";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		905F75C01D80A36400D16B4F /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = D48C9723737FF36EDCB8AB1C /* Pods-Swamp_Test-OSX.release.xcconfig */;
+			buildSettings = {
+				CLANG_ANALYZER_NONNULL = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = Tests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.iscriptology.Swamp-Test-OSX";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
 		90E731CB1D6F9CC900576F4E /* Debug */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 0880B220D3579A5AAB37A6ED /* Pods-Swamp_Test.debug.xcconfig */;
@@ -380,7 +515,16 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		90E731CA1D6F9CC900576F4E /* Build configuration list for PBXNativeTarget "Swamp_Test" */ = {
+		905F75C11D80A36400D16B4F /* Build configuration list for PBXNativeTarget "Swamp_Test-OSX" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				905F75BF1D80A36400D16B4F /* Debug */,
+				905F75C01D80A36400D16B4F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		90E731CA1D6F9CC900576F4E /* Build configuration list for PBXNativeTarget "Swamp_Test-iOS" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				90E731CB1D6F9CC900576F4E /* Debug */,
