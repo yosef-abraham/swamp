@@ -26,7 +26,7 @@ class PublishedSwampMessage: SwampMessage {
     }
     
     func marshal() -> [AnyObject] {
-        var marshalled: [AnyObject] = [SwampMessages.Published.rawValue, self.requestId, self.publication]
+        let marshalled: [AnyObject] = [SwampMessages.Published.rawValue, self.requestId, self.publication]
         return marshalled
     }
 }

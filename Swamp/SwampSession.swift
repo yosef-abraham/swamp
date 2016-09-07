@@ -243,7 +243,7 @@ public class SwampSession: SwampTransportDelegate {
                 self.sendMessage(AuthenticateSwampMessage(signature: authResponse, extra: [:]))
             } else {
                 print("There was no delegate, aborting.")
-                try! self.abort()
+                self.abort()
             }
         // MARK: Session responses
         case let message as WelcomeSwampMessage:
@@ -311,7 +311,7 @@ public class SwampSession: SwampTransportDelegate {
         case let message as ErrorSwampMessage:
             switch message.requestType {
             case SwampMessages.Call:
-                if let (callback, errorCallback) = self.callRequests.removeValueForKey(message.requestId) {
+                if let (_, errorCallback) = self.callRequests.removeValueForKey(message.requestId) {
                     errorCallback(details: message.details, error: message.error, args: message.args, kwargs: message.kwargs)
                 } else {
                     // TODO: log this erroneous situation
@@ -359,6 +359,7 @@ public class SwampSession: SwampTransportDelegate {
     }
     
     private func generateRequestId() -> Int {
-        return self.currRequestId++
+        self.currRequestId += 1
+        return self.currRequestId
     }
 }
