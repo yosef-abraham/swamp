@@ -14,9 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "F77B9163F0CAE85585D8FA9A94E9D96C"
+               BlueprintIdentifier = "71B8026E6D88854953AA99857D493FB7"
                BuildableName = "Swamp.framework"
-               BlueprintName = "Swamp"
+               BlueprintName = "Swamp-OSX"
                ReferencedContainer = "container:Pods.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -45,9 +45,9 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "F77B9163F0CAE85585D8FA9A94E9D96C"
+            BlueprintIdentifier = "71B8026E6D88854953AA99857D493FB7"
             BuildableName = "Swamp.framework"
-            BlueprintName = "Swamp"
+            BlueprintName = "Swamp-OSX"
             ReferencedContainer = "container:Pods.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
