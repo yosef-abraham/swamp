@@ -80,7 +80,7 @@ session.call("wamp.procedure", args: [1, "argument1"],
         // Usually result is in results[0], but do a manual check in your infrastructure
     },
     onError: { details, error, args, kwargs in
-        // Handle your error here (You can ignore args kwargs in mose cases)
+        // Handle your error here (You can ignore args kwargs in most cases)
     })
 ```
 
@@ -91,7 +91,7 @@ session.call("wamp.procedure", options: ["disclose_me": true], args: [1, "argume
         // Usually result is in results[0], but do a manual check in your infrastructure
     },
     onError: { details, error, args, kwargs in
-        // Handle your error here (You can ignore args kwargs in mose cases)
+        // Handle your error here (You can ignore args kwargs in most cases)
     })
 ```
 
@@ -119,7 +119,7 @@ session.subscribe("wamp.topic", onSuccess: { subscription in
 ```
 
 ###### Full use case:
-```
+```swift
 session.subscribe("wamp.topic", options: ["disclose_me": true], 
     onSuccess: { subscription in 
         // subscription can be stored for subscription.cancel()
@@ -149,7 +149,7 @@ public func publish(topic: String, options: [String: AnyObject]=[:], args: [AnyO
 session.publish("wamp.topic", args: [1, "argument2"])
 ```
 ###### Full use case:
-```
+```swift
 session.publish("wamp.topic", options: ["disclose_me": true],  args: [1, "argument2"], kwargs: ["arg1": 1, "arg2": "argument2"],
     onSuccess: {
         // Publication has been published!
