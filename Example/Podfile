@@ -1,6 +1,6 @@
 use_frameworks!
 
-target 'Swamp_Test' do
+target 'Swamp_Test-iOS' do
   inherit! :search_paths
   pod 'Swamp', :path => '../'
 
