@@ -5,9 +5,9 @@
 
 Swamp is a WAMP implementation in Swift.
 
-It currently supports calling remote procedures, subscribing on topics, and publishing events. It also supports challenge-response authentication using tickets & CRA authentication.
+It currently supports calling remote procedures, subscribing on topics, and publishing events. It also supports authentication using ticket & wampcra authentication.
 
-Swamp `0.1.0` utilizes WebSockets as it's only available transport, and JSON as it's serialization method.
+Swamp `0.1.0` utilizes WebSockets as its only available transport, and JSON as its serialization method.
 
 Contributions to support MessagePack & Raw Sockets will be merged gladly!
 
@@ -52,7 +52,7 @@ Implement the following methods:
 
 * `func swampSessionHandleChallenge(authMethod: String, extra: [String: AnyObject]) -> String`
   * Fired when a challenge request arrives.
-  * You can use `return SwampCraAuthHelper.sign("your-secret", extra["challenge"] as! String)` to support `wampcra` auth method.
+  * You can `return SwampCraAuthHelper.sign("your-secret", extra["challenge"] as! String)` to support `wampcra` auth method.
 * `func swampSessionConnected(session: SwampSession, sessionId: Int)`
  * Fired once the session has established and authenticated a session, and has joined the realm successfully. (AKA You may now call, subscribe & publish.)
 * `func swampSessionEnded(reason: String)`
@@ -159,7 +159,7 @@ session.publish("wamp.topic", options: ["disclose_me": true],  args: [1, "argume
 ```
 
 ## Testing
-For now, only integration tests against crossbar exists. I am planning to add unit tests in the future.
+For now, only integration tests against crossbar exist. I plan to add unit tests in the future.
 
 In order to run the tests:
 
