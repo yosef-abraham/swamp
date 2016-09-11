@@ -100,7 +100,7 @@ Subscribing may fire three callbacks:
 
 * `onSuccess` - if subscription has succeeded.
 * `onError` - if it has not.
-* `onFire` - if it succeeded, this is fired when the actual event was published.
+* `onEvent` - if it succeeded, this is fired when the actual event was published.
 
 ###### Signature
 ```swift
