@@ -4,14 +4,14 @@ target 'Swamp_Test-iOS' do
   inherit! :search_paths
   pod 'Swamp', :path => '../'
 
-  pod 'Quick', '~> 0.9.3'
-  pod 'Nimble', '~> 4.1.0'
+  pod 'Quick', '~> 0.10.0'
+  pod 'Nimble', '~> 5.0.0'
 end
 
 target 'Swamp_Test-OSX' do
     inherit! :search_paths
     pod 'Swamp', :path => '../'
-    
-    pod 'Quick', '~> 0.9.3'
-    pod 'Nimble', '~> 4.1.0'    
+
+    pod 'Quick', '~> 0.10.0'
+    pod 'Nimble', '~> 5.0.0'
 end

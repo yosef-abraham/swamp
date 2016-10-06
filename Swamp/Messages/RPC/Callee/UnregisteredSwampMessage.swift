@@ -19,11 +19,11 @@ class UnregisteredSwampMessage: SwampMessage {
     
     // MARK: SwampMessage protocol
     
-    required init(payload: [AnyObject]) {
+    required init(payload: [Any]) {
         self.requestId = payload[0] as! Int
     }
     
-    func marshal() -> [AnyObject] {
-        return [SwampMessages.Unregistered.rawValue, self.requestId]
+    func marshal() -> [Any] {
+        return [SwampMessages.unregistered.rawValue, self.requestId]
     }
 }

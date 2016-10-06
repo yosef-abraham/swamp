@@ -16,29 +16,22 @@
 public protocol _UInt8Type { }
 extension UInt8: _UInt8Type {}
 
-extension _UInt8Type {
-    static func Zero() -> Self {
-        return 0 as! Self
-    }
-}
-
-
 /** casting */
 extension UInt8 {
     
     /** cast because UInt8(<UInt32>) because std initializer crash if value is > byte */
-    static func withValue(v:UInt64) -> UInt8 {
-        let tmp = v & 0xFF
+    static func with(value:UInt64) -> UInt8 {
+        let tmp = value & 0xFF
         return UInt8(tmp)
     }
 
-    static func withValue(v:UInt32) -> UInt8 {
-        let tmp = v & 0xFF
+    static func with(value: UInt32) -> UInt8 {
+        let tmp = value & 0xFF
         return UInt8(tmp)
     }
     
-    static func withValue(v:UInt16) -> UInt8 {
-        let tmp = v & 0xFF
+    static func with(value: UInt16) -> UInt8 {
+        let tmp = value & 0xFF
         return UInt8(tmp)
     }
 
@@ -48,21 +41,21 @@ extension UInt8 {
 extension UInt8 {
 
     init(bits: [Bit]) {
-        self.init(integerFromBitsArray(bits) as UInt8)
+        self.init(integerFrom(bits) as UInt8)
     }
     
     /** array of bits */
     func bits() -> [Bit] {
-        let totalBitsCount = sizeofValue(self) * 8
+        let totalBitsCount = MemoryLayout<UInt8>.size * 8
         
-        var bitsArray = [Bit](count: totalBitsCount, repeatedValue: Bit.Zero)
+        var bitsArray = [Bit](repeating: Bit.zero, count: totalBitsCount)
         
         for j in 0..<totalBitsCount {
             let bitVal:UInt8 = 1 << UInt8(totalBitsCount - 1 - j)
             let check = self & bitVal
             
             if (check != 0) {
-                bitsArray[j] = Bit.One;
+                bitsArray[j] = Bit.one;
             }
         }
         return bitsArray
@@ -71,9 +64,9 @@ extension UInt8 {
     func bits() -> String {
         var s = String()
         let arr:[Bit] = self.bits()
-        for (idx,b) in arr.enumerate() {
-            s += (b == Bit.One ? "1" : "0")
-            if ((idx + 1) % 8 == 0) { s += " " }
+        for idx in arr.indices {
+            s += (arr[idx] == Bit.one ? "1" : "0")
+            if (idx.advanced(by: 1) % 8 == 0) { s += " " }
         }
         return s
     }
@@ -82,15 +75,15 @@ extension UInt8 {
 /** Shift bits */
 extension UInt8 {
     /** Shift bits to the right. All bits are shifted (including sign bit) */
-    mutating func shiftRight(count: UInt8) -> UInt8 {
+    mutating func shiftRight(by count: UInt8) {
         if (self == 0) {
-            return self;
+            return
         }
 
-        let bitsCount = UInt8(sizeof(UInt8) * 8)
+        let bitsCount = UInt8(MemoryLayout<UInt8>.size * 8)
 
         if (count >= bitsCount) {
-            return 0
+            return
         }
 
         let maxBitsForValue = UInt8(floor(log2(Double(self) + 1)))
@@ -104,13 +97,12 @@ extension UInt8 {
             }
         }
         self = shiftedValue
-        return self
     }
 }
 
 /** shift right and assign with bits truncation */
 func &>> (lhs: UInt8, rhs: UInt8) -> UInt8 {
     var l = lhs;
-    l.shiftRight(rhs)
+    l.shiftRight(by: rhs)
     return l
 }

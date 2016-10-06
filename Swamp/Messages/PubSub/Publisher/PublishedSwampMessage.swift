@@ -20,13 +20,13 @@ class PublishedSwampMessage: SwampMessage {
     }
     
     // MARK: SwampMessage protocol
-    required init(payload: [AnyObject]) {
+    required init(payload: [Any]) {
         self.requestId = payload[0] as! Int
         self.publication = payload[1] as! Int
     }
     
-    func marshal() -> [AnyObject] {
-        let marshalled: [AnyObject] = [SwampMessages.Published.rawValue, self.requestId, self.publication]
+    func marshal() -> [Any] {
+        let marshalled: [Any] = [SwampMessages.published.rawValue, self.requestId, self.publication]
         return marshalled
     }
 }

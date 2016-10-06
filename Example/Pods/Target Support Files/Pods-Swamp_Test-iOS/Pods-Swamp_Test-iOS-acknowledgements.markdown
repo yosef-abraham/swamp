@@ -430,7 +430,7 @@ Apache License
                            Version 2.0, January 2004
                         http://www.apache.org/licenses/
 
-   Copyright (c) 2014-2015 Dalton Cherry.
+   Copyright (c) 2014-2016 Dalton Cherry.
 
    TERMS AND CONDITIONS FOR USE, REPRODUCTION, AND DISTRIBUTION
 
@@ -630,7 +630,7 @@ THE SOFTWARE.
 
 The MIT License (MIT)
 
-Copyright (c) 2014 Ruoyu Fu
+Copyright (c) 2016 Ruoyu Fu
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

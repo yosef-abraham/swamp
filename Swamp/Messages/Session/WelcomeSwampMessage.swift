@@ -22,12 +22,12 @@ class WelcomeSwampMessage: SwampMessage {
     
     // MARK: SwampMessage protocol
     
-    required init(payload: [AnyObject]) {
+    required init(payload: [Any]) {
         self.sessionId = payload[0] as! Int
         self.details = payload[1] as! [String: AnyObject]
     }
     
-    func marshal() -> [AnyObject] {
-        return [SwampMessages.Welcome.rawValue, self.sessionId, self.details]
+    func marshal() -> [Any] {
+        return [SwampMessages.welcome.rawValue, self.sessionId, self.details]
     }
 }
