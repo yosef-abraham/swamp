@@ -1,13 +1,13 @@
 //
-//  CRC.swift
+//  Checksum.swift
 //  CryptoSwift
 //
 //  Created by Marcin Krzyzanowski on 25/08/14.
 //  Copyright (c) 2014 Marcin Krzyzanowski. All rights reserved.
 //
 
-final class CRC {
-    
+/// CRC - cyclic redundancy check code.
+public final class Checksum {
     private static let table32:Array<UInt32> = [0x00000000, 0x77073096, 0xee0e612c, 0x990951ba, 0x076dc419, 0x706af48f, 0xe963a535, 0x9e6495a3,
         0x0edb8832, 0x79dcb8a4, 0xe0d5e91e, 0x97d2d988, 0x09b64c2b, 0x7eb17cbd, 0xe7b82d07, 0x90bf1d91,
         0x1db71064, 0x6ab020f2, 0xf3b97148, 0x84be41de, 0x1adad47d, 0x6ddde4eb, 0xf4d4b551, 0x83d385c7,
@@ -74,24 +74,50 @@ final class CRC {
         0x4400, 0x84C1, 0x8581, 0x4540, 0x8701, 0x47C0, 0x4680, 0x8641,
         0x8201, 0x42C0, 0x4380, 0x8341, 0x4100, 0x81C1, 0x8081, 0x4040]
     
-    func crc32(message:Array<UInt8>, seed: UInt32? = nil, reflect : Bool = true) -> UInt32 {
+    func crc32(_ message:Array<UInt8>, seed: UInt32? = nil, reflect : Bool = true) -> UInt32 {
         var crc:UInt32 = seed != nil ? seed! : 0xffffffff
         for chunk in BytesSequence(chunkSize: 256, data: message) {
             for b in chunk {
-                let idx = Int((crc ^ UInt32(reflect ? b : reverseUInt8(b))) & 0xff)
-                crc = (crc >> 8) ^ CRC.table32[idx]
+                let idx = Int((crc ^ UInt32(reflect ? b : reversed(b))) & 0xff)
+                crc = (crc >> 8) ^ Checksum.table32[idx]
             }
         }
-        return (reflect ? crc : reverseUInt32(crc)) ^ 0xffffffff
+        return (reflect ? crc : reversed(crc)) ^ 0xffffffff
     }
     
-    func crc16(message:Array<UInt8>, seed: UInt16? = nil) -> UInt16 {
+    func crc16(_ message:Array<UInt8>, seed: UInt16? = nil) -> UInt16 {
         var crc:UInt16 = seed != nil ? seed! : 0x0000
         for chunk in BytesSequence(chunkSize: 256, data: message) {
             for b in chunk {
-                crc = (crc >> 8) ^ CRC.table16[Int((crc ^ UInt16(b)) & 0xFF)]
+                crc = (crc >> 8) ^ Checksum.table16[Int((crc ^ UInt16(b)) & 0xFF)]
             }
         }
         return crc
+    }
+}
+
+//MARK: Public interface
+public extension Checksum {
+
+    /// Calculate CRC32
+    ///
+    /// - parameter message: Message
+    /// - parameter seed:    Seed value (Optional)
+    /// - parameter reflect: is reflect (default true)
+    ///
+    /// - returns: Calculated code
+    static func crc32(_ message:Array<UInt8>, seed: UInt32? = nil, reflect: Bool = true) -> UInt32 {
+        return Checksum().crc32(message, seed: seed, reflect: reflect)
+    }
+
+
+    /// Calculate CRC16
+    ///
+    /// - parameter message: Message
+    /// - parameter seed:    Seed value (Optional)
+    ///
+    /// - returns: Calculated code
+    static func crc16(_ message:Array<UInt8>, seed: UInt16? = nil) -> UInt16 {
+        return Checksum().crc16(message, seed: seed)
     }
 }

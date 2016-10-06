@@ -29,7 +29,7 @@ class ErrorSwampMessage: SwampMessage {
     
     // MARK: SwampMessage protocol
     
-    required init(payload: [AnyObject]) {
+    required init(payload: [Any]) {
         self.requestType = SwampMessages(rawValue: payload[0] as! Int)!
         self.requestId = payload[1] as! Int
         self.details = payload[2] as! [String: AnyObject]
@@ -39,17 +39,17 @@ class ErrorSwampMessage: SwampMessage {
         self.kwargs = payload[safe: 5] as? [String: AnyObject]
     }
     
-    func marshal() -> [AnyObject] {
-        var marshalled: [AnyObject] = [SwampMessages.Error.rawValue, self.requestType.rawValue, self.requestId, self.details, self.error]
+    func marshal() -> [Any] {
+        var marshalled: [Any] = [SwampMessages.error.rawValue, self.requestType.rawValue, self.requestId, self.details, self.error]
         if let args = self.args {
-            marshalled.append(args)
+            marshalled.append(args as AnyObject)
             if let kwargs = self.kwargs {
-                marshalled.append(kwargs)
+                marshalled.append(kwargs as AnyObject)
             }
         } else {
             if let kwargs = self.kwargs {
-                marshalled.append([])
-                marshalled.append(kwargs)
+                marshalled.append([] as AnyObject)
+                marshalled.append(kwargs as AnyObject)
             }
         }
         

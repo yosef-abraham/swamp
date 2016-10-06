@@ -6,21 +6,21 @@
 //  Copyright © 2016 Marcin Krzyzanowski. All rights reserved.
 //
 
-public enum CipherError: ErrorType {
-    case Encrypt
-    case Decrypt
+public enum CipherError: Error {
+    case encrypt
+    case decrypt
 }
 
-public protocol Cipher {
+public protocol Cipher: class {
     /// Encrypt given bytes at once
     ///
     /// - parameter bytes: Plaintext data
     /// - returns: Encrypted data
-    func encrypt(bytes: Array<UInt8>) throws -> Array<UInt8>
+    func encrypt<C: Collection>(_ bytes: C) throws -> Array<UInt8> where C.Iterator.Element == UInt8, C.IndexDistance == Int, C.Index == Int
 
     /// Decrypt given bytes at once
     ///
     /// - parameter bytes: Ciphertext data
     /// - returns: Plaintext data
-    func decrypt(bytes: Array<UInt8>) throws -> Array<UInt8>
+    func decrypt<C: Collection>(_ bytes: C) throws -> Array<UInt8> where C.Iterator.Element == UInt8, C.IndexDistance == Int, C.Index == Int
 }

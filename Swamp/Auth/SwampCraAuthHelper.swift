@@ -9,9 +9,9 @@
 import Foundation
 import CryptoSwift
 
-public class SwampCraAuthHelper {
-    public static func sign(secret: String, challenge: String) -> String {
-        let hmac: Array<UInt8> = try! Authenticator.HMAC(key: secret.utf8.map {$0}, variant: .sha256).authenticate(challenge.utf8.map {$0})
+open class SwampCraAuthHelper {
+    open static func sign(_ secret: String, challenge: String) -> String {
+        let hmac: Array<UInt8> = try! CryptoSwift.HMAC(key: secret.utf8.map {$0}, variant: .sha256).authenticate(challenge.utf8.map {$0})
         return hmac.toBase64()!
     }
 }

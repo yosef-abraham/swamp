@@ -22,12 +22,12 @@ class AbortSwampMessage: SwampMessage {
     
     // MARK: SwampMessage protocol
     
-    required init(payload: [AnyObject]) {
+    required init(payload: [Any]) {
         self.details = payload[0] as! [String: AnyObject]
         self.reason = payload[1] as! String
     }
     
-    func marshal() -> [AnyObject] {
-        return [SwampMessages.Abort.rawValue, self.details, self.reason]
+    func marshal() -> [Any] {
+        return [SwampMessages.abort.rawValue, self.details, self.reason]
     }
 }

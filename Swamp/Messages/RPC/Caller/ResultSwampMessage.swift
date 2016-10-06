@@ -25,15 +25,15 @@ class ResultSwampMessage: SwampMessage {
     
     /// MARK: SwampMessage protocol
     
-    required init(payload: [AnyObject]) {
+    required init(payload: [Any]) {
         self.requestId = payload[0] as! Int
         self.details = payload[1] as! [String: AnyObject]
         self.results  = payload[safe: 2] as? [AnyObject]
         self.kwResults = payload[safe: 3] as? [String: AnyObject]
     }
     
-    func marshal() -> [AnyObject] {
-        var marshalled: [AnyObject] = [SwampMessages.Result.rawValue, self.requestId, self.details]
+    func marshal() -> [Any] {
+        var marshalled: [Any] = [SwampMessages.result.rawValue, self.requestId, self.details]
         
         if let results = self.results {
             marshalled.append(results)

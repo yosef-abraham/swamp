@@ -34,23 +34,31 @@ extension String {
     }
 
     public func crc32(seed: UInt32? = nil, reflect : Bool = true) -> String {
-        return self.utf8.lazy.map({ $0 as UInt8 }).crc32(seed, reflect: reflect).toHexString()
+        return self.utf8.lazy.map({ $0 as UInt8 }).crc32(seed: seed, reflect: reflect).bytes().toHexString()
     }
 
     public func crc16(seed: UInt16? = nil) -> String {
-        return self.utf8.lazy.map({ $0 as UInt8 }).crc16(seed).toHexString()
+        return self.utf8.lazy.map({ $0 as UInt8 }).crc16(seed: seed).bytes().toHexString()
     }
 
-    public func encrypt(cipher: Cipher) throws -> Array<UInt8> {
-        return try self.utf8.lazy.map({ $0 as UInt8 }).encrypt(cipher)
+
+    /// - parameter cipher: Instance of `Cipher`
+    /// - returns: hex string of bytes
+    public func encrypt(cipher: Cipher) throws -> String {
+        return try self.utf8.lazy.map({ $0 as UInt8 }).encrypt(cipher: cipher).toHexString()
     }
 
-    public func decrypt(cipher: Cipher) throws -> Array<UInt8> {
-        return try self.utf8.lazy.map({ $0 as UInt8 }).decrypt(cipher)
+    // decrypt() does not make sense for String
+
+    /// - parameter authenticator: Instance of `Authenticator`
+    /// - returns: hex string of string
+    public func authenticate<A: Authenticator>(with authenticator: A) throws -> String {
+        return try self.utf8.lazy.map({ $0 as UInt8 }).authenticate(with: authenticator).toHexString()
     }
     
-    /// Returns hex string of bytes.
-    public func authenticate(authenticator: Authenticator) throws -> String {
-        return  try self.utf8.lazy.map({ $0 as UInt8 }).authenticate(authenticator).toHexString()
+    #if !_runtime(_ObjC)
+    public func hasPrefix(_ prefix: String) -> Bool {
+        return prefix == String(self.characters.prefix(prefix.characters.count))
     }
+    #endif
 }

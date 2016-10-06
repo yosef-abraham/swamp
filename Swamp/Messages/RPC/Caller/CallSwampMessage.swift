@@ -27,7 +27,7 @@ class CallSwampMessage: SwampMessage {
     
     /// MARK: SwampMessage protocol
     
-    required init(payload: [AnyObject]) {
+    required init(payload: [Any]) {
         self.requestId = payload[0] as! Int
         self.options = payload[1] as! [String: AnyObject]
         self.proc = payload[2] as! String
@@ -35,8 +35,8 @@ class CallSwampMessage: SwampMessage {
         self.kwargs = payload[safe: 4] as? [String: AnyObject]
     }
     
-    func marshal() -> [AnyObject] {
-        var marshalled: [AnyObject] = [SwampMessages.Call.rawValue, self.requestId, self.options, self.proc]
+    func marshal() -> [Any] {
+        var marshalled: [Any] = [SwampMessages.call.rawValue, self.requestId, self.options, self.proc]
         
         if let args = self.args {
             marshalled.append(args)
