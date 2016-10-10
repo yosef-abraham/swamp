@@ -10,12 +10,18 @@ enum SwampMessages: Int {
 
     // MARK: Basic profile messages
 
+
+
     case hello = 1
     case welcome = 2
     case abort = 3
     case goodbye = 6
 
+
+
     case error = 8
+
+
 
     case publish = 16
     case published = 17
@@ -24,6 +30,8 @@ enum SwampMessages: Int {
     case unsubscribe = 34
     case unsubscribed = 35
     case event = 36
+
+
 
     case call = 48
     case result = 50
@@ -39,7 +47,7 @@ enum SwampMessages: Int {
     case authenticate = 5
 
     /// payload consists of all data related to a message, WIHTHOUT the first one - the message identifier
-    typealias WampMessageFactory = (_ payload: [Any]) -> SwampMessage
+    typealias WampMessageFactory = (_ payload: [AnyObject]) -> SwampMessage
 
     // Split into 2 dictionaries because Swift compiler thinks a single one is too complex
     // Perhaps find a better solution in the future
@@ -53,10 +61,14 @@ enum SwampMessages: Int {
         SwampMessages.abort: AbortSwampMessage.init,
         SwampMessages.goodbye: GoodbyeSwampMessage.init,
 
+
+
         // Auth
         SwampMessages.challenge: ChallengeSwampMessage.init,
         SwampMessages.authenticate: AuthenticateSwampMessage.init
     ]
+
+
 
     fileprivate static let mapping2: [SwampMessages: WampMessageFactory] = [
         // RPC
@@ -69,6 +81,8 @@ enum SwampMessages: Int {
         SwampMessages.unregister: UnregisterSwampMessage.init,
         SwampMessages.unregistered: UnregisteredSwampMessage.init,
 
+
+
         // PubSub
         SwampMessages.publish: PublishSwampMessage.init,
         SwampMessages.published: PublishedSwampMessage.init,
@@ -78,6 +92,8 @@ enum SwampMessages: Int {
         SwampMessages.unsubscribe: UnsubscribeSwampMessage.init,
         SwampMessages.unsubscribed: UnsubscribedSwampMessage.init
     ]
+
+
 
 
     static func createMessage(_ payload: [AnyObject]) -> SwampMessage? {

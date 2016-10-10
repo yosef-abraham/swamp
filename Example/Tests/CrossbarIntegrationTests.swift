@@ -74,7 +74,7 @@ class CrossbarIntegrationTestsSpec: QuickSpec {
             var session: SwampSession?
 
             beforeEach {
-                session = SwampSession(realm: "open-realm", transport: WebSocketSwampTransport(wsEndpoint: URL(string: "ws://localhost:8080/ws")!), authmethods: ["anonymous"])
+                session = SwampSession(realm: "open-realm", transport: WebSocketSwampTransport(wsEndpoint: NSURL(string: "ws://localhost:8080/ws")! as URL), authmethods: ["anonymous"])
             }
 
             context("Connecting to router") {
@@ -186,7 +186,7 @@ class CrossbarIntegrationTestsSpec: QuickSpec {
             var session: SwampSession?
 
             beforeEach {
-                session = SwampSession(realm: "restrictive-realm", transport: WebSocketSwampTransport(wsEndpoint: URL(string: "ws://127.0.0.1:8080/ws")!), authmethods: ["wampcra"], authid: "homer")
+                session = SwampSession(realm: "restrictive-realm", transport: WebSocketSwampTransport(wsEndpoint: NSURL(string: "ws://127.0.0.1:8080/ws")! as URL), authmethods: ["wampcra"], authid: "homer")
             }
 
             context("Connecting to router") {

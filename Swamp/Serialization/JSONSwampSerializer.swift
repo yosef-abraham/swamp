@@ -10,9 +10,9 @@ import Foundation
 import SwiftyJSON
 
 open class JSONSwampSerializer: SwampSerializer {
-    
+
     public init() {}
-    
+
     open func pack(_ data: [AnyObject]) -> Data? {
         let json = JSON(data)
         do {
@@ -22,9 +22,9 @@ open class JSONSwampSerializer: SwampSerializer {
             return nil
         }
     }
-    
+
     open func unpack(_ data: Data) -> [AnyObject]? {
         let json = JSON(data: data)
-        return json.arrayObject as [AnyObject]?
+        return json.arrayObject as? [AnyObject]
     }
 }

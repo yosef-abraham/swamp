@@ -66,12 +66,10 @@ open class SwampSession: SwampTransportDelegate {
 
     // MARK: delegate
     open var delegate: SwampSessionDelegate?
-
     // MARK: Constants
     // No callee role for now
     fileprivate let supportedRoles: [SwampRole] = [SwampRole.Caller, SwampRole.Subscriber, SwampRole.Publisher]
     fileprivate let clientName = "Swamp-dev-0.1.0"
-
     // MARK: Members
     fileprivate let realm: String
     fileprivate let transport: SwampTransport
@@ -187,7 +185,6 @@ open class SwampSession: SwampTransportDelegate {
     }
 
     // MARK: SwampTransportDelegate
-
     open func swampTransportDidDisconnect(_ error: NSError?, reason: String?) {
         if reason != nil {
             self.delegate?.swampSessionEnded(reason!)
@@ -206,7 +203,7 @@ open class SwampSession: SwampTransportDelegate {
         var roles = [String: Any]()
         for role in self.supportedRoles {
             // For now basic profile, (demands empty dicts)
-            roles[role.rawValue] = [:]
+            roles[role.rawValue] = [String: AnyObject]() as AnyObject
         }
 
         var details: [String: AnyObject] = [:]
