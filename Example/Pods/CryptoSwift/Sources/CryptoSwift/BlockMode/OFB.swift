@@ -15,21 +15,21 @@ struct OFBModeWorker: BlockModeWorker {
     private let iv: Element
     private var prev: Element?
 
-    init(iv: Array<UInt8>, cipherOperation: CipherOperationOnBlock) {
+    init(iv: Array<UInt8>, cipherOperation: @escaping CipherOperationOnBlock) {
         self.iv = iv
         self.cipherOperation = cipherOperation
     }
 
-    mutating func encrypt(plaintext: Array<UInt8>) -> Array<UInt8> {
-        guard let ciphertext = cipherOperation(block: prev ?? iv) else {
+    mutating func encrypt(_ plaintext: Array<UInt8>) -> Array<UInt8> {
+        guard let ciphertext = cipherOperation(prev ?? iv) else {
             return plaintext
         }
         prev = ciphertext
         return xor(plaintext, ciphertext)
     }
 
-    mutating func decrypt(ciphertext: Array<UInt8>) -> Array<UInt8> {
-        guard let decrypted = cipherOperation(block: prev ?? iv) else {
+    mutating func decrypt(_ ciphertext: Array<UInt8>) -> Array<UInt8> {
+        guard let decrypted = cipherOperation(prev ?? iv) else {
             return ciphertext
         }
         let plaintext = xor(decrypted, ciphertext)

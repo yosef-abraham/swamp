@@ -22,13 +22,13 @@ class RegisterSwampMessage: SwampMessage {
     }
     
     // MARK: SwampMessage protocol
-    required init(payload: [AnyObject]) {
+    required init(payload: [Any]) {
         self.requestId = payload[0] as! Int
         self.options = payload[1] as! [String: AnyObject]
         self.proc = payload[2] as! String
     }
     
-    func marshal() -> [AnyObject] {
-        return [SwampMessages.Register.rawValue, self.requestId, self.options, self.proc]
+    func marshal() -> [Any] {
+        return [SwampMessages.register.rawValue, self.requestId, self.options, self.proc]
     }
 }

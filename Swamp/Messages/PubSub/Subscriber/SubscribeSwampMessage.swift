@@ -22,13 +22,13 @@ class SubscribeSwampMessage: SwampMessage {
     }
     
     // MARK: SwampMessage protocol
-    required init(payload: [AnyObject]) {
+    required init(payload: [Any]) {
         self.requestId = payload[0] as! Int
         self.options = payload[1] as! [String: AnyObject]
         self.topic = payload[2] as! String
     }
     
-    func marshal() -> [AnyObject] {
-        return [SwampMessages.Subscribe.rawValue, self.requestId, self.options, self.topic]
+    func marshal() -> [Any] {
+        return [SwampMessages.subscribe.rawValue, self.requestId, self.options, self.topic]
     }
 }

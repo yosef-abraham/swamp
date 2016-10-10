@@ -7,6 +7,6 @@
 //
 
 import Foundation
-public enum SwampError: ErrorType {
+public enum SwampError: Error {
     
 }

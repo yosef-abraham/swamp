@@ -7,86 +7,86 @@
 //
 
 enum SwampMessages: Int {
-    
+
     // MARK: Basic profile messages
-    
-    case Hello = 1
-    case Welcome = 2
-    case Abort = 3
-    case Goodbye = 6
-    
-    case Error = 8
-    
-    case Publish = 16
-    case Published = 17
-    case Subscribe = 32
-    case Subscribed = 33
-    case Unsubscribe = 34
-    case Unsubscribed = 35
-    case Event = 36
-    
-    case Call = 48
-    case Result = 50
-    case Register = 64
-    case Registered = 65
-    case Unregister = 66
-    case Unregistered = 67
-    case Invocation = 68
-    case Yield = 70
-    
+
+    case hello = 1
+    case welcome = 2
+    case abort = 3
+    case goodbye = 6
+
+    case error = 8
+
+    case publish = 16
+    case published = 17
+    case subscribe = 32
+    case subscribed = 33
+    case unsubscribe = 34
+    case unsubscribed = 35
+    case event = 36
+
+    case call = 48
+    case result = 50
+    case register = 64
+    case registered = 65
+    case unregister = 66
+    case unregistered = 67
+    case invocation = 68
+    case yield = 70
+
     // MARK: Advance profile messages
-    case Challenge = 4
-    case Authenticate = 5
-    
+    case challenge = 4
+    case authenticate = 5
+
     /// payload consists of all data related to a message, WIHTHOUT the first one - the message identifier
-    typealias WampMessageFactory = (payload: [AnyObject]) -> SwampMessage
-    
+    typealias WampMessageFactory = (_ payload: [Any]) -> SwampMessage
+
     // Split into 2 dictionaries because Swift compiler thinks a single one is too complex
     // Perhaps find a better solution in the future
-    
-    private static let mapping1: [SwampMessages: WampMessageFactory] = [
-        SwampMessages.Error: ErrorSwampMessage.init,
-        
+
+    fileprivate static let mapping1: [SwampMessages: WampMessageFactory] = [
+        SwampMessages.error: ErrorSwampMessage.init,
+
         // Session
-        SwampMessages.Hello: HelloSwampMessage.init,
-        SwampMessages.Welcome: WelcomeSwampMessage.init,
-        SwampMessages.Abort: AbortSwampMessage.init,
-        SwampMessages.Goodbye: GoodbyeSwampMessage.init,
-        
+        SwampMessages.hello: HelloSwampMessage.init,
+        SwampMessages.welcome: WelcomeSwampMessage.init,
+        SwampMessages.abort: AbortSwampMessage.init,
+        SwampMessages.goodbye: GoodbyeSwampMessage.init,
+
         // Auth
-        SwampMessages.Challenge: ChallengeSwampMessage.init,
-        SwampMessages.Authenticate: AuthenticateSwampMessage.init
+        SwampMessages.challenge: ChallengeSwampMessage.init,
+        SwampMessages.authenticate: AuthenticateSwampMessage.init
     ]
-    
-    private static let mapping2: [SwampMessages: WampMessageFactory] = [
+
+    fileprivate static let mapping2: [SwampMessages: WampMessageFactory] = [
         // RPC
-        SwampMessages.Call: CallSwampMessage.init,
-        SwampMessages.Result: ResultSwampMessage.init,
-        SwampMessages.Register: RegisterSwampMessage.init,
-        SwampMessages.Registered: RegisteredSwampMessage.init,
-        SwampMessages.Invocation: InvocationSwampMessage.init,
-        SwampMessages.Yield: YieldSwampMessage.init,
-        SwampMessages.Unregister: UnregisterSwampMessage.init,
-        SwampMessages.Unregistered: UnregisteredSwampMessage.init,
-        
+        SwampMessages.call: CallSwampMessage.init,
+        SwampMessages.result: ResultSwampMessage.init,
+        SwampMessages.register: RegisterSwampMessage.init,
+        SwampMessages.registered: RegisteredSwampMessage.init,
+        SwampMessages.invocation: InvocationSwampMessage.init,
+        SwampMessages.yield: YieldSwampMessage.init,
+        SwampMessages.unregister: UnregisterSwampMessage.init,
+        SwampMessages.unregistered: UnregisteredSwampMessage.init,
+
         // PubSub
-        SwampMessages.Publish: PublishSwampMessage.init,
-        SwampMessages.Published: PublishedSwampMessage.init,
-        SwampMessages.Event: EventSwampMessage.init,
-        SwampMessages.Subscribe: SubscribeSwampMessage.init,
-        SwampMessages.Subscribed: SubscribedSwampMessage.init,
-        SwampMessages.Unsubscribe: UnsubscribeSwampMessage.init,
-        SwampMessages.Unsubscribed: UnsubscribedSwampMessage.init
+        SwampMessages.publish: PublishSwampMessage.init,
+        SwampMessages.published: PublishedSwampMessage.init,
+        SwampMessages.event: EventSwampMessage.init,
+        SwampMessages.subscribe: SubscribeSwampMessage.init,
+        SwampMessages.subscribed: SubscribedSwampMessage.init,
+        SwampMessages.unsubscribe: UnsubscribeSwampMessage.init,
+        SwampMessages.unsubscribed: UnsubscribedSwampMessage.init
     ]
-    
-    
-    static func createMessage(payload: [AnyObject]) -> SwampMessage? {
+
+
+    static func createMessage(_ payload: [AnyObject]) -> SwampMessage? {
         if let messageType = SwampMessages(rawValue: payload[0] as! Int) {
             if let messageFactory = mapping1[messageType] {
-                return messageFactory(payload: Array(payload[1..<payload.count]))
+                return messageFactory(Array(payload[1..<payload.count]))
             }
             if let messageFactory = mapping2[messageType] {
-                return messageFactory(payload: Array(payload[1..<payload.count]))
+                return messageFactory(Array(payload[1..<payload.count]))
             }
         }
         return nil

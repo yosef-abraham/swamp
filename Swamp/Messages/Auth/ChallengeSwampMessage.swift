@@ -22,12 +22,12 @@ class ChallengeSwampMessage: SwampMessage {
     
     // MARK: SwampMessage protocol
     
-    required init(payload: [AnyObject]) {
+    required init(payload: [Any]) {
         self.authMethod = payload[0] as! String
         self.extra = payload[1] as! [String: AnyObject]
     }
     
-    func marshal() -> [AnyObject] {
-        return [SwampMessages.Challenge.rawValue, self.authMethod, self.extra]
+    func marshal() -> [Any] {
+        return [SwampMessages.challenge.rawValue, self.authMethod, self.extra]
     }
 }
