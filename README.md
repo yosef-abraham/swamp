@@ -3,7 +3,7 @@
 [![Platform](https://img.shields.io/cocoapods/p/Swamp.svg?style=flat)](http://cocoapods.org/pods/Swamp)
 ## Swamp - Swift WAMP implementation
 
-Swamp is a WAMP implementation in Swift.
+Swamp is a WAMP implementation in Swift 2. (Swift 3 support underway)
 
 It currently supports calling remote procedures, subscribing on topics, and publishing events. It also supports authentication using ticket & wampcra authentication.
 
