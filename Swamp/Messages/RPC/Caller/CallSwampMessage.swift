@@ -10,13 +10,13 @@ import Foundation
 
 /// [CALL, requestId|number, options|dict, proc|string, args|array?, kwargs|dict?]
 class CallSwampMessage: SwampMessage {
-    
+
     let requestId: Int
     let options: [String: AnyObject]
     let proc: String
     let args: [AnyObject]?
     let kwargs: [String: AnyObject]?
-    
+
     init(requestId: Int, options: [String: AnyObject], proc: String, args: [AnyObject]?=nil, kwargs: [String: AnyObject]?=nil) {
         self.requestId = requestId
         self.options = options
@@ -24,9 +24,9 @@ class CallSwampMessage: SwampMessage {
         self.args = args
         self.kwargs = kwargs
     }
-    
+
     /// MARK: SwampMessage protocol
-    
+
     required init(payload: [AnyObject]) {
         self.requestId = payload[0] as! Int
         self.options = payload[1] as! [String: AnyObject]
@@ -34,23 +34,27 @@ class CallSwampMessage: SwampMessage {
         self.args = payload[safe: 3] as? [AnyObject]
         self.kwargs = payload[safe: 4] as? [String: AnyObject]
     }
-    
+
+
+
     func marshal() -> [AnyObject] {
-        var marshalled: [AnyObject] = [SwampMessages.Call.rawValue, self.requestId, self.options, self.proc]
-        
+        var marshalled: [AnyObject] = [SwampMessages.call.rawValue as AnyObject, self.requestId as AnyObject, self.options as AnyObject, self.proc as AnyObject]
+
+
+
         if let args = self.args {
-            marshalled.append(args)
+            marshalled.append(args as AnyObject)
             if let kwargs = self.kwargs {
-                marshalled.append(kwargs)
+                marshalled.append(kwargs as AnyObject)
             }
         } else {
             if let kwargs = self.kwargs {
-                marshalled.append([])
-                marshalled.append(kwargs)
+                marshalled.append([AnyObject]() as AnyObject)
+                marshalled.append(kwargs as AnyObject)
             }
         }
-        
+
         return marshalled
     }
-    
+
 }

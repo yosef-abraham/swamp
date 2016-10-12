@@ -12,7 +12,7 @@ Swamp `0.1.0` utilizes WebSockets as its only available transport, and JSON as i
 Contributions to support MessagePack & Raw Sockets will be merged gladly!
 
 ## Requirements
-iOS 8.0 or OSX 10.9
+iOS 8.0 or OSX 10.10
 
 ## Installation
 Swamp is available through cocoapods. Add

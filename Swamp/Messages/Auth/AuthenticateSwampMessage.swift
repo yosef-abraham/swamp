@@ -11,23 +11,27 @@ import SwiftyJSON
 
 /// [AUTHENTICATE, signature|string, extra|dict]
 class AuthenticateSwampMessage: SwampMessage {
-    
+
     let signature: String
     let extra: [String: AnyObject]
-    
+
     init(signature: String, extra: [String: AnyObject]) {
         self.signature = signature
         self.extra = extra
     }
-    
+
     // MARK: SwampMessage protocol
-    
+
     required init(payload: [AnyObject]) {
         self.signature  = payload[0] as! String
         self.extra = payload[1] as! [String: AnyObject]
     }
-    
+
+
+
     func marshal() -> [AnyObject] {
-        return [SwampMessages.Authenticate.rawValue, self.signature, self.extra]
+        return [SwampMessages.authenticate.rawValue as AnyObject, self.signature as AnyObject, self.extra as AnyObject]
+
+
     }
 }

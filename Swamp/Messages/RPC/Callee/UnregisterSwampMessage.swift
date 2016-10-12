@@ -10,23 +10,27 @@ import Foundation
 
 /// [UNREGISTER, requestId|number, registration|number]
 class UnregisterSwampMessage: SwampMessage {
-    
+
     let requestId: Int
     let registration: Int
-    
+
     init(requestId: Int, registration: Int) {
         self.requestId = requestId
         self.registration = registration
     }
-    
+
     // MARK: SwampMessage protocol
-    
+
     required init(payload: [AnyObject]) {
         self.requestId = payload[0] as! Int
         self.registration = payload[1] as! Int
     }
-    
+
+
+
     func marshal() -> [AnyObject] {
-        return [SwampMessages.Unregister.rawValue, self.requestId, self.registration]
+        return [SwampMessages.unregister.rawValue as AnyObject, self.requestId as AnyObject, self.registration as AnyObject]
+
+
     }
 }

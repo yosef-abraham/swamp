@@ -7,10 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		2742D1A7E212372104C1B39B /* Pods_Swamp_Test.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 26284DED9FB8CC6A668B5C8E /* Pods_Swamp_Test.framework */; };
 		905F75C31D80A3FE00D16B4F /* CrossbarIntegrationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACEB1AFB9204008FA782 /* CrossbarIntegrationTests.swift */; };
 		90E731CD1D6F9D4900576F4E /* CrossbarIntegrationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACEB1AFB9204008FA782 /* CrossbarIntegrationTests.swift */; };
 		A932AEB03A1B1693D0A09339 /* Pods_Swamp_Test_OSX.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8BEC58BAC5686C04F18582A1 /* Pods_Swamp_Test_OSX.framework */; };
+		EF613B7E372E51A35B9F72C2 /* Pods_Swamp_Test_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B4E59ECA93E34F9AEFB39B89 /* Pods_Swamp_Test_iOS.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -20,11 +20,13 @@
 		26284DED9FB8CC6A668B5C8E /* Pods_Swamp_Test.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Swamp_Test.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3A5C237B6AD207500C7D17B9 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
 		3AB4C92139339D32C425FAC2 /* Pods-Swamp_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Swamp_Example.release.xcconfig"; path = "Pods/Target Support Files/Pods-Swamp_Example/Pods-Swamp_Example.release.xcconfig"; sourceTree = "<group>"; };
+		4832FE9A60C7C36FEFC304F1 /* Pods-Swamp_Test-iOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Swamp_Test-iOS.release.xcconfig"; path = "Pods/Target Support Files/Pods-Swamp_Test-iOS/Pods-Swamp_Test-iOS.release.xcconfig"; sourceTree = "<group>"; };
 		48726F202691181F910B1369 /* Pods-Swamp_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Swamp_Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Swamp_Tests/Pods-Swamp_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		4AD1BE9FC1F753ADAD9C5B23 /* Pods_Swamp_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Swamp_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		58257FB16F81E51144A25438 /* Swamp.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = Swamp.podspec; path = ../Swamp.podspec; sourceTree = "<group>"; };
 		607FACEA1AFB9204008FA782 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		607FACEB1AFB9204008FA782 /* CrossbarIntegrationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CrossbarIntegrationTests.swift; sourceTree = "<group>"; };
+		6C9A23F0AF2495349941C130 /* Pods-Swamp_Test-iOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Swamp_Test-iOS.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Swamp_Test-iOS/Pods-Swamp_Test-iOS.debug.xcconfig"; sourceTree = "<group>"; };
 		7B0989EAF275BAC557AE8871 /* Pods-Swamp_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Swamp_Example.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Swamp_Example/Pods-Swamp_Example.debug.xcconfig"; sourceTree = "<group>"; };
 		8BEC58BAC5686C04F18582A1 /* Pods_Swamp_Test_OSX.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Swamp_Test_OSX.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		905F75BA1D80A36400D16B4F /* Swamp_Test-OSX.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Swamp_Test-OSX.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -32,6 +34,7 @@
 		90E731C51D6F9CC900576F4E /* Swamp_Test-iOS.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Swamp_Test-iOS.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		960F152CF4FE0BB564BFE954 /* Pods-Swamp_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Swamp_Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Swamp_Tests/Pods-Swamp_Tests.release.xcconfig"; sourceTree = "<group>"; };
 		9A75A2F3D4175764613CBB19 /* Pods-Swamp_Test.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Swamp_Test.release.xcconfig"; path = "Pods/Target Support Files/Pods-Swamp_Test/Pods-Swamp_Test.release.xcconfig"; sourceTree = "<group>"; };
+		B4E59ECA93E34F9AEFB39B89 /* Pods_Swamp_Test_iOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Swamp_Test_iOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D48C9723737FF36EDCB8AB1C /* Pods-Swamp_Test-OSX.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Swamp_Test-OSX.release.xcconfig"; path = "Pods/Target Support Files/Pods-Swamp_Test-OSX/Pods-Swamp_Test-OSX.release.xcconfig"; sourceTree = "<group>"; };
 		DF43C6C0443AB81B62B4C950 /* Pods-Swamp_Test-OSX.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Swamp_Test-OSX.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Swamp_Test-OSX/Pods-Swamp_Test-OSX.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -49,7 +52,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2742D1A7E212372104C1B39B /* Pods_Swamp_Test.framework in Frameworks */,
+				EF613B7E372E51A35B9F72C2 /* Pods_Swamp_Test_iOS.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -63,6 +66,7 @@
 				1708627085AAAA08ABB2AFEE /* Pods_Swamp_Tests.framework */,
 				26284DED9FB8CC6A668B5C8E /* Pods_Swamp_Test.framework */,
 				8BEC58BAC5686C04F18582A1 /* Pods_Swamp_Test_OSX.framework */,
+				B4E59ECA93E34F9AEFB39B89 /* Pods_Swamp_Test_iOS.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -142,6 +146,8 @@
 				9A75A2F3D4175764613CBB19 /* Pods-Swamp_Test.release.xcconfig */,
 				DF43C6C0443AB81B62B4C950 /* Pods-Swamp_Test-OSX.debug.xcconfig */,
 				D48C9723737FF36EDCB8AB1C /* Pods-Swamp_Test-OSX.release.xcconfig */,
+				6C9A23F0AF2495349941C130 /* Pods-Swamp_Test-iOS.debug.xcconfig */,
+				4832FE9A60C7C36FEFC304F1 /* Pods-Swamp_Test-iOS.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -196,7 +202,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0730;
-				LastUpgradeCheck = 0720;
+				LastUpgradeCheck = 0800;
 				ORGANIZATIONNAME = CocoaPods;
 				TargetAttributes = {
 					905F75B91D80A36400D16B4F = {
@@ -204,6 +210,7 @@
 					};
 					90E731C41D6F9CC900576F4E = {
 						CreatedOnToolsVersion = 7.3.1;
+						LastSwiftMigration = 0800;
 					};
 				};
 			};
@@ -255,7 +262,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		12A41C7E59A489BEDB4ABC1D /* [CP] Check Pods Manifest.lock */ = {
@@ -270,7 +277,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		35A6822C160B6FE624B5D19D /* [CP] Embed Pods Frameworks */ = {
@@ -285,7 +292,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Swamp_Test/Pods-Swamp_Test-frameworks.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Swamp_Test-iOS/Pods-Swamp_Test-iOS-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		4E7311C7DC471E6335077572 /* [CP] Copy Pods Resources */ = {
@@ -300,7 +307,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Swamp_Test/Pods-Swamp_Test-resources.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Swamp_Test-iOS/Pods-Swamp_Test-iOS-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		6B913679CCC22EDB64FC33BF /* [CP] Copy Pods Resources */ = {
@@ -368,8 +375,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -413,8 +422,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -433,6 +444,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
@@ -441,11 +453,13 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = DF43C6C0443AB81B62B4C950 /* Pods-Swamp_Test-OSX.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CODE_SIGN_IDENTITY = "-";
 				COMBINE_HIDPI_IMAGES = YES;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				INFOPLIST_FILE = Tests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.11;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.iscriptology.Swamp-Test-OSX";
@@ -458,10 +472,12 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = D48C9723737FF36EDCB8AB1C /* Pods-Swamp_Test-OSX.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CODE_SIGN_IDENTITY = "-";
 				COMBINE_HIDPI_IMAGES = YES;
 				INFOPLIST_FILE = Tests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.11;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.iscriptology.Swamp-Test-OSX";
@@ -472,34 +488,40 @@
 		};
 		90E731CB1D6F9CC900576F4E /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 0880B220D3579A5AAB37A6ED /* Pods-Swamp_Test.debug.xcconfig */;
+			baseConfigurationReference = 6C9A23F0AF2495349941C130 /* Pods-Swamp_Test-iOS.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CODE_SIGN_IDENTITY = "-";
 				COMBINE_HIDPI_IMAGES = YES;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				INFOPLIST_FILE = Tests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.11;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.iscriptology.Swamp-Test";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
 		90E731CC1D6F9CC900576F4E /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 9A75A2F3D4175764613CBB19 /* Pods-Swamp_Test.release.xcconfig */;
+			baseConfigurationReference = 4832FE9A60C7C36FEFC304F1 /* Pods-Swamp_Test-iOS.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CODE_SIGN_IDENTITY = "-";
 				COMBINE_HIDPI_IMAGES = YES;
 				INFOPLIST_FILE = Tests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.11;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.iscriptology.Swamp-Test";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};
