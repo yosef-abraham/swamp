@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		2742D1A7E212372104C1B39B /* Pods_Swamp_Test.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 26284DED9FB8CC6A668B5C8E /* Pods_Swamp_Test.framework */; };
 		86072F1A5C300E694B7122C5 /* Pods_Swamp_Test_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4800D4FC011899D3ED02E1CC /* Pods_Swamp_Test_iOS.framework */; };
 		905F75C31D80A3FE00D16B4F /* CrossbarIntegrationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACEB1AFB9204008FA782 /* CrossbarIntegrationTests.swift */; };
 		90E731CD1D6F9D4900576F4E /* CrossbarIntegrationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACEB1AFB9204008FA782 /* CrossbarIntegrationTests.swift */; };
@@ -53,7 +52,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2742D1A7E212372104C1B39B /* Pods_Swamp_Test.framework in Frameworks */,
 				86072F1A5C300E694B7122C5 /* Pods_Swamp_Test_iOS.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
