@@ -6,8 +6,8 @@ import Foundation
 import SwiftyJSON
 
 // MARK: Call callbacks
-public typealias CallCallback = (_ details: [String: AnyObject], _ results: [AnyObject]?, _ kwResults: [String: AnyObject]?) -> Void
-public typealias ErrorCallCallback = (_ details: [String: AnyObject], _ error: String, _ args: [AnyObject]?, _ kwargs: [String: AnyObject]?) -> Void
+public typealias CallCallback = (_ details: [String: Any], _ results: [Any]?, _ kwResults: [String: Any]?) -> Void
+public typealias ErrorCallCallback = (_ details: [String: Any], _ error: String, _ args: [Any]?, _ kwargs: [String: Any]?) -> Void
 // MARK: Callee callbacks
 // For now callee is irrelevant
 //public typealias RegisterCallback = (registration: Registration) -> Void
@@ -17,13 +17,13 @@ public typealias ErrorCallCallback = (_ details: [String: AnyObject], _ error: S
 //public typealias ErrorUnregsiterCallback = (details: [String: AnyObject], error: String) -> Void
 // MARK: Subscribe callbacks
 public typealias SubscribeCallback = (_ subscription: Subscription) -> Void
-public typealias ErrorSubscribeCallback = (_ details: [String: AnyObject], _ error: String) -> Void
-public typealias EventCallback = (_ details: [String: AnyObject], _ results: [AnyObject]?, _ kwResults: [String: AnyObject]?) -> Void
+public typealias ErrorSubscribeCallback = (_ details: [String: Any], _ error: String) -> Void
+public typealias EventCallback = (_ details: [String: Any], _ results: [Any]?, _ kwResults: [String: Any]?) -> Void
 public typealias UnsubscribeCallback = () -> Void
-public typealias ErrorUnsubscribeCallback = (_ details: [String: AnyObject], _ error: String) -> Void
+public typealias ErrorUnsubscribeCallback = (_ details: [String: Any], _ error: String) -> Void
 // MARK: Publish callbacks
 public typealias PublishCallback = () -> Void
-public typealias ErrorPublishCallback = (_ details: [String: AnyObject], _ error: String) -> Void
+public typealias ErrorPublishCallback = (_ details: [String: Any], _ error: String) -> Void
 
 // TODO: Expose only an interface (like Cancellable) to user
 open class Subscription {
@@ -56,7 +56,7 @@ open class Subscription {
 //}
 
 public protocol SwampSessionDelegate {
-    func swampSessionHandleChallenge(_ authMethod: String, extra: [String: AnyObject]) -> String
+    func swampSessionHandleChallenge(_ authMethod: String, extra: [String: Any]) -> String
     func swampSessionConnected(_ session: SwampSession, sessionId: Int)
     func swampSessionEnded(_ reason: String)
 }
@@ -78,7 +78,7 @@ open class SwampSession: SwampTransportDelegate {
     fileprivate let authmethods: [String]?
     fileprivate let authid: String?
     fileprivate let authrole: String?
-    fileprivate let authextra: [String: AnyObject]?
+    fileprivate let authextra: [String: Any]?
 
     // MARK: State members
     fileprivate var currRequestId: Int = 1
@@ -105,7 +105,7 @@ open class SwampSession: SwampTransportDelegate {
     fileprivate var publishRequests: [Int: (callback: PublishCallback, errorCallback: ErrorPublishCallback)] = [:]
 
     // MARK: C'tor
-    required public init(realm: String, transport: SwampTransport, authmethods: [String]?=nil, authid: String?=nil, authrole: String?=nil, authextra: [String: AnyObject]?=nil){
+    required public init(realm: String, transport: SwampTransport, authmethods: [String]?=nil, authid: String?=nil, authrole: String?=nil, authextra: [String: Any]?=nil){
         self.realm = realm
         self.transport = transport
         self.authmethods = authmethods
@@ -130,7 +130,7 @@ open class SwampSession: SwampTransportDelegate {
     }
 
     // MARK: Caller role
-    open func call(_ proc: String, options: [String: AnyObject]=[:], args: [AnyObject]?=nil, kwargs: [String: AnyObject]?=nil, onSuccess: @escaping CallCallback, onError: @escaping ErrorCallCallback) {
+    open func call(_ proc: String, options: [String: Any]=[:], args: [Any]?=nil, kwargs: [String: Any]?=nil, onSuccess: @escaping CallCallback, onError: @escaping ErrorCallCallback) {
         let callRequestId = self.generateRequestId()
         // Tell router to dispatch call
         self.sendMessage(CallSwampMessage(requestId: callRequestId, options: options, proc: proc, args: args, kwargs: kwargs))
@@ -145,7 +145,7 @@ open class SwampSession: SwampTransportDelegate {
 
     // MARK: Subscriber role
 
-    open func subscribe(_ topic: String, options: [String: AnyObject]=[:], onSuccess: @escaping SubscribeCallback, onError: @escaping ErrorSubscribeCallback, onEvent: @escaping EventCallback) {
+    open func subscribe(_ topic: String, options: [String: Any]=[:], onSuccess: @escaping SubscribeCallback, onError: @escaping ErrorSubscribeCallback, onEvent: @escaping EventCallback) {
         // TODO: assert topic is a valid WAMP uri
         let subscribeRequestId = self.generateRequestId()
         // Tell router to subscribe client on a topic
@@ -165,7 +165,7 @@ open class SwampSession: SwampTransportDelegate {
 
     // MARK: Publisher role
     // without acknowledging
-    open func publish(_ topic: String, options: [String: AnyObject]=[:], args: [AnyObject]?=nil, kwargs: [String: AnyObject]?=nil) {
+    open func publish(_ topic: String, options: [String: Any]=[:], args: [Any]?=nil, kwargs: [String: Any]?=nil) {
         // TODO: assert topic is a valid WAMP uri
         let publishRequestId = self.generateRequestId()
         // Tell router to publish the event
@@ -174,10 +174,10 @@ open class SwampSession: SwampTransportDelegate {
     }
 
     // with acknowledging
-    open func publish(_ topic: String, options: [String: AnyObject]=[:], args: [AnyObject]?=nil, kwargs: [String: AnyObject]?=nil, onSuccess: @escaping PublishCallback, onError: @escaping ErrorPublishCallback) {
+    open func publish(_ topic: String, options: [String: Any]=[:], args: [Any]?=nil, kwargs: [String: Any]?=nil, onSuccess: @escaping PublishCallback, onError: @escaping ErrorPublishCallback) {
         // add acknowledge to options, so we get callbacks
         var options = options
-        options["acknowledge"] = true as AnyObject?
+        options["acknowledge"] = true
         // TODO: assert topic is a valid WAMP uri
         let publishRequestId = self.generateRequestId()
         // Tell router to publish the event
@@ -209,23 +209,23 @@ open class SwampSession: SwampTransportDelegate {
             roles[role.rawValue] = [:]
         }
 
-        var details: [String: AnyObject] = [:]
+        var details: [String: Any] = [:]
 
         if let authmethods = self.authmethods {
-            details["authmethods"] = authmethods as AnyObject?
+            details["authmethods"] = authmethods
         }
         if let authid = self.authid {
-            details["authid"] = authid as AnyObject?
+            details["authid"] = authid
         }
         if let authrole = self.authrole {
-            details["authrole"] = authrole as AnyObject?
+            details["authrole"] = authrole
         }
         if let authextra = self.authextra {
-            details["authextra"] = authextra as AnyObject?
+            details["authextra"] = authextra
         }
 
-        details["agent"] = self.clientName as AnyObject?
-        details["roles"] = roles as AnyObject?
+        details["agent"] = self.clientName
+        details["roles"] = roles
         self.sendMessage(HelloSwampMessage(realm: self.realm, details: details))
     }
 
@@ -248,7 +248,7 @@ open class SwampSession: SwampTransportDelegate {
         // MARK: Session responses
         case let message as WelcomeSwampMessage:
             self.sessionId = message.sessionId
-            let routerRoles = message.details["roles"]! as! [String : [String : AnyObject]]
+            let routerRoles = message.details["roles"]! as! [String : [String : Any]]
             self.routerSupportedRoles = routerRoles.keys.map { SwampRole(rawValue: $0)! }
             self.delegate?.swampSessionConnected(self, sessionId: message.sessionId)
         case let message as GoodbyeSwampMessage:
@@ -354,7 +354,7 @@ open class SwampSession: SwampTransportDelegate {
 
     fileprivate func sendMessage(_ message: SwampMessage){
         let marshalledMessage = message.marshal()
-        let data = self.serializer!.pack(marshalledMessage as [AnyObject])!
+        let data = self.serializer!.pack(marshalledMessage as [Any])!
         self.transport.sendData(data)
     }
 

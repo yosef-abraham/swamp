@@ -13,9 +13,9 @@ import SwiftyJSON
 class HelloSwampMessage: SwampMessage {
     
     let realm: String
-    let details: [String: AnyObject]
+    let details: [String: Any]
     
-    init(realm: String, details: [String: AnyObject]) {
+    init(realm: String, details: [String: Any]) {
         self.realm = realm
         self.details = details
     }
@@ -24,7 +24,7 @@ class HelloSwampMessage: SwampMessage {
     
     required init(payload: [Any]) {
         self.realm = payload[0] as! String
-        self.details = payload[1] as! [String: AnyObject]
+        self.details = payload[1] as! [String: Any]
     }
     
     func marshal() -> [Any] {

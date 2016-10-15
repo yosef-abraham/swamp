@@ -10,7 +10,7 @@ class TestSessionDelegate: SwampSessionDelegate {
     var reasonEnded: String? = nil
     var sessionId: Int? = nil
 
-    func swampSessionHandleChallenge(_ authMethod: String, extra: [String : AnyObject]) -> String {
+    func swampSessionHandleChallenge(_ authMethod: String, extra: [String : Any]) -> String {
         fatalError("Should be overriden, if needed")
     }
 
@@ -29,7 +29,7 @@ class CraTestSessionDelegate: TestSessionDelegate {
         self.craSecret = craSecret
     }
 
-    override func swampSessionHandleChallenge(_ authMethod: String, extra: [String : AnyObject]) -> String {
+    override func swampSessionHandleChallenge(_ authMethod: String, extra: [String : Any]) -> String {
         return SwampCraAuthHelper.sign(self.craSecret, challenge: extra["challenge"] as! String)
     }
 }
@@ -39,7 +39,7 @@ class TicketTestSessionDelegate: TestSessionDelegate {
     init(challengeResponse: String) {
         self.challengeResponse = challengeResponse
     }
-    override func swampSessionHandleChallenge(_ authMethod: String, extra: [String : AnyObject]) -> String {
+    override func swampSessionHandleChallenge(_ authMethod: String, extra: [String : Any]) -> String {
         return self.challengeResponse
     }
 
@@ -102,7 +102,7 @@ class CrossbarIntegrationTestsSpec: QuickSpec {
                 context("org.swamp.add") {
                     it("Should return 1+1=2") {
                         waitUntil { done in
-                            session!.call("org.swamp.add", args: [1 as AnyObject, 1 as AnyObject], onSuccess: { details, results, kwResults in
+                            session!.call("org.swamp.add", args: [1, 1], onSuccess: { details, results, kwResults in
                                 expect(results![0] as? Int) == 2
                                 done()
                                 }, onError: {a, b, c, d in})
@@ -111,7 +111,7 @@ class CrossbarIntegrationTestsSpec: QuickSpec {
 
                     it("Should fail with wrong amount of parameters") {
                         waitUntil { done in
-                            session!.call("org.swamp.add", args: [1 as AnyObject], onSuccess: { details, results, kwResults in
+                            session!.call("org.swamp.add", args: [1], onSuccess: { details, results, kwResults in
 
                                 }, onError: { details, error, args, kwargs in
                                     done()
@@ -123,7 +123,7 @@ class CrossbarIntegrationTestsSpec: QuickSpec {
                 context("org.swamp.echo") {
                     it("Should echo 1,1") {
                         waitUntil { done in
-                            session!.call("org.swamp.echo", args: [1 as AnyObject, 1 as AnyObject], onSuccess: { details, results, kwResults in
+                            session!.call("org.swamp.echo", args: [1, 1], onSuccess: { details, results, kwResults in
                                 expect(results![0] as? [Int]) == [1, 1]
                                 done()
                             }, onError: { details, error, args, kwargs in
@@ -164,14 +164,14 @@ class CrossbarIntegrationTestsSpec: QuickSpec {
 
                 context("Unacknowledged publication") {
                     it("Should just run silently") {
-                        session!.publish("org.swamp.some_publication", args: [1 as AnyObject, 2 as AnyObject, 3 as AnyObject])
+                        session!.publish("org.swamp.some_publication", args: [1, 2, 3])
                     }
                 }
 
                 context("Acknowledged publication") {
                     it("Should succeed") {
                         waitUntil { done in
-                            session!.publish("org.swamp.some_publication", args: [1 as AnyObject, 2 as AnyObject, 3 as AnyObject], onSuccess: {
+                            session!.publish("org.swamp.some_publication", args: [1, 2, 3], onSuccess: {
                                 done()
                             }, onError: { details, error in
                                 print(1)

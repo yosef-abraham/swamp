@@ -13,7 +13,7 @@ open class JSONSwampSerializer: SwampSerializer {
     
     public init() {}
     
-    open func pack(_ data: [AnyObject]) -> Data? {
+    open func pack(_ data: [Any]) -> Data? {
         let json = JSON(data)
         do {
             return try json.rawData()
@@ -23,8 +23,8 @@ open class JSONSwampSerializer: SwampSerializer {
         }
     }
     
-    open func unpack(_ data: Data) -> [AnyObject]? {
+    open func unpack(_ data: Data) -> [Any]? {
         let json = JSON(data: data)
-        return json.arrayObject as [AnyObject]?
+        return json.arrayObject as [Any]?
     }
 }

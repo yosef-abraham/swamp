@@ -12,10 +12,10 @@ import Foundation
 class SubscribeSwampMessage: SwampMessage {
     
     let requestId: Int
-    let options: [String: AnyObject]
+    let options: [String: Any]
     let topic: String
     
-    init(requestId: Int, options: [String: AnyObject], topic: String) {
+    init(requestId: Int, options: [String: Any], topic: String) {
         self.requestId = requestId
         self.options = options
         self.topic = topic
@@ -24,7 +24,7 @@ class SubscribeSwampMessage: SwampMessage {
     // MARK: SwampMessage protocol
     required init(payload: [Any]) {
         self.requestId = payload[0] as! Int
-        self.options = payload[1] as! [String: AnyObject]
+        self.options = payload[1] as! [String: Any]
         self.topic = payload[2] as! String
     }
     

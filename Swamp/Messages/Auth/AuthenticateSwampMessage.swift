@@ -13,7 +13,7 @@ import SwiftyJSON
 class AuthenticateSwampMessage: SwampMessage {
     
     let signature: String
-    let extra: [String: AnyObject]
+    let extra: [String: Any]
     
     init(signature: String, extra: [String: AnyObject]) {
         self.signature = signature
@@ -24,7 +24,7 @@ class AuthenticateSwampMessage: SwampMessage {
     
     required init(payload: [Any]) {
         self.signature  = payload[0] as! String
-        self.extra = payload[1] as! [String: AnyObject]
+        self.extra = payload[1] as! [String: Any]
     }
     
     func marshal() -> [Any] {
