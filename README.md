@@ -3,25 +3,29 @@
 [![Platform](https://img.shields.io/cocoapods/p/Swamp.svg?style=flat)](http://cocoapods.org/pods/Swamp)
 ## Swamp - Swift WAMP implementation
 
-Swamp is a WAMP implementation in Swift 2. (Swift 3 support underway)
+Swamp is a WAMP implementation in Swift.
 
 It currently supports calling remote procedures, subscribing on topics, and publishing events. It also supports authentication using ticket & wampcra authentication.
 
-Swamp `0.1.0` utilizes WebSockets as its only available transport, and JSON as its serialization method.
+Swamp utilizes WebSockets as its only available transport, and JSON as its serialization method.
 
 Contributions to support MessagePack & Raw Sockets will be merged gladly!
 
-## Requirements
-iOS 8.0 or OSX 10.9
+## Swift Versions
+
+| Swift Version | Swamp Version   | Requirements         |
+|---------------|-----------------|----------------------|
+| 2.x           | 0.1.x           | OSX 10.9 or iOS 8.0  |
+| 3             | 0.2.0 and above | OSX 10.10 or iOS 8.0 |
 
 ## Installation
 Swamp is available through cocoapods. Add
 
 ```ruby
-pod "Swamp"
+pod 'Swamp', '~> 0.2.0'
 ```
 
-to your Podfile.
+to your Podfile. (use `'~> 0.1.0'` for Swift 2)
 
 ## Usage
 #### Connect to router
@@ -183,10 +187,10 @@ You can also inspect `Example/swamp-crossbar-instance.log` to find out what happ
 4. More generic and comfortable API
 5. Advanced profile features
 
-## Authors
+## Contributions
 
-- Yossi Abraham, yo.ab@outlook.com.
-- You?
+- Yossi Abraham, yo.ab@outlook.com (Author)
+- Dany Sousa, @danysousa (Swift 3 support)
 
 ## License
 
