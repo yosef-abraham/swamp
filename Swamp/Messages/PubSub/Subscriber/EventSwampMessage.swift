@@ -29,7 +29,7 @@ class EventSwampMessage: SwampMessage {
     
     // MARK: SwampMessage protocol
     
-    required init(payload: [AnyObject]) {
+    required init(payload: [Any]) {
         self.subscription = payload[0] as! Int
         self.publication = payload[1] as! Int
         self.details = payload[2] as! [String: AnyObject]
@@ -37,8 +37,8 @@ class EventSwampMessage: SwampMessage {
         self.kwargs = payload[safe: 4] as? [String: AnyObject]
     }
     
-    func marshal() -> [AnyObject] {
-        var marshalled: [AnyObject] = [SwampMessages.Event.rawValue, self.subscription, self.publication, self.details]
+    func marshal() -> [Any] {
+        var marshalled: [Any] = [SwampMessages.event.rawValue, self.subscription, self.publication, self.details]
         
         if let args = self.args {
             marshalled.append(args)

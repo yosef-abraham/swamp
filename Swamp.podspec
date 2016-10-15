@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'Swamp'
-  s.version          = '0.1.0'
+  s.version          = '0.1.2'
   s.summary          = 'WAMP protocol implementation in swift'
 
 # This description is used to generate tags and improve search results.
@@ -24,20 +24,20 @@ the WAMP WebSocket subprotocol implemented purely in Swift using Starscream, Swi
   s.homepage         = 'https://github.com/iscriptology/Swamp'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
   s.author           = { 'Yossi Abraham' => 'yo.ab@outlook.com' }
-  s.source           = { :git => 'https://github.com/iscriptology/Swamp.git', :tag => s.version.to_s }
+  s.source           = { :git => 'https://github.com/danysousa/swamp.git', :tag => s.version.to_s }
 
   s.ios.deployment_target = '8.0'
-  s.osx.deployment_target = '10.9'
+  s.osx.deployment_target = '10.10'
 
   s.source_files = 'Swamp/**/*'
-  
+
   # s.resource_bundles = {
   #   'Swamp' => ['Swamp/Assets/*.png']
   # }
 
   # s.public_header_files = 'Pod/Classes/**/*.h'
   # s.frameworks = 'UIKit', 'MapKit'
-  s.dependency 'SwiftyJSON', '~>2.3.1'
-  s.dependency 'Starscream', '~>1.1.3'
-  s.dependency 'CryptoSwift', '~>0.5.2'
+  s.dependency 'SwiftyJSON', '~>3.1.0'
+  s.dependency 'Starscream', '~>2.0.0'
+  s.dependency 'CryptoSwift', '~>0.6.0'
 end

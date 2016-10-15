@@ -27,25 +27,25 @@ class YieldSwampMessage: SwampMessage {
     
     // MARK: SwampMessage protocol
     
-    required init(payload: [AnyObject]) {
+    required init(payload: [Any]) {
         self.requestId = payload[0] as! Int
         self.options = payload[1] as! [String: AnyObject]
         self.args = payload[safe: 2] as? [AnyObject]
         self.kwargs = payload[safe: 3] as? [String: AnyObject]
     }
     
-    func marshal() -> [AnyObject] {
-        var marshalled: [AnyObject] = [SwampMessages.Yield.rawValue, self.requestId, self.options]
+    func marshal() -> [Any] {
+        var marshalled: [Any] = [SwampMessages.yield.rawValue, self.requestId, self.options]
         
         if let args = self.args {
-            marshalled.append(args)
+            marshalled.append(args as AnyObject)
             if let kwargs = self.kwargs {
-                marshalled.append(kwargs)
+                marshalled.append(kwargs as AnyObject)
             }
         } else {
             if let kwargs = self.kwargs {
                 marshalled.append([])
-                marshalled.append(kwargs)
+                marshalled.append(kwargs as AnyObject)
             }
         }
         

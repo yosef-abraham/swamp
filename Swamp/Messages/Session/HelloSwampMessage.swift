@@ -13,21 +13,21 @@ import SwiftyJSON
 class HelloSwampMessage: SwampMessage {
     
     let realm: String
-    let details: [String: AnyObject]
+    let details: [String: Any]
     
-    init(realm: String, details: [String: AnyObject]) {
+    init(realm: String, details: [String: Any]) {
         self.realm = realm
         self.details = details
     }
     
     // MARK: SwampMessage protocol
     
-    required init(payload: [AnyObject]) {
+    required init(payload: [Any]) {
         self.realm = payload[0] as! String
-        self.details = payload[1] as! [String: AnyObject]
+        self.details = payload[1] as! [String: Any]
     }
     
-    func marshal() -> [AnyObject] {
-        return [SwampMessages.Hello.rawValue, self.realm, self.details]
+    func marshal() -> [Any] {
+        return [SwampMessages.hello.rawValue, self.realm, self.details]
     }
 }

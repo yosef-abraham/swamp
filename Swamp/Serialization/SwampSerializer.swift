@@ -9,6 +9,6 @@
 import Foundation
 
 public protocol SwampSerializer {
-    func pack(data: [AnyObject]) -> NSData?
-    func unpack(data: NSData) -> [AnyObject]?
+    func pack(_ data: [Any]) -> Data?
+    func unpack(_ data: Data) -> [Any]?
 }

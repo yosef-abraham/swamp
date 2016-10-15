@@ -12,9 +12,10 @@
     import Darwin
 #endif
 
-public protocol Cryptors {
-    associatedtype EncryptorType: UpdatableCryptor
-    associatedtype DecryptorType: UpdatableCryptor
+/// Worker cryptor/decryptor of `Updatable` types
+public protocol Cryptors: class {
+    associatedtype EncryptorType: Updatable
+    associatedtype DecryptorType: Updatable
 
     /// Cryptor suitable for encryption
     func makeEncryptor() -> EncryptorType
@@ -23,11 +24,12 @@ public protocol Cryptors {
     func makeDecryptor() -> DecryptorType
 
     /// Generate array of random bytes. Helper function.
-    static func randomIV(blockSize:Int) -> Array<UInt8>
+    @available(*, deprecated: 0.6.0, message: "Use system random generator")
+    static func randomIV(_ blockSize:Int) -> Array<UInt8>
 }
 
 extension Cryptors {
-    static public func randomIV(blockSize:Int) -> Array<UInt8> {
+    static public func randomIV(_ blockSize:Int) -> Array<UInt8> {
         var randomIV:Array<UInt8> = Array<UInt8>();
         for _ in 0..<blockSize {
             randomIV.append(UInt8(truncatingBitPattern: cs_arc4random_uniform(256)));
