@@ -2578,9 +2578,9 @@
 			};
 			name = Release;
 		};
-		083E6364ECF8878A5E1BF8DBF4273815 /* Release */ = {
+		082447C07ACF137BB3DE4FE83F31A2DE /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = A1921CDACCA7F9E1DBF6CF26642D14EC /* Swamp-OSX.xcconfig */;
+			baseConfigurationReference = E0DDEDADEE09D1392C279B97017E6AB9 /* Quick-OSX.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "-";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
@@ -2596,14 +2596,14 @@
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				FRAMEWORK_VERSION = A;
 				GCC_NO_COMMON_BLOCKS = YES;
-				GCC_PREFIX_HEADER = "Target Support Files/Swamp-OSX/Swamp-OSX-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/Swamp-OSX/Info.plist";
+				GCC_PREFIX_HEADER = "Target Support Files/Quick-OSX/Quick-OSX-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/Quick-OSX/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
-				MACOSX_DEPLOYMENT_TARGET = 10.10;
-				MODULEMAP_FILE = "Target Support Files/Swamp-OSX/Swamp-OSX.modulemap";
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				MODULEMAP_FILE = "Target Support Files/Quick-OSX/Quick-OSX.modulemap";
 				MTL_ENABLE_DEBUG_INFO = NO;
-				PRODUCT_NAME = Swamp;
+				PRODUCT_NAME = Quick;
 				SDKROOT = macosx;
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 3.0;
@@ -2612,9 +2612,9 @@
 			};
 			name = Release;
 		};
-		0DE3B2A6231B2062D6B65D37993F8FD1 /* Release */ = {
+		0FB45A386231CFCAF9763F25BD6AE882 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 939D2AF52BD5CA353E51439408AAE2A7 /* CryptoSwift-OSX.xcconfig */;
+			baseConfigurationReference = DAAAC4E246349F11FE4D6EA84D338422 /* SwiftyJSON-OSX.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "-";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
@@ -2630,14 +2630,14 @@
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				FRAMEWORK_VERSION = A;
 				GCC_NO_COMMON_BLOCKS = YES;
-				GCC_PREFIX_HEADER = "Target Support Files/CryptoSwift-OSX/CryptoSwift-OSX-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/CryptoSwift-OSX/Info.plist";
+				GCC_PREFIX_HEADER = "Target Support Files/SwiftyJSON-OSX/SwiftyJSON-OSX-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/SwiftyJSON-OSX/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.9;
-				MODULEMAP_FILE = "Target Support Files/CryptoSwift-OSX/CryptoSwift-OSX.modulemap";
+				MODULEMAP_FILE = "Target Support Files/SwiftyJSON-OSX/SwiftyJSON-OSX.modulemap";
 				MTL_ENABLE_DEBUG_INFO = NO;
-				PRODUCT_NAME = CryptoSwift;
+				PRODUCT_NAME = SwiftyJSON;
 				SDKROOT = macosx;
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 3.0;
@@ -2683,9 +2683,9 @@
 			};
 			name = Release;
 		};
-		1A8D918B95AFAAD22DC101D31EFA2990 /* Debug */ = {
+		176DE40E6686FF00A8FBC6F0A0EFB817 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = C32A968D97BB8752392E4026DDD8A450 /* Starscream-OSX.xcconfig */;
+			baseConfigurationReference = 47803001C5CD3EEF01E623025204FD86 /* Nimble-OSX.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "-";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
@@ -2693,7 +2693,7 @@
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
-				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
@@ -2701,57 +2701,21 @@
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				FRAMEWORK_VERSION = A;
 				GCC_NO_COMMON_BLOCKS = YES;
-				GCC_PREFIX_HEADER = "Target Support Files/Starscream-OSX/Starscream-OSX-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/Starscream-OSX/Info.plist";
+				GCC_PREFIX_HEADER = "Target Support Files/Nimble-OSX/Nimble-OSX-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/Nimble-OSX/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.10;
-				MODULEMAP_FILE = "Target Support Files/Starscream-OSX/Starscream-OSX.modulemap";
-				MTL_ENABLE_DEBUG_INFO = YES;
-				PRODUCT_NAME = Starscream;
+				MODULEMAP_FILE = "Target Support Files/Nimble-OSX/Nimble-OSX.modulemap";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_NAME = Nimble;
 				SDKROOT = macosx;
 				SKIP_INSTALL = YES;
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
 			};
-			name = Debug;
-		};
-		268CE4A3E638B81F03EA94573F804AA7 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = DAAAC4E246349F11FE4D6EA84D338422 /* SwiftyJSON-OSX.xcconfig */;
-			buildSettings = {
-				CODE_SIGN_IDENTITY = "-";
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 1;
-				DEBUG_INFORMATION_FORMAT = dwarf;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				FRAMEWORK_VERSION = A;
-				GCC_NO_COMMON_BLOCKS = YES;
-				GCC_PREFIX_HEADER = "Target Support Files/SwiftyJSON-OSX/SwiftyJSON-OSX-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/SwiftyJSON-OSX/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
-				MACOSX_DEPLOYMENT_TARGET = 10.9;
-				MODULEMAP_FILE = "Target Support Files/SwiftyJSON-OSX/SwiftyJSON-OSX.modulemap";
-				MTL_ENABLE_DEBUG_INFO = YES;
-				PRODUCT_NAME = SwiftyJSON;
-				SDKROOT = macosx;
-				SKIP_INSTALL = YES;
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 3.0;
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Debug;
+			name = Release;
 		};
 		330042240752B620FB6FFD4621B95823 /* Debug */ = {
 			isa = XCBuildConfiguration;
@@ -2818,9 +2782,9 @@
 			};
 			name = Release;
 		};
-		3BCDB132F9AF669C20B3A1922F96DBB5 /* Debug */ = {
+		3FA5A0A8A89539F61A304BD1FB12DFED /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = A1921CDACCA7F9E1DBF6CF26642D14EC /* Swamp-OSX.xcconfig */;
+			baseConfigurationReference = C32A968D97BB8752392E4026DDD8A450 /* Starscream-OSX.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "-";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
@@ -2836,14 +2800,14 @@
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				FRAMEWORK_VERSION = A;
 				GCC_NO_COMMON_BLOCKS = YES;
-				GCC_PREFIX_HEADER = "Target Support Files/Swamp-OSX/Swamp-OSX-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/Swamp-OSX/Info.plist";
+				GCC_PREFIX_HEADER = "Target Support Files/Starscream-OSX/Starscream-OSX-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/Starscream-OSX/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.10;
-				MODULEMAP_FILE = "Target Support Files/Swamp-OSX/Swamp-OSX.modulemap";
+				MODULEMAP_FILE = "Target Support Files/Starscream-OSX/Starscream-OSX.modulemap";
 				MTL_ENABLE_DEBUG_INFO = YES;
-				PRODUCT_NAME = Swamp;
+				PRODUCT_NAME = Starscream;
 				SDKROOT = macosx;
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -2853,9 +2817,9 @@
 			};
 			name = Debug;
 		};
-		50836959BC02EDA1B112EBD593C53F41 /* Debug */ = {
+		508686E4BA1FF6002D3A98F508D65A60 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 47803001C5CD3EEF01E623025204FD86 /* Nimble-OSX.xcconfig */;
+			baseConfigurationReference = C32A968D97BB8752392E4026DDD8A450 /* Starscream-OSX.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "-";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
@@ -2863,7 +2827,7 @@
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
-				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
@@ -2871,22 +2835,21 @@
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				FRAMEWORK_VERSION = A;
 				GCC_NO_COMMON_BLOCKS = YES;
-				GCC_PREFIX_HEADER = "Target Support Files/Nimble-OSX/Nimble-OSX-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/Nimble-OSX/Info.plist";
+				GCC_PREFIX_HEADER = "Target Support Files/Starscream-OSX/Starscream-OSX-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/Starscream-OSX/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.10;
-				MODULEMAP_FILE = "Target Support Files/Nimble-OSX/Nimble-OSX.modulemap";
-				MTL_ENABLE_DEBUG_INFO = YES;
-				PRODUCT_NAME = Nimble;
+				MODULEMAP_FILE = "Target Support Files/Starscream-OSX/Starscream-OSX.modulemap";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_NAME = Starscream;
 				SDKROOT = macosx;
 				SKIP_INSTALL = YES;
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
 			};
-			name = Debug;
+			name = Release;
 		};
 		67FDCFE3B8A0089C0279AFD6D72BEC53 /* Debug */ = {
 			isa = XCBuildConfiguration;
@@ -2924,145 +2887,7 @@
 			};
 			name = Debug;
 		};
-		685D287CF3E57EB7849C2A5CD1147311 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = E0DDEDADEE09D1392C279B97017E6AB9 /* Quick-OSX.xcconfig */;
-			buildSettings = {
-				CODE_SIGN_IDENTITY = "-";
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 1;
-				DEBUG_INFORMATION_FORMAT = dwarf;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				FRAMEWORK_VERSION = A;
-				GCC_NO_COMMON_BLOCKS = YES;
-				GCC_PREFIX_HEADER = "Target Support Files/Quick-OSX/Quick-OSX-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/Quick-OSX/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
-				MACOSX_DEPLOYMENT_TARGET = 10.9;
-				MODULEMAP_FILE = "Target Support Files/Quick-OSX/Quick-OSX.modulemap";
-				MTL_ENABLE_DEBUG_INFO = YES;
-				PRODUCT_NAME = Quick;
-				SDKROOT = macosx;
-				SKIP_INSTALL = YES;
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 3.0;
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Debug;
-		};
-		69002227F5BC2ABCEB25FBFA2B223DC2 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 939D2AF52BD5CA353E51439408AAE2A7 /* CryptoSwift-OSX.xcconfig */;
-			buildSettings = {
-				CODE_SIGN_IDENTITY = "-";
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 1;
-				DEBUG_INFORMATION_FORMAT = dwarf;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				FRAMEWORK_VERSION = A;
-				GCC_NO_COMMON_BLOCKS = YES;
-				GCC_PREFIX_HEADER = "Target Support Files/CryptoSwift-OSX/CryptoSwift-OSX-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/CryptoSwift-OSX/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
-				MACOSX_DEPLOYMENT_TARGET = 10.9;
-				MODULEMAP_FILE = "Target Support Files/CryptoSwift-OSX/CryptoSwift-OSX.modulemap";
-				MTL_ENABLE_DEBUG_INFO = YES;
-				PRODUCT_NAME = CryptoSwift;
-				SDKROOT = macosx;
-				SKIP_INSTALL = YES;
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 3.0;
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Debug;
-		};
-		6E0F9BEBFF825587762C2F41D0BEBB0E /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = C32A968D97BB8752392E4026DDD8A450 /* Starscream-OSX.xcconfig */;
-			buildSettings = {
-				CODE_SIGN_IDENTITY = "-";
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 1;
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				FRAMEWORK_VERSION = A;
-				GCC_NO_COMMON_BLOCKS = YES;
-				GCC_PREFIX_HEADER = "Target Support Files/Starscream-OSX/Starscream-OSX-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/Starscream-OSX/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
-				MACOSX_DEPLOYMENT_TARGET = 10.10;
-				MODULEMAP_FILE = "Target Support Files/Starscream-OSX/Starscream-OSX.modulemap";
-				MTL_ENABLE_DEBUG_INFO = NO;
-				PRODUCT_NAME = Starscream;
-				SDKROOT = macosx;
-				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 3.0;
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Release;
-		};
-		6E1CD5063AFDC211ED999BCC9D4E1164 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = E0DDEDADEE09D1392C279B97017E6AB9 /* Quick-OSX.xcconfig */;
-			buildSettings = {
-				CODE_SIGN_IDENTITY = "-";
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 1;
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				FRAMEWORK_VERSION = A;
-				GCC_NO_COMMON_BLOCKS = YES;
-				GCC_PREFIX_HEADER = "Target Support Files/Quick-OSX/Quick-OSX-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/Quick-OSX/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
-				MACOSX_DEPLOYMENT_TARGET = 10.9;
-				MODULEMAP_FILE = "Target Support Files/Quick-OSX/Quick-OSX.modulemap";
-				MTL_ENABLE_DEBUG_INFO = NO;
-				PRODUCT_NAME = Quick;
-				SDKROOT = macosx;
-				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 3.0;
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Release;
-		};
-		80127EACDC741210C2AFCD53198B0392 /* Release */ = {
+		6BD2889C983064C4607643943E4F9347 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 47803001C5CD3EEF01E623025204FD86 /* Nimble-OSX.xcconfig */;
 			buildSettings = {
@@ -3072,7 +2897,7 @@
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEBUG_INFORMATION_FORMAT = dwarf;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
@@ -3086,15 +2911,16 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				MODULEMAP_FILE = "Target Support Files/Nimble-OSX/Nimble-OSX.modulemap";
-				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_ENABLE_DEBUG_INFO = YES;
 				PRODUCT_NAME = Nimble;
 				SDKROOT = macosx;
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
 			};
-			name = Release;
+			name = Debug;
 		};
 		859ACE7CA6B6B5AAB33D38C85EC5421B /* Release */ = {
 			isa = XCBuildConfiguration;
@@ -3164,6 +2990,41 @@
 			};
 			name = Debug;
 		};
+		892072957DA4A8C2AA194CA495DAF68C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = DAAAC4E246349F11FE4D6EA84D338422 /* SwiftyJSON-OSX.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "-";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				FRAMEWORK_VERSION = A;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/SwiftyJSON-OSX/SwiftyJSON-OSX-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/SwiftyJSON-OSX/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				MODULEMAP_FILE = "Target Support Files/SwiftyJSON-OSX/SwiftyJSON-OSX.modulemap";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_NAME = SwiftyJSON;
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
 		8DD423BFF75E71A0C63AB13CD6A2F716 /* Release */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 1FBC22BC0703BA80F3ADABC1F4C557A5 /* CryptoSwift-iOS.xcconfig */;
@@ -3195,6 +3056,76 @@
 				VERSION_INFO_PREFIX = "";
 			};
 			name = Release;
+		};
+		9639EEA5D0A6099F91AB56E2BA21C093 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 939D2AF52BD5CA353E51439408AAE2A7 /* CryptoSwift-OSX.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "-";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				FRAMEWORK_VERSION = A;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/CryptoSwift-OSX/CryptoSwift-OSX-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/CryptoSwift-OSX/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				MODULEMAP_FILE = "Target Support Files/CryptoSwift-OSX/CryptoSwift-OSX.modulemap";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_NAME = CryptoSwift;
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		9CF36050A810981DB7FA3AAE17BC65BB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = E0DDEDADEE09D1392C279B97017E6AB9 /* Quick-OSX.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "-";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				FRAMEWORK_VERSION = A;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/Quick-OSX/Quick-OSX-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/Quick-OSX/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				MODULEMAP_FILE = "Target Support Files/Quick-OSX/Quick-OSX.modulemap";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_NAME = Quick;
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
 		};
 		A27048865BD815FD729E9164D215E47E /* Debug */ = {
 			isa = XCBuildConfiguration;
@@ -3347,9 +3278,9 @@
 			};
 			name = Release;
 		};
-		B70E8E5A766676FC2E485F2B0E2B315F /* Release */ = {
+		BCDCC1C4B3C3E35C4A8BA019A4193DD6 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = DAAAC4E246349F11FE4D6EA84D338422 /* SwiftyJSON-OSX.xcconfig */;
+			baseConfigurationReference = 939D2AF52BD5CA353E51439408AAE2A7 /* CryptoSwift-OSX.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "-";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
@@ -3365,14 +3296,14 @@
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				FRAMEWORK_VERSION = A;
 				GCC_NO_COMMON_BLOCKS = YES;
-				GCC_PREFIX_HEADER = "Target Support Files/SwiftyJSON-OSX/SwiftyJSON-OSX-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/SwiftyJSON-OSX/Info.plist";
+				GCC_PREFIX_HEADER = "Target Support Files/CryptoSwift-OSX/CryptoSwift-OSX-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/CryptoSwift-OSX/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.9;
-				MODULEMAP_FILE = "Target Support Files/SwiftyJSON-OSX/SwiftyJSON-OSX.modulemap";
+				MODULEMAP_FILE = "Target Support Files/CryptoSwift-OSX/CryptoSwift-OSX.modulemap";
 				MTL_ENABLE_DEBUG_INFO = NO;
-				PRODUCT_NAME = SwiftyJSON;
+				PRODUCT_NAME = CryptoSwift;
 				SDKROOT = macosx;
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 3.0;
@@ -3582,14 +3513,83 @@
 			};
 			name = Debug;
 		};
+		F762DA7DB761F6FD371E1109A6901AF0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = A1921CDACCA7F9E1DBF6CF26642D14EC /* Swamp-OSX.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "-";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				FRAMEWORK_VERSION = A;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/Swamp-OSX/Swamp-OSX-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/Swamp-OSX/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				MODULEMAP_FILE = "Target Support Files/Swamp-OSX/Swamp-OSX.modulemap";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_NAME = Swamp;
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		FD3782C3C4FA33571B9D39033F22BFD2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = A1921CDACCA7F9E1DBF6CF26642D14EC /* Swamp-OSX.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "-";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				FRAMEWORK_VERSION = A;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/Swamp-OSX/Swamp-OSX-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/Swamp-OSX/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				MODULEMAP_FILE = "Target Support Files/Swamp-OSX/Swamp-OSX.modulemap";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_NAME = Swamp;
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
 		0420C263C1133B010AC72D2C33D6E122 /* Build configuration list for PBXNativeTarget "Nimble-OSX" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				50836959BC02EDA1B112EBD593C53F41 /* Debug */,
-				80127EACDC741210C2AFCD53198B0392 /* Release */,
+				6BD2889C983064C4607643943E4F9347 /* Debug */,
+				176DE40E6686FF00A8FBC6F0A0EFB817 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -3606,8 +3606,8 @@
 		6C2577210EF5110893C592865418AD7E /* Build configuration list for PBXNativeTarget "Quick-OSX" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				685D287CF3E57EB7849C2A5CD1147311 /* Debug */,
-				6E1CD5063AFDC211ED999BCC9D4E1164 /* Release */,
+				9CF36050A810981DB7FA3AAE17BC65BB /* Debug */,
+				082447C07ACF137BB3DE4FE83F31A2DE /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -3624,8 +3624,8 @@
 		92A6078185E751163137F557572E0DA8 /* Build configuration list for PBXNativeTarget "Starscream-OSX" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				1A8D918B95AFAAD22DC101D31EFA2990 /* Debug */,
-				6E0F9BEBFF825587762C2F41D0BEBB0E /* Release */,
+				3FA5A0A8A89539F61A304BD1FB12DFED /* Debug */,
+				508686E4BA1FF6002D3A98F508D65A60 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -3651,8 +3651,8 @@
 		9D847066A412327C25634C06B658E347 /* Build configuration list for PBXNativeTarget "Swamp-OSX" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				3BCDB132F9AF669C20B3A1922F96DBB5 /* Debug */,
-				083E6364ECF8878A5E1BF8DBF4273815 /* Release */,
+				F762DA7DB761F6FD371E1109A6901AF0 /* Debug */,
+				FD3782C3C4FA33571B9D39033F22BFD2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -3678,8 +3678,8 @@
 		A5EC9D4616C331FA4B1688B9BA644B69 /* Build configuration list for PBXNativeTarget "SwiftyJSON-OSX" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				268CE4A3E638B81F03EA94573F804AA7 /* Debug */,
-				B70E8E5A766676FC2E485F2B0E2B315F /* Release */,
+				892072957DA4A8C2AA194CA495DAF68C /* Debug */,
+				0FB45A386231CFCAF9763F25BD6AE882 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -3705,8 +3705,8 @@
 		CEB6FD5CF38FB7E0F12ED2128BAAD9DF /* Build configuration list for PBXNativeTarget "CryptoSwift-OSX" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				69002227F5BC2ABCEB25FBFA2B223DC2 /* Debug */,
-				0DE3B2A6231B2062D6B65D37993F8FD1 /* Release */,
+				9639EEA5D0A6099F91AB56E2BA21C093 /* Debug */,
+				BCDCC1C4B3C3E35C4A8BA019A4193DD6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

@@ -28,11 +28,11 @@ public typealias ErrorPublishCallback = (_ details: [String: Any], _ error: Stri
 // TODO: Expose only an interface (like Cancellable) to user
 open class Subscription {
     fileprivate let session: SwampSession
-    internal let subscription: Int
+    internal let subscription: NSNumber
     internal let eventCallback: EventCallback
     fileprivate var isActive: Bool = true
 
-    internal init(session: SwampSession, subscription: Int, onEvent: @escaping EventCallback) {
+    internal init(session: SwampSession, subscription: NSNumber, onEvent: @escaping EventCallback) {
         self.session = session
         self.subscription = subscription
         self.eventCallback = onEvent
@@ -57,7 +57,7 @@ open class Subscription {
 
 public protocol SwampSessionDelegate {
     func swampSessionHandleChallenge(_ authMethod: String, extra: [String: Any]) -> String
-    func swampSessionConnected(_ session: SwampSession, sessionId: Int)
+    func swampSessionConnected(_ session: SwampSession, sessionId: NSNumber)
     func swampSessionEnded(_ reason: String)
 }
 
@@ -85,7 +85,7 @@ open class SwampSession: SwampTransportDelegate {
 
     // MARK: Session state
     fileprivate var serializer: SwampSerializer?
-    fileprivate var sessionId: Int?
+    fileprivate var sessionId: NSNumber?
     fileprivate var routerSupportedRoles: [SwampRole]?
 
     // MARK: Call role
@@ -96,9 +96,9 @@ open class SwampSession: SwampTransportDelegate {
     //                              requestId
     fileprivate var subscribeRequests: [Int: (callback: SubscribeCallback, errorCallback: ErrorSubscribeCallback, eventCallback: EventCallback)] = [:]
     //                          subscription
-    fileprivate var subscriptions: [Int: Subscription] = [:]
+    fileprivate var subscriptions: [NSNumber: Subscription] = [:]
     //                                requestId
-    fileprivate var unsubscribeRequests: [Int: (subscription: Int, callback: UnsubscribeCallback, errorCallback: ErrorUnsubscribeCallback)] = [:]
+    fileprivate var unsubscribeRequests: [Int: (subscription: NSNumber, callback: UnsubscribeCallback, errorCallback: ErrorUnsubscribeCallback)] = [:]
 
     // MARK: Publisher role
     //                            requestId
@@ -155,7 +155,10 @@ open class SwampSession: SwampTransportDelegate {
     }
 
     // Internal because only a Subscription object can call this
-    internal func unsubscribe(_ subscription: Int, onSuccess: @escaping UnsubscribeCallback, onError: @escaping ErrorUnsubscribeCallback) {
+    internal func unsubscribe(_ subscription: NSNumber,
+                              onSuccess: @escaping UnsubscribeCallback,
+                              onError: @escaping ErrorUnsubscribeCallback) {
+
         let unsubscribeRequestId = self.generateRequestId()
         // Tell router to unsubscribe me from some subscription
         self.sendMessage(UnsubscribeSwampMessage(requestId: unsubscribeRequestId, subscription: subscription))

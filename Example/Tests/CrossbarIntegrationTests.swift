@@ -8,7 +8,7 @@ import Swamp
 class TestSessionDelegate: SwampSessionDelegate {
     // For testing purposes
     var reasonEnded: String? = nil
-    var sessionId: Int? = nil
+    var sessionId: NSNumber? = nil
 
     func swampSessionHandleChallenge(_ authMethod: String, extra: [String : Any]) -> String {
         fatalError("Should be overriden, if needed")
@@ -18,7 +18,7 @@ class TestSessionDelegate: SwampSessionDelegate {
         self.reasonEnded = reason
     }
 
-    func swampSessionConnected(_ session: SwampSession, sessionId: Int) {
+    func swampSessionConnected(_ session: SwampSession, sessionId: NSNumber) {
         self.sessionId = sessionId
     }
 }
