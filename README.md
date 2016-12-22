@@ -19,13 +19,31 @@ Contributions to support MessagePack & Raw Sockets will be merged gladly!
 | 3             | 0.2.0 and above | OSX 10.10 or iOS 8.0 |
 
 ## Installation
-Swamp is available through cocoapods. Add
+### cocoapods
+To use Swamp through cocoapods, add
 
 ```ruby
 pod 'Swamp', '~> 0.2.0'
 ```
 
 to your Podfile. (use `'~> 0.1.0'` for Swift 2)
+
+### Swift Package Manager
+To use Swamp through Swift Package Manager, create a Package.swift file:
+
+```swift
+import PackageDescription
+
+let package = Package(
+    name: "SwampTestProject",
+    targets: [],
+    dependencies: [
+        .Package(url: "https://github.com/RadarBee/swamp.git", majorVersion: 0, minor: 2)
+    ]
+)
+```
+
+`$ swift build`
 
 ## Usage
 #### Connect to router
