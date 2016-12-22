@@ -1,6 +1,7 @@
 [![Version](https://img.shields.io/cocoapods/v/Swamp.svg?style=flat)](http://cocoapods.org/pods/Swamp)
 [![License](https://img.shields.io/cocoapods/l/Swamp.svg?style=flat)](http://cocoapods.org/pods/Swamp)
 [![Platform](https://img.shields.io/cocoapods/p/Swamp.svg?style=flat)](http://cocoapods.org/pods/Swamp)
+[![Swift Package Manager compatible](https://img.shields.io/badge/Swift%20Package%20Manager-compatible-brightgreen.svg)](https://github.com/apple/swift-package-manager)
 ## Swamp - Swift WAMP implementation
 
 Swamp is a WAMP implementation in Swift.
