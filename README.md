@@ -209,7 +209,8 @@ You can also inspect `Example/swamp-crossbar-instance.log` to find out what happ
 ## Contributions
 
 - Yossi Abraham, yo.ab@outlook.com (Author)
-- Dany Sousa, @danysousa (Swift 3 support)
+- Dany Sousa, @danysousa (Swift 3 support
+- Kevin Lanik, @MPKevin (Swift Package Manager support)
 
 ## License
 
