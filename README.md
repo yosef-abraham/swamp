@@ -83,13 +83,13 @@ Implement the following methods:
  * `reason` is usually a WAMP-domain error, but it can also be a textual description of WTF just happened 
 
 #### Let's get the shit started!
-* **General note: Lots of callback functions receive args-kwargs pairs, check your other client implementaion to see which of them is utilized, and act accordingly.**
+* **General note: Lots of callback functions receive args-kwargs pairs, check your other client implementation to see which of them is utilized, and act accordingly.**
 
 ##### Calling remote procedures
 Calling may fire two callbacks:
 
 * `onSuccess` - if calling has completed without errors.
-* `onError` - If the call has failed. (Either in router or in peer client.)
+* `onError` - if the call has failed. (Either in router or in peer client.)
 
 ###### Signature
 ```swift
