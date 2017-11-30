@@ -1,6 +1,0 @@
-framework module CryptoSwift {
-  umbrella header "CryptoSwift-OSX-umbrella.h"
-
-  export *
-  module * { export * }
-}

@@ -26,8 +26,8 @@ the WAMP WebSocket subprotocol implemented purely in Swift using Starscream, Swi
   s.author           = { 'Yossi Abraham' => 'yo.ab@outlook.com' }
   s.source           = { :git => 'https://github.com/iscriptology/Swamp.git', :tag => s.version.to_s }
 
-  s.ios.deployment_target = '8.0'
-  s.osx.deployment_target = '10.10'
+  s.ios.deployment_target = '10.1'
+  s.osx.deployment_target = '10.11'
 
   s.source_files = 'Swamp/**/*'
 
@@ -37,7 +37,7 @@ the WAMP WebSocket subprotocol implemented purely in Swift using Starscream, Swi
 
   # s.public_header_files = 'Pod/Classes/**/*.h'
   # s.frameworks = 'UIKit', 'MapKit'
-  s.dependency 'SwiftyJSON', '~>3.1.0'
-  s.dependency 'Starscream', '~>2.0.0'
-  s.dependency 'CryptoSwift', '~>0.6.0'
+  s.dependency 'SwiftyJSON'
+  s.dependency 'Starscream'
+  s.dependency 'CryptoSwift'
 end

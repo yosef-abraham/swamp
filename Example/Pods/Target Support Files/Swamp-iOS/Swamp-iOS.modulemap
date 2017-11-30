@@ -1,6 +1,0 @@
-framework module Swamp {
-  umbrella header "Swamp-iOS-umbrella.h"
-
-  export *
-  module * { export * }
-}

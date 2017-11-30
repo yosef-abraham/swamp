@@ -2,37 +2,45 @@
 //  HMAC.swift
 //  CryptoSwift
 //
-//  Created by Marcin Krzyzanowski on 13/01/15.
-//  Copyright (c) 2015 Marcin Krzyzanowski. All rights reserved.
+//  Copyright (C) 2014-2017 Marcin Krzyżanowski <marcin@krzyzanowskim.com>
+//  This software is provided 'as-is', without any express or implied warranty.
+//
+//  In no event will the authors be held liable for any damages arising from the use of this software.
+//
+//  Permission is granted to anyone to use this software for any purpose,including commercial applications, and to alter it and redistribute it freely, subject to the following restrictions:
+//
+//  - The origin of this software must not be misrepresented; you must not claim that you wrote the original software. If you use this software in a product, an acknowledgment in the product documentation is required.
+//  - Altered source versions must be plainly marked as such, and must not be misrepresented as being the original software.
+//  - This notice may not be removed or altered from any source or binary distribution.
 //
 
-final public class HMAC: Authenticator {
+public final class HMAC: Authenticator {
 
     public enum Error: Swift.Error {
         case authenticateError
         case invalidInput
     }
-    
+
     public enum Variant {
         case sha1, sha256, sha384, sha512, md5
-        
-        var digestSize:Int {
-            switch (self) {
+
+        var digestLength: Int {
+            switch self {
             case .sha1:
-                return SHA1.digestSize
+                return SHA1.digestLength
             case .sha256:
-                return SHA2.Variant.sha256.digestSize
+                return SHA2.Variant.sha256.digestLength
             case .sha384:
-                return SHA2.Variant.sha384.digestSize
+                return SHA2.Variant.sha384.digestLength
             case .sha512:
-                return SHA2.Variant.sha512.digestSize
+                return SHA2.Variant.sha512.digestLength
             case .md5:
-                return MD5.digestSize
+                return MD5.digestLength
             }
         }
 
-        func calculateHash(_ bytes:Array<UInt8>) -> Array<UInt8>? {
-            switch (self) {
+        func calculateHash(_ bytes: Array<UInt8>) -> Array<UInt8>? {
+            switch self {
             case .sha1:
                 return Digest.sha1(bytes)
             case .sha256:
@@ -45,7 +53,7 @@ final public class HMAC: Authenticator {
                 return Digest.md5(bytes)
             }
         }
-        
+
         func blockSize() -> Int {
             switch self {
             case .md5:
@@ -57,11 +65,11 @@ final public class HMAC: Authenticator {
             }
         }
     }
-    
-    var key:Array<UInt8>
-    let variant:Variant
 
-    public init (key: Array<UInt8>, variant:HMAC.Variant = .md5) {
+    var key: Array<UInt8>
+    let variant: Variant
+
+    public init(key: Array<UInt8>, variant: HMAC.Variant = .md5) {
         self.variant = variant
         self.key = key
 
@@ -76,9 +84,9 @@ final public class HMAC: Authenticator {
         }
     }
 
-    //MARK: Authenticator
+    // MARK: Authenticator
 
-    public func authenticate(_ bytes:Array<UInt8>) throws -> Array<UInt8> {
+    public func authenticate(_ bytes: Array<UInt8>) throws -> Array<UInt8> {
         var opad = Array<UInt8>(repeating: 0x5c, count: variant.blockSize())
         for idx in key.indices {
             opad[idx] = key[idx] ^ opad[idx]
@@ -89,8 +97,7 @@ final public class HMAC: Authenticator {
         }
 
         guard let ipadAndMessageHash = variant.calculateHash(ipad + bytes),
-              let result = variant.calculateHash(opad + ipadAndMessageHash) else
-        {
+            let result = variant.calculateHash(opad + ipadAndMessageHash) else {
             throw Error.authenticateError
         }
 

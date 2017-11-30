@@ -74,7 +74,7 @@ open class SwampSession: SwampTransportDelegate {
 
     // MARK: Members
     fileprivate let realm: String
-    fileprivate let transport: SwampTransport
+    fileprivate var transport: SwampTransport
     fileprivate let authmethods: [String]?
     fileprivate let authid: String?
     fileprivate let authrole: String?

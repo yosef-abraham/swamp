@@ -10,7 +10,7 @@ import Foundation
 import Starscream
 
 open class WebSocketSwampTransport: SwampTransport, WebSocketDelegate {
-    
+
     enum WebsocketMode {
         case binary, text
     }
@@ -47,23 +47,24 @@ open class WebSocketSwampTransport: SwampTransport, WebSocketDelegate {
     }
     
     // MARK: WebSocketDelegate
-    
-    open func websocketDidConnect(socket: WebSocket) {
+
+    public func websocketDidConnect(socket: WebSocketClient) {
         // TODO: Check which serializer is supported by the server, and choose self.mode and serializer
         delegate?.swampTransportDidConnectWithSerializer(JSONSwampSerializer())
     }
-    
-    open func websocketDidDisconnect(socket: WebSocket, error: NSError?) {
+
+    public func websocketDidDisconnect(socket: WebSocketClient, error: Error?) {
+        guard let error = error as NSError? else { return }
         delegate?.swampTransportDidDisconnect(error, reason: self.disconnectionReason)
     }
-    
-    open func websocketDidReceiveMessage(socket: WebSocket, text: String) {
+
+    public func websocketDidReceiveMessage(socket: WebSocketClient, text: String) {
         if let data = text.data(using: String.Encoding.utf8) {
             self.websocketDidReceiveData(socket: socket, data: data)
         }
     }
-    
-    open func websocketDidReceiveData(socket: WebSocket, data: Data) {
+
+    public func websocketDidReceiveData(socket: WebSocketClient, data: Data) {
         delegate?.swampTransportReceivedData(data)
     }
 }
