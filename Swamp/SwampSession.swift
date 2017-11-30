@@ -3,7 +3,6 @@
 //
 
 import Foundation
-import SwiftyJSON
 
 // MARK: Call callbacks
 public typealias CallCallback = (_ details: [String: Any], _ results: [Any]?, _ kwResults: [String: Any]?) -> Void

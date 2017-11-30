@@ -7,7 +7,6 @@
 //
 
 import Foundation
-import SwiftyJSON
 
 /// [GOODBYE, details|dict, reason|uri]
 class GoodbyeSwampMessage: SwampMessage {

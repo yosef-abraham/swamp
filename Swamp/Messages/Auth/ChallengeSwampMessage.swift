@@ -7,7 +7,6 @@
 //
 
 import Foundation
-import SwiftyJSON
 
 /// [CHALLENGE, authMethod|string, extra|dict]
 class ChallengeSwampMessage: SwampMessage {
