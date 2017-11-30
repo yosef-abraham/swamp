@@ -7,7 +7,6 @@
 //
 
 import Foundation
-import SwiftyJSON
 
 /// [ABORT, details|dict, reason|uri]
 class AbortSwampMessage: SwampMessage {

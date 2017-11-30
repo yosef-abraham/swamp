@@ -7,7 +7,6 @@
 //
 
 import Foundation
-import SwiftyJSON
 
 /// [WELCOME, sessionId|number, details|Dict]
 class WelcomeSwampMessage: SwampMessage {

@@ -7,7 +7,6 @@
 //
 
 import Foundation
-import SwiftyJSON
 
 /// [AUTHENTICATE, signature|string, extra|dict]
 class AuthenticateSwampMessage: SwampMessage {

@@ -2,108 +2,53 @@
 //  UInt32Extension.swift
 //  CryptoSwift
 //
-//  Created by Marcin Krzyzanowski on 02/09/14.
-//  Copyright (c) 2014 Marcin Krzyzanowski. All rights reserved.
+//  Copyright (C) 2014-2017 Marcin Krzyżanowski <marcin@krzyzanowskim.com>
+//  This software is provided 'as-is', without any express or implied warranty.
+//
+//  In no event will the authors be held liable for any damages arising from the use of this software.
+//
+//  Permission is granted to anyone to use this software for any purpose,including commercial applications, and to alter it and redistribute it freely, subject to the following restrictions:
+//
+//  - The origin of this software must not be misrepresented; you must not claim that you wrote the original software. If you use this software in a product, an acknowledgment in the product documentation is required.
+//  - Altered source versions must be plainly marked as such, and must not be misrepresented as being the original software.
+//  - This notice may not be removed or altered from any source or binary distribution.
 //
 
-#if os(Linux)
+#if os(Linux) || os(Android) || os(FreeBSD)
     import Glibc
 #else
     import Darwin
 #endif
 
-
-protocol _UInt32Type { }
+protocol _UInt32Type {}
 extension UInt32: _UInt32Type {}
 
 /** array of bytes */
 extension UInt32 {
-    init<T: Collection>(bytes: T) where T.Iterator.Element == UInt8, T.Index == Int {
-        self = bytes.toInteger()
+
+    @_specialize(exported: true, where T == ArraySlice<UInt8>)
+    init<T: Collection>(bytes: T) where T.Element == UInt8, T.Index == Int {
+        self = UInt32(bytes: bytes, fromIndex: bytes.startIndex)
+    }
+
+    @_specialize(exported: true, where T == ArraySlice<UInt8>)
+    init<T: Collection>(bytes: T, fromIndex index: T.Index) where T.Element == UInt8, T.Index == Int {
+        if bytes.isEmpty {
+            self = 0
+            return
+        }
+
+        let count = bytes.count
+
+        let val0 = count > 0 ? UInt32(bytes[index.advanced(by: 0)]) << 24 : 0
+        let val1 = count > 1 ? UInt32(bytes[index.advanced(by: 1)]) << 16 : 0
+        let val2 = count > 2 ? UInt32(bytes[index.advanced(by: 2)]) << 8 : 0
+        let val3 = count > 3 ? UInt32(bytes[index.advanced(by: 3)]) : 0
+
+        self = val0 | val1 | val2 | val3
     }
 
     func bytes(totalBytes: Int = MemoryLayout<UInt32>.size) -> Array<UInt8> {
         return arrayOfBytes(value: self, length: totalBytes)
     }
-}
-
-/** Shift bits */
-extension UInt32 {
-    
-    /** Shift bits to the left. All bits are shifted (including sign bit) */
-    mutating func shiftLeft(by count: UInt32) {
-        if (self == 0) {
-            return
-        }
-        
-        let bitsCount = UInt32(MemoryLayout<UInt32>.size * 8)
-        let shiftCount = Swift.min(count, bitsCount - 1)
-        var shiftedValue:UInt32 = 0;
-        
-        for bitIdx in 0..<bitsCount {
-            // if bit is set then copy to result and shift left 1
-            let bit = 1 << bitIdx
-            if ((self & bit) == bit) {
-                shiftedValue = shiftedValue | (bit << shiftCount)
-            }
-        }
-        
-        if (shiftedValue != 0 && count >= bitsCount) {
-            // clear last bit that couldn't be shifted out of range
-            shiftedValue = shiftedValue & (~(1 << (bitsCount - 1)))
-        }
-
-        self = shiftedValue
-    }
-    
-    /** Shift bits to the right. All bits are shifted (including sign bit) */
-    mutating func shiftRight(by count: UInt32) {
-        if (self == 0) {
-            return
-        }
-        
-        let bitsCount = UInt32(MemoryLayout<UInt32>.size * 8)
-
-        if (count >= bitsCount) {
-            return
-        }
-
-        let maxBitsForValue = UInt32(floor(log2(Double(self)) + 1))
-        let shiftCount = Swift.min(count, maxBitsForValue - 1)
-        var shiftedValue:UInt32 = 0;
-        
-        for bitIdx in 0..<bitsCount {
-            // if bit is set then copy to result and shift left 1
-            let bit = 1 << bitIdx
-            if ((self & bit) == bit) {
-                shiftedValue = shiftedValue | (bit >> shiftCount)
-            }
-        }
-        self = shiftedValue
-    }
-
-}
-
-/** shift left and assign with bits truncation */
-func &<<= (lhs: inout UInt32, rhs: UInt32) {
-    lhs.shiftLeft(by: rhs)
-}
-
-/** shift left with bits truncation */
-func &<< (lhs: UInt32, rhs: UInt32) -> UInt32 {
-    var l = lhs;
-    l.shiftLeft(by: rhs)
-    return l
-}
-
-/** shift right and assign with bits truncation */
-func &>>= (lhs: inout UInt32, rhs: UInt32) {
-    lhs.shiftRight(by: rhs)
-}
-
-/** shift right and assign with bits truncation */
-func &>> (lhs: UInt32, rhs: UInt32) -> UInt32 {
-    var l = lhs;
-    l.shiftRight(by: rhs)
-    return l
 }
