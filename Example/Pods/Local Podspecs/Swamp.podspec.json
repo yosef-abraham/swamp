@@ -16,7 +16,7 @@
     "tag": "0.2.0"
   },
   "platforms": {
-    "ios": "10.1",
+    "ios": "10.0",
     "osx": "10.11"
   },
   "source_files": "Swamp/**/*",
