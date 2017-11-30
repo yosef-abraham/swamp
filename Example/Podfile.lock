@@ -6,8 +6,6 @@ PODS:
   - Swamp (0.2.0):
     - CryptoSwift
     - Starscream
-    - SwiftyJSON
-  - SwiftyJSON (4.0.0)
 
 DEPENDENCIES:
   - Nimble
@@ -23,8 +21,7 @@ SPEC CHECKSUMS:
   Nimble: 7f5a9c447a33002645a071bddafbfb24ea70e0ac
   Quick: 58d203b1c5e27fff7229c4c1ae445ad7069a7a08
   Starscream: b512c62f6706421221b5ceb2ba01a9f58aca5bea
-  Swamp: 5505bde2d285e26f1bdc17d7ff98f5e665a4357c
-  SwiftyJSON: 070dabdcb1beb81b247c65ffa3a79dbbfb3b48aa
+  Swamp: 2c00fff57ca70022a10802c0637a4496933df369
 
 PODFILE CHECKSUM: 7aef35a67947e460ef335ce19b0d8b89af952aec
 
